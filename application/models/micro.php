@@ -10,6 +10,12 @@ class micro extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_FK_MIC_PK_PROD(){
+            $this->db->select('FK_MIC_PK_PROD');
+            $query = $this->db->get('micro');
+            return $query->result_array();
+        }
+
         public function get_MIC_nombre(){
             $this->db->select('MIC_nombre');
             $query = $this->db->get('micro');

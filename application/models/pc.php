@@ -21,11 +21,5 @@ class pc extends CI_Model{
             $query = $this->db->get('pc');    
             return $query->result_array();
     }
-
-        public function get_PC_items(){
-            $this->db->select('PC_items');
-            $query = $this->db->get('pc');
-            return $query->result_array();
-        }
 }
 ?>

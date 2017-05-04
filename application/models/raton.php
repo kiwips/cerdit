@@ -10,6 +10,12 @@ class raton extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_FK_RAT_PK_PROD(){
+            $this->db->select('FK_RAT_PK_PROD');
+            $query = $this->db->get('raton');
+            return $query->result_array();
+        }        
+
         public function get_RAT_nombre(){
             $this->db->select('RAT_nombre');
             $query = $this->db->get('raton');

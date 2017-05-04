@@ -10,6 +10,12 @@ class teclado extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_FK_TEC_PK_PROD(){
+            $this->db->select('FK_TEC_PK_PROD');
+            $query = $this->db->get('teclado');
+            return $query->result_array();
+        }        
+
         public function get_TEC_nombre(){
             $this->db->select('TEC_nombre');
             $query = $this->db->get('teclado');

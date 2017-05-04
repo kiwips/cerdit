@@ -10,8 +10,20 @@ class refrigeracion extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_FK_REF_PK_PROD(){
+            $this->db->select('FK_REF_PK_PROD');
+            $query = $this->db->get('refrigeracion');
+            return $query->result_array();
+        }        
+
         public function get_REF_nombre(){
             $this->db->select('REF_nombre');
+            $query = $this->db->get('refrigeracion');
+            return $query->result_array();
+        }
+
+        public function get_REF_liquida(){
+            $this->db->select('REF_liquida');
             $query = $this->db->get('refrigeracion');
             return $query->result_array();
         }
