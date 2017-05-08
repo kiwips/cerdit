@@ -1,0 +1,1 @@
+<a href="comparador">Volver</a>

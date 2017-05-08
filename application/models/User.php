@@ -20,14 +20,23 @@ class user extends CI_Model{
             $this->db->select('USR_nick');
             $query = $this->db->get('user');    
             return $query->result_array();
-    }
-
+        }
         public function get_USR_passwd(){
             $this->db->select('USR_passwd');
             $query = $this->db->get('user');
             return $query->result_array();
         }
-
+        public function get_USR_pass_where($data){
+            $query=$this->db->get_where("user",array(
+                "USR_password"=>sha1($data["pass"]),
+                "USR_nick"=>$data["user"]
+                )
+            );
+            if ($query->num_rows()>0) {
+                return true;
+            }
+            return false;
+        }
         public function get_USR_permiso(){
             $this->db->select('USR_permiso');
             $query = $this->db->get('user');
