@@ -37,6 +37,7 @@ $password = array(
 					</div>
 				</div>
 				<div class="modal-footer">
+					<a href="crear">Todavia no tienes cuenta?</a>
 					<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-send" aria-hidden="true" title="Enviar"></span></button>
 				</div>
 				<?=form_close()?>

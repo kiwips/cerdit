@@ -55,4 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /*Comprobador*/
 $route['login'] = 'Login/loguearse';
-$route['registro'] = 'Comparador/registroNuevoUsuario';
+$route['finSesion'] = 'Login/cerrarSesion';
+$route['crear'] = 'Registro/pantallaRegistro';
+$route['registro'] = 'Registro/registroNuevoUsuario';
+

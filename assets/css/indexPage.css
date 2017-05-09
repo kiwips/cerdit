@@ -1,3 +1,7 @@
+.jumbotron{
+	margin-bottom: 0;
+}
+
 #registro,#login{	
 	margin-top:  13%;
 }
