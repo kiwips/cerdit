@@ -11,8 +11,12 @@
             $this->load->model("User");
             $permisos=$this->User->get_USR_nick_permiso();
             $this->parser->parse('permisoView',$permisos);
+
         }
         public function cambiaPermiso(){
+            if (!$this->input->post()) {
+                $this->index();
+            }
             $this->load->model("User");
             $data=$this->input->post();
             $this->User->set_USR_permiso($data);

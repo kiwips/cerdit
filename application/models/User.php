@@ -49,9 +49,9 @@ class user extends CI_Model{
             return $query->result_array();
         }
         public function get_USR_nick_permiso(){
-            $this->db->select('USR_nick');
+            $this->db->select('USR_nick,USR_permiso');
             $query=array(
-                'user'=>$this->db->get('user')->result_array()
+                'user'=>$this->db->get('user')->result_array(),
                 );
             return $query;
         }

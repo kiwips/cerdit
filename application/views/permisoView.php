@@ -1,7 +1,7 @@
 <?=form_open('/permiso')?>
 	<select name="user">
 		{user}
-			<option value={USR_nick}>{USR_nick}</option>
+			<option value={USR_nick}>{USR_nick} {USR_permiso}</option>
 		{/user}
 	</select>
 	<select name="permiso">
