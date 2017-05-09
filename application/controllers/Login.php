@@ -16,7 +16,7 @@
             $this->load->model("User");
             $correctPass=$this->User->get_USR_pass_where($data);
             if ($correctPass) {
-                $this->load->view("index");
+                $this->load->view("index_View");
             }
         }
     }

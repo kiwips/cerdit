@@ -54,5 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /*Comprobador*/
-$route['login'] = 'Comparador/validarLogin';
+$route['login'] = 'Login/loguearse';
 $route['registro'] = 'Comparador/registroNuevoUsuario';

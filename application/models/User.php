@@ -27,9 +27,10 @@ class user extends CI_Model{
             return $query->result_array();
         }
         public function get_USR_pass_where($data){
+
             $query=$this->db->get_where("user",array(
-                "USR_password"=>sha1($data["pass"]),
-                "USR_nick"=>$data["user"]
+                "USR_password"=>sha1($data["passwdL"]),
+                "USR_nick"=>$data["nickL"]
                 )
             );
             if ($query->num_rows()>0) {
