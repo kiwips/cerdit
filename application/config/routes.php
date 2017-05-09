@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 /*Comprobador*/
 $route['login'] = 'Login/loguearse';
 $route['registro'] = 'Comparador/registroNuevoUsuario';
+$route['permiso'] = 'Permisos/cambiaPermiso';
