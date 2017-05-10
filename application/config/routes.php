@@ -58,4 +58,4 @@ $route['login'] = 'Login/loguearse';
 $route['finSesion'] = 'Login/cerrarSesion';
 $route['crear'] = 'Registro/pantallaRegistro';
 $route['registro'] = 'Registro/registroNuevoUsuario';
-
+$route['permiso'] = 'Permisos/cambiaPermiso';
