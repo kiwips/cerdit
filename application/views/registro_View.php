@@ -34,10 +34,10 @@ $password = array(
 <div class="container-fluid">
 	<div class="registro">
 		<?=form_open('/registro')?>
-			<div class="input-group">
+			<div class="input-group primero">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 				<?= form_input($nick);?>
-				<img  id="comprobar" src="assets/img/comprobar.png" align="right" title="Comprobar nick">	
+				<!-- <img  id="comprobar" src="assets/img/comprobar.png" align="right" title="Comprobar nick">	 -->
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
