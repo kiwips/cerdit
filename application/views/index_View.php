@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<div class="container text-center">	
-		<h1>DreamPC</h1>
+		<h1 class="titulo">DreamPC</h1>
 	</div>
 </div>
 <nav class="navbar navbar-inverse">
