@@ -24,13 +24,6 @@
       <ul class="nav navbar-nav navbar-right">
       <?php if ($this->session->userdata('logueado')) { ?>
           <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
-      <?php if (isset($this->session)) { ?>
-          <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
-        <?php } else{ ?>
-         <!-- <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li> -->
-            <?php require ('modalL.php'); ?>
-        <?php } ?>
-        <?php if (isset($this->session)) { ?>
           <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
         <?php } else{ ?>
               <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
