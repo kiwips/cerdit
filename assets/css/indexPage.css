@@ -11,10 +11,18 @@
 	margin-right: 50px;
 }
 
+<<<<<<< HEAD
 .navbar{
 	border-radius:0;
 }
 
 #login{
 	margin-top: 13%;
+=======
+.principal{
+	margin-top: 5px;
+	margin-right: 10px;
+	border-radius: 15px;
+	font-size: 10px;
+>>>>>>> adbbcda54d5a946a1d5651e15371dd0adce6da58
 }

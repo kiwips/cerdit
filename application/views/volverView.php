@@ -1,0 +1,1 @@
+<li><a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a></li>
