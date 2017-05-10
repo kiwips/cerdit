@@ -22,7 +22,7 @@
                 $done=array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
                 $this->parser->parse('doneView',$done);
                 $this->parser->parse('permisoView',$permisos);
-                $this->volverView();
+                $this->load->view("volverView");
 
             }else{
                 $this->index();
