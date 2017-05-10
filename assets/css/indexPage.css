@@ -2,6 +2,10 @@
 	margin-bottom: 0;
 }
 
+.cuenta{
+	margin-right: 50px;
+}
+
 #registro,#login{	
 	margin-top:  13%;
 }
@@ -18,9 +22,4 @@
 	margin-top: 3.5%;
 	width: 20px;
 	height: 20px;
-}
-
-#nickR,#passwdR{
-	width: 87%;
-
 }

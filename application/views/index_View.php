@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<div class="container text-center">	
-		<h1>Comparador de PC's</h1>
+		<h1>DreamPC</h1>
 	</div>
 </div>
 <nav class="navbar navbar-inverse">
@@ -22,21 +22,14 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login </a></li>
+        <?php if (isset($this->session->user)) { ?>
+          <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
+        <?php } else{ ?>
+              <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+            <?php require ('modalL.php'); ?>
+        <?php } ?>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-<?php if (isset($this->session->user)) { ?>
-	<div id="botonesPrincipales" align="right">
-		<a href="finSesion"><button type="button" class="btn principal"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Finalizar Sesión</button></a>
-	</div>
-<?php } else{ ?>
-	<div id="botonesPrincipales" align="right">	
-		<button type="button" class="btn principal" data-toggle="modal" data-target="#login">Login</button>
-		<button type="button" class="btn principal" data-toggle="modal" data-target="#registro">Registrarse</button>
-	</div>
-		<?php require ('modalL.php'); ?>
-<?php } ?>
