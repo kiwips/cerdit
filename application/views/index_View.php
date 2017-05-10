@@ -22,6 +22,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      
       <?php if ($this->session->userdata('logueado')) { ?>
           <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
           <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
