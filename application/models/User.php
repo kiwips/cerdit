@@ -48,6 +48,12 @@ class user extends CI_Model{
             $query = $this->db->get('user');
             return $query->result_array();
         }
+
+        public function get_USR_all_where($nick){
+            $this->db->select('USR_nick, USR_email, USR_permiso');
+            $query = $this->db->get_where('user',array("USR_nick"=>$nick));
+            return $query->result_array();
+
         public function get_USR_nick_permiso(){
             $this->db->select('USR_nick,USR_permiso');
             $query=array(

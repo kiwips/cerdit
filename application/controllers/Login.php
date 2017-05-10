@@ -17,13 +17,14 @@
             $this->load->model("User");
             $correctPass = $this->User->get_USR_pass_where($data);
             if ($correctPass) {
-                $this->session = $this->crearSesion($data['nickL']);
+                $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
+                $this->crearSesion($usuarioRegistrado);
                 redirect('/');
                 }
             }
 
-            function crearSesion($nick){
-                return $this->session->set_userdata('user',$nick); #En la sesion pondremos el NICK
+            function crearSesion($usuarioRegistrado){
+                array_push($this->session, $usuarioRegistrado);
             }
 
             function cerrarSesion(){
