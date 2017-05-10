@@ -22,11 +22,8 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <?php if (isset($this->session->user)) { ?>
+      <?php if ($this->session->userdata['permiso'] =='Admin') { ?>
           <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
-        <?php } else{ ?>
-         <!-- <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li> -->
-            <?php require ('modalL.php'); ?>
         <?php } ?>
         <?php if (isset($this->session->user)) { ?>
           <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
