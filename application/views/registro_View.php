@@ -44,6 +44,10 @@ $password = array(
 				<?= form_input($password);?>	
 				<img  id="ojoAbierto" src="assets/img/ver.png" align="right" title="Mostrar contraseña">		
 			</div>
+			<br>
+			<div align="center">				
+				<button class="btn btn-info">Registrarse</button>
+			</div>
 		<?=form_close()?>
 	</div>
 </div>
