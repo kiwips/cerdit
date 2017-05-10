@@ -3,24 +3,13 @@
 }
 
 .registro{
-<<<<<<< HEAD
 	margin-top: 2%
 	width: 29%;
 	margin-left: 36%;
-=======
-	margin-top: 14%;
-	width: 25%;
-	margin-left: 38%;
-<<<<<<< HEAD
->>>>>>> adbbcda54d5a946a1d5651e15371dd0adce6da58
-=======
->>>>>>> christian
 	padding: 30px 20px 90px 20px;
 	border: 1px solid black;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 #nickR, #passwdR{
 	width: 92%;
 }
@@ -29,13 +18,4 @@
 	width: 7%;
 	margin-top: 3%;
 	margin-left: 0.1%;
-
-=======
-#ojoAbierto,#comprobar{
-	width: 1px;
->>>>>>> adbbcda54d5a946a1d5651e15371dd0adce6da58
-=======
-#ojoAbierto,#comprobar{
-	width: 1px;
->>>>>>> christian
 }

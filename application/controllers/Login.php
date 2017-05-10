@@ -24,11 +24,19 @@
             }
 
             function crearSesion($usuarioRegistrado){
-                array_push($this->session, $usuarioRegistrado);
+                $newSesion = array(
+                    'nick' => $usuarioRegistrado[0]['USR_nick'],
+                    'email' => $usuarioRegistrado[0]['USR_email'],
+                    'permiso' => $usuarioRegistrado[0]['USR_permiso']
+                    );
+                $this->session->($newSesion);
             }
 
             function cerrarSesion(){
-                $this->session->sess_destroy();
+                /*$this->session->sess_destroy();*/
+                /*$this->session->unset_userdata($this->session);*/
+                print_r($newSesion);
+                die;
                 redirect('/');
             }
     }
