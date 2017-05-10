@@ -11,19 +11,23 @@
             $this->load->model("User");
             $permisos=$this->User->get_USR_nick_permiso();
             $this->parser->parse('permisoView',$permisos);
-
+            $this->load->view("volverView");
         }
         public function cambiaPermiso(){
-            if (!$this->input->post()) {
+            if ($_POST) {
+                $this->load->model("User");
+                $data=$this->input->post();
+                $this->User->set_USR_permiso($data);
+                $permisos=$this->User->get_USR_nick_permiso();
+                $done=array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
+                $this->parser->parse('doneView',$done);
+                $this->parser->parse('permisoView',$permisos);
+                $this->load->view("volverView");
+
+            }else{
                 $this->index();
             }
-            $this->load->model("User");
-            $data=$this->input->post();
-            $this->User->set_USR_permiso($data);
-            $permisos=$this->User->get_USR_nick_permiso();
-            $done=array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
-            $this->parser->parse('doneView',$done);
-            $this->parser->parse('permisoView',$permisos);
+            
         }
     }
 ?>

@@ -1,0 +1,25 @@
+.primero{
+	margin-top: 8%;
+}
+
+.input-group{
+	margin-bottom: 2%;
+}
+
+.registro{
+	margin-top: 2%;
+	width: 29%;
+	margin-left: 36%;
+	padding: 30px 20px 60px 20px;
+	border: 1px solid black;
+}
+
+#ojoAbierto{
+	z-index: 1;
+}
+
+#ojoAbierto,#comprobar{
+	width: 7%;
+	margin-top: 3%;
+	margin-left: 0.1%;
+}
