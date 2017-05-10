@@ -22,7 +22,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <?php if ($this->session->userdata['permiso'] =='Admin') { ?>
+      <?php if ($this->session->userdata('permiso') =='Admin') { ?>
           <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
         <?php } ?>
         <?php if (isset($this->session->user)) { ?>
