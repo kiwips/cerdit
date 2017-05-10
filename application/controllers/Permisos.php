@@ -11,7 +11,7 @@
             $this->load->model("User");
             $permisos=$this->User->get_USR_nick_permiso();
             $this->parser->parse('permisoView',$permisos);
-
+            $this->load->view("volverView");
         }
         public function cambiaPermiso(){
             if ($_POST) {
@@ -22,6 +22,7 @@
                 $done=array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
                 $this->parser->parse('doneView',$done);
                 $this->parser->parse('permisoView',$permisos);
+
             }else{
                 $this->index();
             }
