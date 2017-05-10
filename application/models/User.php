@@ -54,6 +54,7 @@ class user extends CI_Model{
             $query = $this->db->get_where('user',array("USR_nick"=>$nick));
             return $query->result_array();
         }
+<<<<<<< HEAD
         public function get_USR_nick_permiso(){
             $this->db->select('USR_nick,USR_permiso');
             $query=array(
@@ -61,5 +62,7 @@ class user extends CI_Model{
                 );
             return $query;
         }
+=======
+>>>>>>> christian
 }
 ?>
