@@ -18,19 +18,16 @@ class Permisos extends CI_Controller {
             $this->load->model("User");
             $data = $this->input->post();
             $this->User->set_USR_permiso($data);
-            $permisos = $this->User->get_USR_nick_permiso();
-            $done = array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
-
-            /* $this->parser->parse('doneView',$done);*/
-            $this->parser->parse('permisoView',$permisos);
-            $this->load->view("permisoView");
-
-            $data['permisos'] = $this->User->get_USR_nick_permiso();
+            $data['permisoCorrecto'] = 'El permiso del usuario <b>'.$data['nickP'].'</b> se ha cambiado correctamente.';
+            $permisoCorrecto = $data['permisoCorrecto'];
+            $data['user'] = $this->User->get_USR_nick_permiso();
             $data['main_content'] = 'permiso_View'; 
             $this->parser->parse('includes/template',$data);
         }else{
             $this->index();
         }            
     }
+    
 }
 ?>
+

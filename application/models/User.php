@@ -41,7 +41,7 @@ class user extends CI_Model{
 
         public function set_USR_permiso($data){
             $this->db->set('USR_permiso', $data['permiso']);
-            $this->db->where('USR_nick', $data['user']);
+            $this->db->where('USR_nick', $data['nickP']);
             $this->db->update('user');
         }
 
