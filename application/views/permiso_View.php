@@ -28,9 +28,6 @@
 			{/user}
 		</table>
 	</div>
-<<<<<<< HEAD
-	<a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a>
-=======
 </div>
 <div align="right" id="volverP">
 	<a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a>		
@@ -53,4 +50,3 @@
 	</div>
 </div>
  -->
->>>>>>> christian
