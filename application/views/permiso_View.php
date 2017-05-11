@@ -22,8 +22,4 @@
 			</table>
 		</div>
 	</div>
-
-
-
-
 	<a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a>
