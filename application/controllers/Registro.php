@@ -20,7 +20,17 @@
         function registroNuevoUsuario(){
             $data = $this->input->post();
             $this->load->model("User");
-
+            if ($this->User->setNewUser($data)) {
+                $done=array(
+                    'done'=>'Usuario creado con exito');
+                $this->parser->parse('doneView',$done);
+                $this->index();
+            }else{
+                $error=array(
+                    'error'=>'El email o usuario especificado ya existe');
+                $this->parser->parse('errorView',$error);
+                $this->pantallaRegistro();
+            }
         }
 
         public function enviar(){
