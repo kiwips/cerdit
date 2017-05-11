@@ -8,13 +8,20 @@
         function index(){            
             // $data['main_content'] = 'permisoView'; 
             // $this->parser->parse('includes/template',$data);
-            $this->load->model("User");
-            $permisos=$this->User->get_USR_nick_permiso();
-            $this->parser->parse('permisoView',$permisos);
-            $this->load->view("volverView");
+            if ($this->validarPermiso()) {
+                $this->load->model("User");
+                $permisos=$this->User->get_USR_nick_permiso();
+                $this->parser->parse('permisoView',$permisos);
+                $this->load->view("volverView");
+            }else{
+                $error=array('error'=>'No tienes permisos para acceder a esta página');
+                $this->parser->parse("errorView",$error);
+                $this->load->view("volverView");
+            } 
+            
         }
         public function cambiaPermiso(){
-            if ($this->session->userdata['permiso']=='Admin') {
+            if ($this->validarPermiso()) {
                 if ($_POST) {
                     $this->load->model("User");
                     $data=$this->input->post();
@@ -32,6 +39,11 @@
                 $this->parser->parse("errorView",$error);
                 $this->load->view("volverView");
             }            
+        }
+        public function validarPermiso(){
+            if ($this->session->userdata['permiso']=='Admin') {
+                return true;
+            }else return false;
         }
     }
 ?>
