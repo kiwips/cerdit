@@ -7,19 +7,21 @@
 }
 
 .registro{
-	margin-top: 2%
-	width: 29%;
+	margin-top: 2%;
+	width: 28%;
 	margin-left: 36%;
-	padding: 30px 20px 60px 20px;
+	padding: 30px 20px 20px 20px;
 	border: 1px solid black;
 }
 
-#ojoAbierto{
-	z-index: 1;
+#passwdR{
+	z-index: 0;
 }
 
-#ojoAbierto,#comprobar{
-	width: 7%;
-	margin-top: 3%;
-	margin-left: 0.1%;
+#ojoAbierto{
+	margin-top: 0.6%;
+	position: fixed;
+	margin-left: -2.3%;
+	width: 1.5%;
+	z-index: 1;
 }

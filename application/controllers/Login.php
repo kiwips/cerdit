@@ -12,13 +12,18 @@ class Login extends CI_Controller {
         $this->parser->parse('includes/template',$data);
     }
 
-    public function loguearse(){
+    function loguearse(){
         $data = $this->input->post();
         $this->load->model("User");
         $correctPass = $this->User->get_USR_pass_where($data);
         if ($correctPass) {
             $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
             $this->crearSesion($usuarioRegistrado);
+            if($data['recordarL']){
+                setcookie('recordar', $usuario['nickL']);
+            }
+            redirect('/');
+        }else{
             redirect('/');
         }
     }
@@ -38,7 +43,9 @@ class Login extends CI_Controller {
          'logueado' => FALSE
          );
       $this->session->sess_destroy();
+      setcookie('recordar', $usuario['nickL']);
       redirect('/');
   }
+    
 }
 ?>

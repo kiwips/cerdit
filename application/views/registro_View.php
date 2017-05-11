@@ -37,7 +37,6 @@ $password = array(
 			<div class="input-group primero">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 				<?= form_input($nick);?>
-				<!-- <img  id="comprobar" src="assets/img/comprobar.png" align="right" title="Comprobar nick">	 -->
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -51,6 +50,10 @@ $password = array(
 			<br>
 			<div align="center">				
 				<button class="btn btn-info">Registrarse</button>
+			</div>
+			<div clas="anclaVolver" align="right">
+				<br><br>	
+				<small><a clas="anclaVolver" href="<?=base_url()?>"> Volver <span class="glyphicon glyphicon-share-alt"></span></a></small>
 			</div>
 		<?=form_close()?>
 	</div>
