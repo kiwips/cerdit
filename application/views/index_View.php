@@ -20,14 +20,14 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <?php if($this->session->userdata('permiso')=='Admin'){ ?>
+        <?php if($this->session->userdata('permiso')=='Admin'){ ?>
         <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
-      <?php } ?>
-      <?php if ($this->session->userdata('logueado') || get_cookie('recordar')) { ?>
-          <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+        <?php } ?>
+        <?php if ($this->session->userdata('logueado') || get_cookie('recordar')) { ?>
+        <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
         <?php } else{ ?>
-              <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
         <?php } ?>
       </ul>
     </div>

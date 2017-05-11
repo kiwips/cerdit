@@ -1,5 +1,4 @@
-<?php     
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Permisos extends CI_Controller {
 
@@ -22,7 +21,7 @@ class Permisos extends CI_Controller {
             $permisos = $this->User->get_USR_nick_permiso();
             $done = array('done'=>'Usuario '.$data["user"].' con permiso '.$data["permiso"]);
 
-           /* $this->parser->parse('doneView',$done);*/
+            /* $this->parser->parse('doneView',$done);*/
             $this->parser->parse('permisoView',$permisos);
             $this->load->view("permisoView");
 
@@ -31,8 +30,7 @@ class Permisos extends CI_Controller {
             $this->parser->parse('includes/template',$data);
         }else{
             $this->index();
-        }        
+        }            
     }
-
 }
 ?>
