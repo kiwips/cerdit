@@ -38,6 +38,10 @@
 <div align="right" id="volverP">
 	<a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a>		
 </div>
+<<<<<<< HEAD
 <?php } else{
 	redirect('/');
 } ?>
+=======
+ -->
+>>>>>>> ab91944b87aa31a10a187408334b575e258bfc98
