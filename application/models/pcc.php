@@ -156,7 +156,35 @@ class pcc extends CI_Model{
 			 		@$nombreProducto.= $contenido[$val][0][$i];
 			 	}
 				
-			/*=================PRICING=====================*/
+				/*=================PRICING=====================*/
+
+				$a = strpos($contenido[$val][0], $precio,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$precioProducto="";
+
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$precioProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($nombreProducto == @$productos[$key]['producto']) {
+				 		$j++;
+						continue;
+				}
+				/*=================VIDEO MEMORY=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
 				$aux=0;
