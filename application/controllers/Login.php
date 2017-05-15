@@ -34,6 +34,20 @@ class Login extends CI_Controller {
     }
 
     function cerrarSesion(){
+<<<<<<< HEAD
         $this->session->sess_destroy();
         redirect('/');
     }
+=======
+      $userdata = array(
+         'logueado' => FALSE
+         );
+      $this->session->sess_destroy();
+      setcookie('recordar', $usuario['nickL']);
+      redirect('/');
+  }
+    
+
+}
+?>
+>>>>>>> a46004c48157c61fbfaf455c5bb7b0169cbf8ba8
