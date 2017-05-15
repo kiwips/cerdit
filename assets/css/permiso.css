@@ -1,8 +1,9 @@
-<<<<<<< HEAD
+
 #guardarPermiso{
 	width: 1%;
 	height: 1%;
-=======
+}
+
 #botonGuardarPermiso{
 	margin-top: -30%;
 }
@@ -22,5 +23,4 @@
 
 #selectorPermisos:focus{
 	outline-color: hotpink;
->>>>>>> christian
 }
