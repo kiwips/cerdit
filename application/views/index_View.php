@@ -20,8 +20,13 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <?php if($this->session->userdata('permiso')=='Admin'){ ?>
         <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
+=======
+      <?php if ($this->session->userdata('permiso') =='Admin') { ?>
+          <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
+>>>>>>> e5a4066d15600e254e8292bb873eb0b30bbb480b
         <?php } ?>
         <?php if ($this->session->userdata('logueado') || get_cookie('recordar')) { ?>
         <li><a href="finSesion"><span class="glyphicon glyphicon-log-out"></span> Finalizar Sesión </a></li>
