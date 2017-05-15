@@ -1,0 +1,24 @@
+#guardarPermiso{
+	width: 1%;
+	height: 1%;
+}
+#botonGuardarPermiso{
+	margin-top: -30%;
+}
+
+.permisosOpciones{
+	width: 47%;
+}
+
+#volverP{
+	margin-right: 2%;
+}
+
+#selectorPermisos{
+	width: 50%;
+	border-radius: 10%;
+}
+
+#selectorPermisos:focus{
+	outline-color: hotpink;
+}
