@@ -8,13 +8,11 @@
         }
 
         function index(){      
-<<<<<<< HEAD
-            $this->load->model("pccFuentes");
-            $this->pccFuentes->saveProductsPCC();
-=======
-            $this->load->model("pccPlacasBase");
-            $this->pccPlacasBase->saveProductsPCC();
->>>>>>> 70fff66eead81515a16ee2b04eddcf8b1cb7543d
+
+            $this->load->model("pccRatones");
+            $this->pccRatones->saveProductsPCC();
+
+
         }
    
     }
