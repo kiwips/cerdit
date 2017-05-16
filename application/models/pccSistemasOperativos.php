@@ -1,63 +1,22 @@
 <?php 
-class pccMemoriaRam extends CI_Model{
+class pccSistemasOperativos extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlRam = array(
-    	'avexir'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/avexir',	    	
+    private $urlSistemasOperativos=array(
+    	'windows'=>array(
+    		'https://www.pccomponentes.com/sistemas-operativos', 
     	),
-
-    	'corsair'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/corsair',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-3',
-		),
-
-    	'crucial'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/crucial',
-    	),
-
-    	'g-skill'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-3',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-4',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-5',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-6',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-7',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-8',
-    	),
-
-    	'kingston'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/kingston',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-3',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-4',	    	
-    	)
+    	
     );
 	function saveProductsPCC(){
-		$contenido=array(			
-	    	'avexir'=>array(),
-	    	'corsair'=>array(),
-	    	'crucial'=>array(),
-	    	'g-skill'=>array(),
-	    	'kingston'=>array(),
+		$contenido=array(
+			'windows'=>array(),
+	    	
 	    );
-		foreach ($this->urlRam as $marca => $value) {
+		foreach ($this->urlSistemasOperativos as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='avexir') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='crucial'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
+				if ($marca=='windows') {
 					array_push($contenido[$marca], file_get_contents($url));
 				}
 			}
@@ -70,7 +29,7 @@ class pccMemoriaRam extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('avexir', 'corsair', 'crucial', 'g-skill', 'kingston');
+		$marca = array('windows');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -79,6 +38,7 @@ class pccMemoriaRam extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
+
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -164,15 +124,18 @@ class pccMemoriaRam extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
 						continue;
 					}
-					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val));	
+					array_push($productos, array('FK_PLB_PK_PROD'=>12,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val));	
 				}
 				$j++;
 			
 			}
+			
+			// return $productos;
+			// $this->cont++;
 		}
-/*			echo "<pre>";
+			echo "<pre>";
 			print_r($productos);
-			echo "</pre>";*/
+			echo "<pre>";
 			return $productos;
 	}
 }

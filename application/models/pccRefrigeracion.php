@@ -1,57 +1,90 @@
 <?php 
-class pccMemoriaRam extends CI_Model{
+class pccRefrigeracion extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlRam = array(
-    	'avexir'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/avexir',	    	
+    private $urlRefrigeracion=array(
+    	'acer'=>array(
+	    	'https://www.pccomponentes.com/monitor-acer',
+	    	'https://www.pccomponentes.com/monitor-acer#relevance-1',
     	),
 
-    	'corsair'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/corsair',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-3',
-		),
-
-    	'crucial'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/crucial',
+    	'aoc'=>array(
+    		'https://www.pccomponentes.com/monitor-aoc',
+	    	'https://www.pccomponentes.com/monitor-aoc#relevance-1',
     	),
 
-    	'g-skill'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-3',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-4',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-5',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-6',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-7',
-	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-8',
+    	'asus'=>array(
+	    	'https://www.pccomponentes.com/monitor-asus',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-2',   	
     	),
 
-    	'kingston'=>array(
-	    	'https://www.pccomponentes.com/memorias-ram/kingston',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-1',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-2',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-3',
-	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-4',	    	
-    	)
+    	'benq'=>array(
+	    	'https://www.pccomponentes.com/monitor-benq',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-2',	    	
+    	),    
+
+    	'dell'=>array(
+	    	'https://www.pccomponentes.com/monitor-dell',	    	
+    	),	
+
+    	'hannspree'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hannspree',	    	
+    	),
+
+    	'hp'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hp',	    	
+    	),
+
+    	'lenovo'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',	    	
+    	),
+
+    	'lg'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',
+	    	'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
+    	), 
+
+    	'oem'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/oem',	    	
+    	),    	
+
+    	'philips'=>array(
+	    	'https://www.pccomponentes.com/monitor-philips',
+	    	'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
+    	),
+
+    	'samsung'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/samsung',	    	
+    	),
+
+    	'viewsonic'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/viewsonic',	    	
+    	)     	       	
     );
 	function saveProductsPCC(){
 		$contenido=array(			
-	    	'avexir'=>array(),
-	    	'corsair'=>array(),
-	    	'crucial'=>array(),
-	    	'g-skill'=>array(),
-	    	'kingston'=>array(),
+	    	'acer'=>array(),
+	    	'aoc'=>array(),
+	    	'asus'=>array(),
+	    	'benq'=>array(),
+	    	'dell'=>array(),
+	    	'hannspree'=>array(),
+	    	'hp'=>array(),
+	    	'lenovo'=>array(),
+	    	'lg'=>array(),
+	    	'oem'=>array(),
+	    	'philips'=>array(),
+	    	'samsung'=>array(),
+	    	'viewsonic'=>array(),	    	
 	    );
-		foreach ($this->urlRam as $marca => $value) {
+		foreach ($this->urlRefrigeracion as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='avexir') {
+				 if ($marca=='acer') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
+				}else if ($marca=='aoc'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='crucial'){
 					array_push($contenido[$marca], file_get_contents($url));
@@ -70,7 +103,7 @@ class pccMemoriaRam extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('avexir', 'corsair', 'crucial', 'g-skill', 'kingston');
+		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'oem', 'philips', 'samsung', 'viewsonic');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -164,16 +197,16 @@ class pccMemoriaRam extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
 						continue;
 					}
-					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val));	
+					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
 				}
 				$j++;
 			
 			}
 		}
-/*			echo "<pre>";
+			echo "<pre>";
 			print_r($productos);
-			echo "</pre>";*/
-			return $productos;
+			echo "</pre>";
+			/*return $productos;*/
 	}
 }
 ?>
