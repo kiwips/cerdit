@@ -12,29 +12,32 @@ class Login extends CI_Controller {
         $this->parser->parse('includes/template',$data);
     }
 
-    function loguearse(){
+    public function loguearse(){
         $data = $this->input->post();
         $this->load->model("User");
         $correctPass = $this->User->get_USR_pass_where($data);
         if ($correctPass) {
             $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
             $this->crearSesion($usuarioRegistrado);
+
             if($data['recordarL']){
-                setcookie('recordar', $usuario['nickL']);
+                setcookie('recordar', $usuarioRegistrado[0]['USR_nick']);
+                setcookie('errorLogin','',time()-3600);
             }
             redirect('/');
         }else{
+            setcookie('errorLogin','Error en la autenticaçion',time()+3600);
             redirect('/');
         }
     }
 
     function crearSesion($usuarioRegistrado){
         $userdata = array(
-         'nick' => $usuarioRegistrado[0]['USR_nick'],
-         'email' => $usuarioRegistrado[0]['USR_email'],
-         'permiso' => $usuarioRegistrado[0]['USR_permiso'],
-         'logueado' => TRUE
-         );
+           'nick' => $usuarioRegistrado[0]['USR_nick'],
+           'email' => $usuarioRegistrado[0]['USR_email'],
+           'permiso' => $usuarioRegistrado[0]['USR_permiso'],
+           'logueado' => TRUE
+           );
         $this->session->set_userdata($userdata);  
     }
 
@@ -47,5 +50,6 @@ class Login extends CI_Controller {
       redirect('/');
   }
     
+
 }
 ?>

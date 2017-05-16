@@ -42,11 +42,11 @@ $password = array(
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 				<?= form_input($email);?>
 			</div>
-			<div class="input-group">
+ 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 				<?= form_input($password);?>	
 				<img  id="ojoAbierto" src="assets/img/ver.png" align="right" title="Mostrar contraseña">		
-			</div>
+			</div> 
 			<br>
 			<div align="center">				
 				<button class="btn btn-info">Registrarse</button>
