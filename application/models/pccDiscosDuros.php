@@ -1,120 +1,117 @@
 <?php 
-class pcc extends CI_Model{
+class pccDiscosDuros extends CI_Model{
     function __construct(){
         parent::__construct();
-    }
-    private $cont=0;
-    private $urlGraficas=array(
-    	'nvidia'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia#relevance-2',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia#relevance-3',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia#relevance-4',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-nvidia#relevance-5',
+    }  
+    private $urlDiscosDuros=array(
+    	'asus'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/asus',	    	
     	),
-    	'amd'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas-amd',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-amd#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas-amd#relevance-2',
-    	),'asus'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/asus',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/asus#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/asus#relevance-2',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/asus#relevance-3',
+    	'avexir'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/avexir',	    	
     	),
-    	'gigabyte'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-2',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-3',
+    	'corsair'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/corsair',
+		),	    	
+    	'crucial'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/crucial',
     	),
-    	'evga'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/evga',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/evga#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/evga#relevance-2',
-    	),
-    	'msi'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/msi',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/msi#relevance-1',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/msi#relevance-2',
-    	),
-    	'pny'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/pny',
+    	'g-skill'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/g-skill',
 	    	
     	),
-    	'sapphire'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/sapphire',
-	    	'https://www.pccomponentes.com/tarjetas-graficas/sapphire#relevance-1',
+    	'intel'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/intel',
 	    	
     	),
-    	'xfx'=>array(
-	    	'https://www.pccomponentes.com/tarjetas-graficas/xfx',
+    	'kingston'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/kingston',
+	    	'https://www.pccomponentes.com/discos-duros/kingston#relevance-1',
+	    	
+    	),
+    	'samsung'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/samsung',
+	    	'https://www.pccomponentes.com/discos-duros/samsung#relevance-1',
+    	),
+    	'sandisk'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/sandisk',
+    	),
+    	'seagate'=>array(
+    		'https://www.pccomponentes.com/discos-duros/seagate',
+	    	'https://www.pccomponentes.com/discos-duros/seagate#relevance-1',
+    	),
+    	'toshiba'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/toshiba',
+	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1'
+    	),
+    	'transcend'=>array(
+    		'https://www.pccomponentes.com/discos-duros/toshiba',
+	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1',
+    	),
+    	'western-digital'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/western-digital',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-1',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-2',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-3',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-4',
     	),
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'nvidia'=>array(
-	  
-	    	),
-	    	'amd'=>array(
-		    	
-	    	),
-	    	'asus'=>array(
-		    	
-		    ),
-	    	'gigabyte'=>array(
-		    	
-	    	),
-	    	'evga'=>array(
-
-	    	),
-	    	'msi'=>array(
-		    	
-	    	),
-	    	'pny'=>array(
-		    	
-	    	),
-	    	'sapphire'=>array(
-		    	
-	    	),
-	    	'xfx'=>array(
-		    	
-	    	),
+			'asus'=>array(),
+	    	'avexir'=>array(),
+	    	'corsair'=>array(),
+	    	'crucial'=>array(),
+	    	'g-skill'=>array(),
+	    	'intel'=>array(),
+	    	'kingston'=>array(),
+	    	'samsung'=>array(),
+	    	'seagate'=>array(),
+	    	'sandisk'=>array(),
+	    	'toshiba'=>array(),
+	    	'transcend'=>array(),
+	    	'western-digital'=>array(),
 	    );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='amd') {
+				if ($marca=='asus') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nvidia') {
+				}else if ($marca=='avexir') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='asus'){
+				}else if ($marca=='corsair'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='gigabyte'){
+				}else if ($marca=='crucial'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='evga'){
+				}else if ($marca=='g-skill'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='msi'){
+				}else if ($marca=='intel'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='pny'){
+				}else if ($marca=='kingston'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='sapphire'){
+				}else if ($marca=='samsung'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='xfx'){
+				}else if ($marca=='seagate'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='sandisk'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='toshiba'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='transcend'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='western-digital'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}
 			}
 		}
 		$nombre = "data-name";
 		$precio = "data-price";
-		$url1 = 'https://www.pccomponentes.com/tarjetas-graficas-nvidia'; 
 		$imagen = "src";
 		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('amd','nvidia','asus','gigabyte','evga','msi','pny','sapphire','xfx');
+		$marca = array('asus','avexir','corsair','crucial','g-skill','intel','kingston','samsung','seagate','sandisk','toshiba','transcend','western-digital');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -148,7 +145,6 @@ class pcc extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$nombreProducto.= $contenido[$val][0][$i];
 			 	}
-				
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
@@ -218,10 +214,10 @@ class pcc extends CI_Model{
 			// return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			// $this->cont=0;
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "<pre>";
+			return $productos;
 	}
 }
 ?>
