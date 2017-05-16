@@ -8,8 +8,8 @@
         }
 
         function index(){      
-            $this->load->model("pcc");
-            $this->pcc->saveProductsPCC();
+            $this->load->model("pccMonitores");
+            $this->pccMonitores->saveProductsPCC();
         }
    
     }

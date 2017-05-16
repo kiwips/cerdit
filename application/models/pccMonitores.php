@@ -1,104 +1,112 @@
 <?php 
-class pccDiscosDuros extends CI_Model{
+class pccMonitores extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlDiscosDuros=array(
+    private $urlMonitores=array(
+    	'acer'=>array(
+	    	'https://www.pccomponentes.com/monitor-acer',
+	    	'https://www.pccomponentes.com/monitor-acer#relevance-1',
+    	),
+
+    	'aoc'=>array(
+    		'https://www.pccomponentes.com/monitor-aoc',
+	    	'https://www.pccomponentes.com/monitor-aoc#relevance-1',
+    	),
+
     	'asus'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/asus',	    	
+	    	'https://www.pccomponentes.com/monitor-asus',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-2',   	
     	),
-    	'avexir'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/avexir',	    	
+
+    	'benq'=>array(
+	    	'https://www.pccomponentes.com/monitor-benq',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-2',	    	
+    	),    
+
+    	'dell'=>array(
+	    	'https://www.pccomponentes.com/monitor-dell',	    	
+    	),	
+
+    	'hannspree'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hannspree',	    	
     	),
-    	'corsair'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/corsair',
-		),	    	
-    	'crucial'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/crucial',
+
+    	'hp'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hp',	    	
     	),
-    	'g-skill'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/g-skill',
-	    	
+
+    	'lenovo'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',	    	
     	),
-    	'intel'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/intel',
-	    	
+
+    	'lg'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',
+	    	'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
+    	), 
+
+    	'oem'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/oem',	    	
+    	),    	
+
+    	'philips'=>array(
+	    	'https://www.pccomponentes.com/monitor-philips',
+	    	'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
     	),
-    	'kingston'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/kingston',
-	    	'https://www.pccomponentes.com/discos-duros/kingston#relevance-1',
-	    	
-    	),
+
     	'samsung'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/samsung',
-	    	'https://www.pccomponentes.com/discos-duros/samsung#relevance-1',
+	    	'https://www.pccomponentes.com/monitores-pc/samsung',	    	
     	),
-    	'sandisk'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/sandisk',
-    	),
-    	'seagate'=>array(
-    		'https://www.pccomponentes.com/discos-duros/seagate',
-	    	'https://www.pccomponentes.com/discos-duros/seagate#relevance-1',
-    	),
-    	'toshiba'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/toshiba',
-	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1'
-    	),
-    	'transcend'=>array(
-    		'https://www.pccomponentes.com/discos-duros/toshiba',
-	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1',
-    	),
-    	'western-digital'=>array(
-	    	'https://www.pccomponentes.com/discos-duros/western-digital',
-	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-1',
-	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-2',
-	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-3',
-	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-4',
-    	),
+
+    	'viewsonic'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/viewsonic',	    	
+    	)     	       	
     );
 	function saveProductsPCC(){
-		$contenido=array(
-			'asus'=>array(),
-	    	'avexir'=>array(),
-	    	'corsair'=>array(),
-	    	'crucial'=>array(),
-	    	'g-skill'=>array(),
-	    	'intel'=>array(),
-	    	'kingston'=>array(),
+		$contenido=array(			
+	    	'acer'=>array(),
+	    	'aoc'=>array(),
+	    	'asus'=>array(),
+	    	'benq'=>array(),
+	    	'dell'=>array(),
+	    	'hannspree'=>array(),
+	    	'hp'=>array(),
+	    	'lenovo'=>array(),
+	    	'lg'=>array(),
+	    	'oem'=>array(),
+	    	'philips'=>array(),
 	    	'samsung'=>array(),
-	    	'seagate'=>array(),
-	    	'sandisk'=>array(),
-	    	'toshiba'=>array(),
-	    	'transcend'=>array(),
-	    	'western-digital'=>array(),
+	    	'viewsonic'=>array(),	    	
 	    );
-		foreach ($this->urlGraficas as $marca => $value) {
+		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='asus') {
+				 if ($marca=='acer') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='avexir') {
+				}else if ($marca=='aoc'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
+				}else if ($marca=='asus'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='crucial'){
+				}else if ($marca=='benq'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
+				}else if ($marca=='dell'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='intel'){
+				}else if ($marca=='hannspree'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
+				}else if ($marca=='hp'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='lenovo'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='lg'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='oem'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='philips'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='samsung'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='seagate'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='sandisk'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='toshiba'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='transcend'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='western-digital'){
+				}else if ($marca=='viewsonic'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}
 			}
@@ -111,7 +119,7 @@ class pccDiscosDuros extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','avexir','corsair','crucial','g-skill','intel','kingston','samsung','seagate','sandisk','toshiba','transcend','western-digital');
+		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'oem', 'philips', 'samsung', 'viewsonic');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -205,19 +213,16 @@ class pccDiscosDuros extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
 						continue;
 					}
-					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val));	
+					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val));	
 				}
 				$j++;
 			
 			}
-			
-			// return $productos;
-			// $this->cont++;
 		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "<pre>";
-			return $productos;
+			echo "<pre>";
+			print_r($productos);
+			echo "</pre>";
+			/*return $productos;*/
 	}
 }
 ?>

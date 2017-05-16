@@ -215,12 +215,12 @@ class pccGraficas extends CI_Model{
 			
 			}
 			
-			// return $productos;
+			 return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
+			/*echo "<pre>";
 			print_r($productos);
-			echo "<pre>";
+			echo "<pre>";*/
 			// $this->cont=0;
 	}
 }
