@@ -26,11 +26,11 @@ class user extends CI_Model{
             $query = $this->db->get('user');
             return $query->result_array();
         }
+        
         public function get_USR_pass_where($data){
-
             $query=$this->db->get_where("user",array(
-                "USR_password"=>sha1($data["passwdL"]),
-                "USR_nick"=>$data["nickL"]
+                "USR_password"=> sha1($data["passwdL"]),
+                "USR_nick"=> $data["nickL"]
                 )
             );
             if ($query->num_rows()>0) {
@@ -64,15 +64,15 @@ class user extends CI_Model{
             return $query->result_array();
         }
 
-        public function setNewUser($data,$password){
+        public function setNewUser($data){
             $data1=array(
                 'USR_email'=> $data['emailR'] ,
                 'USR_nick'=> $data['nickR'] ,
-                'USR_password'=> sha1($password),
+                'USR_password'=> sha1($data['passwdR']),
                 'USR_permiso'=> 'User'
             );
-            $email_exists=$this->get_USR_email_exists(array('USR_email'=>$data['emailR']));
-            $usr_exists=$this->get_USR_nick_exists(array('USR_nick'=>$data['nickR']));
+            $email_exists = $this->get_USR_email_exists(array('USR_email'=>$data['emailR']));
+            $usr_exists = $this->get_USR_nick_exists(array('USR_nick'=>$data['nickR']));
             if (!$usr_exists && !$email_exists) {
                 $this->db->insert('user', $data1); 
                 return true;
@@ -95,6 +95,12 @@ class user extends CI_Model{
             if ($query->num_rows()>0) {
                 return true;
             }return false;
+        }
+
+        public function set_UPDATE_User($user,$data){
+            $this->db->set('USR_password',sha1($data['passwdP']));
+            $this->db->where('USR_nick', $user);
+            $this->db->update('user');
         }
 }
 ?>

@@ -6,6 +6,7 @@ class Perfil extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        $this->load->model("User");        
     }
 
     function index(){            
@@ -14,10 +15,16 @@ class Perfil extends CI_Controller {
     }
 
     function cargarPerfil(){
-        $this->load->model("User");        
         $data['allUser'] = $this->User->get_USR_all_where($this->session->userdata('nick'));
         $data['main_content'] = 'perfil_View'; 
         $this->parser->parse('includes/template',$data);
+    }
+
+    function canviarPerfil(){
+        $data = $this->input->post();
+        $user = $this->User->get_USR_all_where($this->session->userdata('nick'));
+        $userUpdate = $this->User->set_UPDATE_User($user[0]['USR_nick'],$data);
+        redirect('/');
     }
 }
 ?>

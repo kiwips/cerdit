@@ -21,20 +21,14 @@ class Registro extends CI_Controller {
     function registroNuevoUsuario(){
         $data = $this->input->post();
         $this->load->model("User");
-        $password = $this->generaPass();
-        if (isset($data)){
-            if ($this->enviarMail($data,$password)) {
-                echo "Mail ok.";
-                $this->User->setNewUser($data,$password);
+        if ($this->User->setNewUser($data)){
                 $this->index();
-            }else{
-                $this->pantallaRegistro();
-            }
         }else{
             $this->pantallaRegistro();
         }
     }
 
+/*
     function generaPass(){
         $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         $longitudCadena=strlen($cadena);
@@ -47,9 +41,9 @@ class Registro extends CI_Controller {
         }
 
         return $pass;
-    }
+    }*/
 
-    function enviarMail($data,$password){
+/*    function enviarMail($data,$password){
 
         $config['protocol'] = 'smtp';
 
@@ -78,7 +72,7 @@ class Registro extends CI_Controller {
         }else{
             return false;
         }
-    }
+    }*/
 
 }
 ?>
