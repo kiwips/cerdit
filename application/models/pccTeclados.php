@@ -4,95 +4,149 @@ class pccTeclados extends CI_Model{
         parent::__construct();
     }  
     private $urlTeclados=array(
-    	'acer'=>array(
-	    	'https://www.pccomponentes.com/monitor-acer',
-	    	'https://www.pccomponentes.com/monitor-acer#relevance-1',
-    	),
-
-    	'aoc'=>array(
-    		'https://www.pccomponentes.com/monitor-aoc',
-	    	'https://www.pccomponentes.com/monitor-aoc#relevance-1',
-    	),
-
     	'asus'=>array(
-	    	'https://www.pccomponentes.com/monitor-asus',
-	    	'https://www.pccomponentes.com/monitor-asus#relevance-1',
-	    	'https://www.pccomponentes.com/monitor-asus#relevance-2',   	
+	    	'https://www.pccomponentes.com/teclados/asus',
     	),
 
-    	'benq'=>array(
-	    	'https://www.pccomponentes.com/monitor-benq',
-	    	'https://www.pccomponentes.com/monitor-benq#relevance-1',
-	    	'https://www.pccomponentes.com/monitor-benq#relevance-2',	    	
+    	'b-move'=>array(
+	    	'https://www.pccomponentes.com/teclados/b-move',
     	),    
 
-    	'dell'=>array(
-	    	'https://www.pccomponentes.com/monitor-dell',	    	
+    	'bg'=>array(
+	    	'https://www.pccomponentes.com/teclados/bg',	    	
     	),	
 
-    	'hannspree'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/hannspree',	    	
+    	'bluestork'=>array(
+	    	'https://www.pccomponentes.com/teclados/bluestork',	    	
     	),
 
-    	'hp'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/hp',	    	
+    	'cooler-master'=>array(
+	    	'https://www.pccomponentes.com/teclados/cooler-master',	    	
     	),
 
-    	'lenovo'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/lenovo',	    	
-    	),
-
-    	'lg'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/lenovo',
-	    	'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
-    	), 
-
-    	'oem'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/oem',	    	
+    	'corsair'=>array(
+    		'https://www.pccomponentes.com/teclado-corsair',	  
+	    	'https://www.pccomponentes.com/teclado-corsair#relevance-1',	    	
     	),    	
 
-    	'philips'=>array(
-	    	'https://www.pccomponentes.com/monitor-philips',
-	    	'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
+    	'g-skill'=>array(
+	    	'https://www.pccomponentes.com/teclados/g-skill',
     	),
 
-    	'samsung'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/samsung',	    	
+    	'kingston'=>array(
+	    	'https://www.pccomponentes.com/teclados/kingston',	    	
     	),
 
-    	'viewsonic'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/viewsonic',	    	
-    	)     	       	
+    	'krom'=>array(
+	    	'https://www.pccomponentes.com/teclados/krom',	    	
+    	),     	       	
+    	'l-link'=>array(
+	    	'https://www.pccomponentes.com/teclados/l-link',	    	
+    	),
+    	'leotec'=>array(
+	    	'https://www.pccomponentes.com/teclados/leotec',	    	
+    	),
+    	'logitech'=>array(
+    		'https://www.pccomponentes.com/teclados/logitech',	    	
+	    	'https://www.pccomponentes.com/teclados/logitech#relevance-1',	    	
+    	),
+    	'microsoft'=>array(
+	    	'https://www.pccomponentes.com/teclados/microsoft',	    	
+    	),
+    	'newskill'=>array(
+	    	'https://www.pccomponentes.com/teclados/newskill',	    	
+    	),
+    	'ngs'=>array(
+	    	'https://www.pccomponentes.com/teclados/ngs',	    	
+    	),
+    	'nox'=>array(
+	    	'https://www.pccomponentes.com/teclados/nox',	    	
+    	),
+
+    	'oem'=>array(
+	    	'https://www.pccomponentes.com/teclados/oem',
+    	), 
+    	'owlotech'=>array(
+	    	'https://www.pccomponentes.com/teclados/owlotech',	    	
+    	),
+    	'ozone'=>array(
+	    	'https://www.pccomponentes.com/teclados/ozone',	    	
+    	),
+    	'phoenix'=>array(
+	    	'https://www.pccomponentes.com/teclados/phoenix',	    	
+    	),
+    	'razer'=>array(
+	    	'https://www.pccomponentes.com/teclado-razer',	    	
+    	),
+    	'rikomagic'=>array(
+	    	'https://www.pccomponentes.com/teclados/rikomagic',	    	
+    	),
+    	'satechi'=>array(
+	    	'https://www.pccomponentes.com/teclados/satechi',	    	
+    	),
+    	'silverht'=>array(
+	    	'https://www.pccomponentes.com/teclados/silverht',	    	
+    	),
+    	'steelseries'=>array(
+	    	'https://www.pccomponentes.com/teclados/steelseries',	    	
+    	),
+    	'tacens'=>array(
+	    	'https://www.pccomponentes.com/teclados/tacens',	    	
+    	),
+    	'the-g-lab'=>array(
+	    	'https://www.pccomponentes.com/teclados/the-g-lab',	    	
+    	),
+    	'thermaltake'=>array(
+	    	'https://www.pccomponentes.com/teclados/thermaltake',	    	
+    	),
+    	'thunder-x3'=>array(
+	    	'https://www.pccomponentes.com/teclados/thunder-x3',	    	
+    	),
+    	'trust'=>array(
+	    	'https://www.pccomponentes.com/teclados/trust',	    	
+    	),
+    	'unotec'=>array(
+	    	'https://www.pccomponentes.com/teclados/unotec',	    	
+    	),
+    	
     );
 	function saveProductsPCC(){
 		$contenido=array(			
-	    	'acer'=>array(),
-	    	'aoc'=>array(),
 	    	'asus'=>array(),
-	    	'benq'=>array(),
-	    	'dell'=>array(),
-	    	'hannspree'=>array(),
-	    	'hp'=>array(),
-	    	'lenovo'=>array(),
-	    	'lg'=>array(),
-	    	'oem'=>array(),
-	    	'philips'=>array(),
-	    	'samsung'=>array(),
-	    	'viewsonic'=>array(),	    	
+	    	'b-move'=>array(),
+	    	'bg'=>array(),
+	    	'bluestork'=>array(),
+	    	'cooler-master'=>array(),
+	    	'corsair'=>array(),
+	    	'g-skill'=>array(),
+	    	'kingston'=>array(),    	
+	    	'krom'=>array(),     	       	
+	    	'l-link'=>array(),
+	    	'leotec'=>array(),
+	    	'logitech'=>array(),
+	    	'microsoft'=>array(),
+	    	'newskill'=>array(),
+	    	'ngs'=>array(),
+	    	'nox'=>array(),
+	    	'oem'=>array(), 
+	    	'owlotech'=>array(),
+	    	'ozone'=>array(),
+	    	'phoenix'=>array(),
+	    	'razer'=>array(),
+	    	'rikomagic'=>array(),
+	    	'satechi'=>array(),
+	    	'silverht'=>array(),
+	    	'steelseries'=>array(),
+	    	'tacens'=>array(),
+	    	'the-g-lab'=>array(),
+	    	'thermaltake'=>array(),
+	    	'thunder-x3'=>array(),
+	    	'trust'=>array(),
+	    	'unotec'=>array(),
 	    );
 		foreach ($this->urlTeclados as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='acer') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='aoc'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='crucial'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
@@ -103,7 +157,7 @@ class pccTeclados extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'oem', 'philips', 'samsung', 'viewsonic');
+		$marca = array('asus','b-move','bg','bluestork','cooler-master','corsair','g-skill','kingston',    'krom','l-link','leotec','logitech','microsoft','newskill','ngs','nox','oem', 'owlotech','ozone','phoenix','razer','rikomagic','satechi','silverht','steelseries','tacens','the-g-lab','thermaltake','thunder-x3','trust','unotec',);
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
