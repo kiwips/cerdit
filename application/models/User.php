@@ -52,40 +52,35 @@ class user extends CI_Model{
         }
 
         public function get_USR_all_where($nick){
-            $this->db->select('USR_nick, USR_email, USR_permiso');
+            $this->db->select('USR_nick, USR_email, USR_permiso,USR_password');
             $query = $this->db->get_where('user',array("USR_nick"=>$nick));
             return $query->result_array();
         }
 
-/*        public function get_USR_nick_permiso(){
+         public function get_USR_nick_permiso($nick){
             $this->db->select('USR_nick,USR_permiso');
-            $query=array(
-                'user'=>$this->db->get('user')->result_array(),
-                );
-            return $query;
-        }*/
-
-         public function get_USR_nick_permiso(){
-            $this->db->select('USR_nick,USR_permiso');
+            $this->db->where_not_in('USR_nick',$nick);
             $query = $this->db->get('user');
             return $query->result_array();
         }
 
-        public function setNewUser($data){
+        public function setNewUser($data,$password){
             $data1=array(
-                'USR_email'=>$data['emailR'] ,
-                'USR_nick'=>$data['nickR'] ,
-                'USR_password'=>sha1($data['passwdR']) ,
-                'USR_permiso'=>'User'
+                'USR_email'=> $data['emailR'] ,
+                'USR_nick'=> $data['nickR'] ,
+                'USR_password'=> sha1($password),
+                'USR_permiso'=> 'User'
             );
             $email_exists=$this->get_USR_email_exists(array('USR_email'=>$data['emailR']));
             $usr_exists=$this->get_USR_nick_exists(array('USR_nick'=>$data['nickR']));
             if (!$usr_exists && !$email_exists) {
                 $this->db->insert('user', $data1); 
                 return true;
-            }return false;
+            }
+            return false;
             
         }
+
         public function get_USR_email_exists($data){
             $this->db->select('USR_email');
             $query = $this->db->get_where('user',$data);
