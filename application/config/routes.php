@@ -60,9 +60,6 @@ $route['crear'] = 'Registro/pantallaRegistro';
 $route['registro'] = 'Registro/registroNuevoUsuario';
 $route['permiso'] = 'Permisos/cambiaPermiso';
 $route['borrarCookiePermiso'] = 'Permisos/borrarCookiePermiso';
-<<<<<<< HEAD
-=======
 $route['miPerfil'] = 'Perfil/cargarPerfil';
 $route['canviarPerfil'] = 'Perfil/canviarPerfil';
 
->>>>>>> master

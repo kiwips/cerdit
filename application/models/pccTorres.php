@@ -1,147 +1,151 @@
 <?php 
-class pccRefrigeracion extends CI_Model{
+class pccTorres extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlRefrigeracion=array(
-    	'antec'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/antec',
+    private $urlTorres=array(
+    	'aerocool'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/aerocool',
     	),
 
+    	'antec'=>array(
+    		'https://www.pccomponentes.com/torres-atx/antec',
+    	),
+
+    	'b-move'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/b-move',
+    	),
+
+    	'bitfenix'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/bitfenix',
+    	),    
+
+    	'bultaco'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/bultaco',
+    	),	
+
     	'cooler-master'=>array(
-    		'https://www.pccomponentes.com/ventiladores-cpu/cooler-master',
+	    	'https://www.pccomponentes.com/torres-atx/cooler-master',
+	    	'https://www.pccomponentes.com/torres-atx/cooler-master#relevance-1',
+    	),
+
+    	'corsair'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/corsair',
+	    	'https://www.pccomponentes.com/torres-atx/corsair#relevance-1',
     	),
 
     	'enermax'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/enermax',   	
+	    	'https://www.pccomponentes.com/torres-atx/enermax',
     	),
 
-    	'lepa'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/lepa',
-    	),    
-
-    	'nfortec'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/nfortec',
-    	),	
-
-    	'noctua'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/noctua',
-    	),
-
-    	'nox'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/nox',
-    	),
-
-    	'phanteks'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/phanteks',
-    	),
-
-    	'silverstone'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/silverstone',    	
+    	'fractal'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/fractal',
+	    	'https://www.pccomponentes.com/torres-atx/fractal#relevance-1',
     	), 
 
-    	'tacens'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/tacens',	    	
+    	'l-link'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/l-link',
     	),    	
 
-    	'thermalright'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/thermalright',
+    	'lian-li'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/lian-li',
+    	),
+
+    	'nfortec'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/nfortec',
+    	), 
+
+    	'nox'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/nox',
+	    	'https://www.pccomponentes.com/torres-atx/nox#relevance-1',
+    	),
+
+    	'nzxt'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/nzxt',
+	    	'https://www.pccomponentes.com/torres-atx/nzxt#relevance-1',
+    	),    
+
+    	'owlotech'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/owlotech',
+    	),	
+
+    	'phanteks'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/phanteks',
+	    	'https://www.pccomponentes.com/torres-atx/phanteks#relevance-1',
+	    	'https://www.pccomponentes.com/torres-atx/phanteks#relevance-2',
+    	),
+
+	'silverstone'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/silverstone',
+    	),
+
+    	'tacens'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/tacens',
     	),
 
     	'thermaltake'=>array(
-	    	'https://www.pccomponentes.com/ventiladores-cpu/thermaltake',
-    	), 
-
-    	'antec-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/antec',
+	    	'https://www.pccomponentes.com/torres-atx/thermaltake',
+	    	'https://www.pccomponentes.com/torres-atx/thermaltake#relevance-1',
     	),
 
-    	'cooler-master-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/cooler-master',
-    	),    
-
-    	'corsair-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/corsair',
-    	),	
-
-    	'ekwb-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-1',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-2',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-3',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-4',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-5',
-    	),
-
-	'enermax-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/enermax',
-    	),
-
-    	'fractal-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/fractal',
-    	),
-
-    	'lepa-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/lepa',
-    	),
-
-    	'nox-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/nox',
-    	), 
-
-    	'nzxt-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/nzxt',
-    	),    	
-
-    	'silverstone-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/silverstone',
-    	),
-
-    	'thermaltake-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/thermaltake',
-    	),     	      	
+    	'tooq'=>array(
+	    	'https://www.pccomponentes.com/torres-atx/tooq',
+    	),   	      	
     );
 	function saveProductsPCC(){
 		$contenido=array(			
+	    	'aerocool'=>array(),
 	    	'antec'=>array(),
+	    	'b-move'=>array(),
+	    	'bitfenix'=>array(),
+	    	'bultaco'=>array(),
 	    	'cooler-master'=>array(),
+	    	'corsair'=>array(),
 	    	'enermax'=>array(),
-	    	'lepa'=>array(),
+	    	'fractal'=>array(),
+	    	'l-link'=>array(),
+	    	'lian-li'=>array(),
 	    	'nfortec'=>array(),
-	    	'noctua'=>array(),
 	    	'nox'=>array(),
+	    	'nzxt'=>array(),
+	    	'owlotech'=>array(),
 	    	'phanteks'=>array(),
 	    	'silverstone'=>array(),
 	    	'tacens'=>array(),
-	    	'thermalright'=>array(),
 	    	'thermaltake'=>array(),
-	    	'antec-liquida'=>array(),
-	    	'cooler-master-liquida'=>array(),
-	    	'corsair-liquida'=>array(),
-	    	'ekwb-liquida'=>array(),
-	    	'enermax-liquida'=>array(),
-	    	'fractal-liquida'=>array(),
-	    	'lepa-liquida'=>array(),
-	    	'nox-liquida'=>array(),
-	    	'nzxt-liquida'=>array(),
-	    	'silverstone-liquida'=>array(),
-	    	'thermaltake-liquida'=>array(),
-
-
+	    	'tooq'=>array(),
 	    );
-		foreach ($this->urlRefrigeracion as $marca => $value) {
+		foreach ($this->urlTorres as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='antec') {
+				 if ($marca=='aerocool') {
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='antec'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='b-move'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='bitfenix'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='bultaco'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='cooler-master'){
 					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='corsair'){
+					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='enermax'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lepa'){
+				}else if ($marca=='fractal'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='l-link'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='lian-li'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='nfortec'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='noctua'){
+				}else if ($marca=='nox'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='nzxt'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='owlotech'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='phanteks'){
 					array_push($contenido[$marca], file_get_contents($url));
@@ -149,31 +153,9 @@ class pccRefrigeracion extends CI_Model{
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='tacens'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermalright'){
-					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='thermaltake'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='antec-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='cooler-master-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='ekwb-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='enermax-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='fractal-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lepa-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nox-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nzxt-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='silverstone-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermaltake-liquida'){
+				}else if ($marca=='tooq'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}
 			}
@@ -277,10 +259,10 @@ class pccRefrigeracion extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-hTOR=') {
 						continue;
 					}
-					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
+					array_push($productos, array('FK_TOR_PK_PROD'=>7,'TOR_img'=>$imagenProducto,'TOR_nombre'=>$nombreProducto,'TOR_precio'=>$precioProducto,'TOR_marca'=>$val));	
 				}
 				$j++;
 			
