@@ -17,23 +17,23 @@ $email = array(
 	'required' => 'true',
 	);
 
-/*$password = array(
+$password = array(
 	'id' => 'passwdR',
 	'name' => 'passwdR',
 	'type' => 'password',
 	'placeholder' => 'Password',     
 	'class' => 'form-control',
 	'required' => 'true',
-	);*/
+	);
 	?>
 <div class="jumbotron">
 	<div class="container text-center">	
-		<h1 class="titulo">DreamPC</h1>
+		<h1 class="titulo">Perfil</h1>
 	</div>
 </div>
 <div class="container-fluid">
 	<div class="registro">
-		<?=form_open('/registro')?>
+		<?=form_open('/canviar')?>
 			<div class="input-group primero">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 				<?= form_input($nick);?>
@@ -42,11 +42,11 @@ $email = array(
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 				<?= form_input($email);?>
 			</div>
-<!-- 			<div class="input-group">
+     		           <div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 				<?= form_input($password);?>	
 				<img  id="ojoAbierto" src="assets/img/ver.png" align="right" title="Mostrar contraseña">		
-			</div> -->
+			</div>
 			<br>
 			<div align="center">				
 				<button class="btn btn-info">Registrarse</button>
@@ -58,4 +58,10 @@ $email = array(
 		<?=form_close()?>
 	</div>
 </div>
+
+{allUser}
+	{USR_nick}
+	{USR_email}
+	{USR_password}
+{/allUser}
 <script type="text/javascript" src="assets/js/viewPasswd.js"></script>

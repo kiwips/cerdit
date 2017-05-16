@@ -19,6 +19,16 @@ class Login extends CI_Controller {
         if ($correctPass) {
             $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
             $this->crearSesion($usuarioRegistrado);
+<<<<<<< HEAD
+            if($data['recordarL']){
+                setcookie('recordar', $usuarioRegistrado[0]['USR_nick']);
+                setcookie('errorLogin','',time()-3600);
+            }
+            redirect('/');
+        }else{
+            setcookie('errorLogin','Error en la autenticaçion',time()+3600);
+=======
+>>>>>>> ab91944b87aa31a10a187408334b575e258bfc98
             redirect('/');
         }
     }

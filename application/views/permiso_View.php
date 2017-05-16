@@ -1,3 +1,4 @@
+<?php if($this->session->userdata('permiso')=='Admin'){ ?>
 <div class="jumbotron">
 	<div class="container text-center">	
 		<h1 class="titulo">Administración</h1>
@@ -15,7 +16,7 @@
 			<tr>
 				<?=form_open('/permiso')?>
 				<td style="width: 5%;"> <input name="nickP" value="{USR_nick}" readonly style="border: 0px;"></td>
-				<td style="width: 5%;"> {USR_permiso} </td>
+				<td style="width: 5%;"> {USR_permiso} </td>				
 				<td>
 					<select name="permiso" id="selectorPermisos">
 						<option value="Admin">Admin</option>
@@ -29,24 +30,18 @@
 		</table>
 	</div>
 </div>
+
+<div align="center">
+	{permisoCorrecto}
+</div>
+
 <div align="right" id="volverP">
 	<a href="Comparador"><span class="glyphicon glyphicon-log-out"></span> Volver </a>		
 </div>
-
-<!-- <script>
-	function permisoCambiado(){
-		$("#permiso").modal("show"); 
-	};
-</script>
-<div class="modal fade" id="permiso" role="dialog">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>			
-				<br>
-				{permisoCorrecto}
-			</div>
-		</div>
-	</div>
-</div>
+<<<<<<< HEAD
+<?php } else{
+	redirect('/');
+} ?>
+=======
  -->
+>>>>>>> ab91944b87aa31a10a187408334b575e258bfc98
