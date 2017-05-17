@@ -22,11 +22,7 @@ class pccProcesadores extends CI_Model{
 	    );
 		foreach ($this->urlProcesadores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='amd') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='intel') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
@@ -46,7 +42,33 @@ class pccProcesadores extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
+				/*=================IMAGES=====================*/
 
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+				 		$j++;
+						continue;
+				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -99,37 +121,8 @@ class pccProcesadores extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
 					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_img'=>$imagenProducto,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val));	

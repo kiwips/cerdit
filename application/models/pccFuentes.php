@@ -113,39 +113,7 @@ class pccFuentes extends CI_Model{
 	    );
 		foreach ($this->urlFuentes as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='aerocool') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='antec') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='cooler-master'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='enermax'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='evga'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='fractal'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='l-link'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nfortec'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nox'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='owlotech'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='phoenix'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='seasonic'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='silverstone'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='tacens'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermaltake'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
@@ -164,6 +132,33 @@ class pccFuentes extends CI_Model{
 			while(true){
 				if ($a<$anterior) {
 					break;
+				}
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+				 		$j++;
+						continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -215,36 +210,7 @@ class pccFuentes extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$precioProducto.= $contenido[$val][0][$i];
 			 	}
-				if ($nombreProducto == @$productos[$key]['producto']) {
-				 		$j++;
-						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
+				if ($precioProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
 				}else{
@@ -260,10 +226,10 @@ class pccFuentes extends CI_Model{
 			// return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			// return $productos;
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "<pre>";
+			return $productos;
 			// $this->cont=0;
 	}
 }

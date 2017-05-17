@@ -82,33 +82,7 @@ class pccMonitores extends CI_Model{
 	    );
 		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='acer') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='aoc'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='asus'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='benq'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='dell'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='hannspree'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='hp'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lenovo'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lg'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='oem'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='philips'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='samsung'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='viewsonic'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
@@ -127,6 +101,33 @@ class pccMonitores extends CI_Model{
 			while(true){
 				if ($a<$anterior) {
 					break;
+				}
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+			 		$j++;
+					continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -180,37 +181,8 @@ class pccMonitores extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
 					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val));	
@@ -219,10 +191,10 @@ class pccMonitores extends CI_Model{
 			
 			}
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "</pre>";
-			/*return $productos;*/
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "</pre>";
+			return $productos;
 	}
 }
 ?>
