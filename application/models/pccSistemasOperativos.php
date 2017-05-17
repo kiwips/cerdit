@@ -65,7 +65,6 @@ class pccSistemasOperativos extends CI_Model{
 			 		@$nombreProducto.= $contenido[$val][0][$i];
 			 	}
 				/*=================PRICING=====================*/
-
 				$a = strpos($contenido[$val][0], $precio,$a);
 				$aux=0;
 				$aux2=0;

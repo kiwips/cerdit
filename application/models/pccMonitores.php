@@ -47,10 +47,6 @@ class pccMonitores extends CI_Model{
 	    	'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
     	), 
 
-    	'oem'=>array(
-	    	'https://www.pccomponentes.com/monitores-pc/oem',	    	
-    	),    	
-
     	'philips'=>array(
 	    	'https://www.pccomponentes.com/monitor-philips',
 	    	'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
@@ -75,40 +71,13 @@ class pccMonitores extends CI_Model{
 	    	'hp'=>array(),
 	    	'lenovo'=>array(),
 	    	'lg'=>array(),
-	    	'oem'=>array(),
 	    	'philips'=>array(),
 	    	'samsung'=>array(),
 	    	'viewsonic'=>array(),	    	
 	    );
 		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='acer') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='aoc'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='asus'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='benq'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='dell'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='hannspree'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='hp'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lenovo'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lg'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='oem'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='philips'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='samsung'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='viewsonic'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
 			}
 		}
 		$nombre = "data-name";
@@ -119,7 +88,7 @@ class pccMonitores extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'oem', 'philips', 'samsung', 'viewsonic');
+		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'philips', 'samsung', 'viewsonic');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;

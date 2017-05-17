@@ -8,16 +8,9 @@
         }
 
         function index(){      
-<<<<<<< HEAD
 
-            $this->load->model("pccRatones");
-            $this->pccRatones->saveProductsPCC();
-
-
-=======
-            $this->load->model("pccTeclados");
-            $this->pccTeclados->saveProductsPCC();
->>>>>>> e9ac50ac427a726f4b48f964bd83fc02f6e090ad
+            $this->load->model("pccFuentes");
+            $this->pccFuentes->saveProductsPCC();
         }
    
     }

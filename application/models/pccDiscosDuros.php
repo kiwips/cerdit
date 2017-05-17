@@ -74,33 +74,7 @@ class pccDiscosDuros extends CI_Model{
 	    );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='asus') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='avexir') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='crucial'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='intel'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='samsung'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='seagate'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='sandisk'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='toshiba'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='transcend'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='western-digital'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
 			}
 		}
 		$nombre = "data-name";
@@ -205,11 +179,7 @@ class pccDiscosDuros extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
 						continue;
 					}
-<<<<<<< HEAD
-					array_push($productos, array('FK_GRF_PK_PROD'=>3,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val));	
-=======
 					array_push($productos, array('FK_DD_PK_PROD'=>3,'DD_img'=>$imagenProducto,'DD_nombre'=>$nombreProducto,'DD_precio'=>$precioProducto,'DD_marca'=>$val));	
->>>>>>> 1334369612263be9dfc8b0624402462172c93e5f
 				}
 				$j++;
 			
