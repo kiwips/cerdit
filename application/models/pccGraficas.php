@@ -84,30 +84,11 @@ class pccGraficas extends CI_Model{
 	    );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='amd') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nvidia') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='asus'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='gigabyte'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='evga'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='msi'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='pny'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='sapphire'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='xfx'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
 		$precio = "data-price";
-		$url1 = 'https://www.pccomponentes.com/tarjetas-graficas-nvidia'; 
 		$imagen = "src";
 		
 		$productos = array();
@@ -122,6 +103,34 @@ class pccGraficas extends CI_Model{
 			while(true){
 				if ($a<$anterior) {
 					break;
+				}
+
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+			 		$j++;
+					continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -176,37 +185,8 @@ class pccGraficas extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
 					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val));	
@@ -214,6 +194,7 @@ class pccGraficas extends CI_Model{
 				$j++;
 			
 			}
+<<<<<<< HEAD
 			
 			 return $productos;
 			// $this->cont++;
@@ -223,12 +204,17 @@ class pccGraficas extends CI_Model{
 			print_r($productos);
 			echo "<pre>";*/
 
+=======
+>>>>>>> master
 			// echo "<pre>";
 			// print_r($productos);
-			// echo "<pre>";
 			return $productos;
+<<<<<<< HEAD
 
 			// $this->cont=0;
+=======
+		}
+>>>>>>> master
 	}
 }
 ?>

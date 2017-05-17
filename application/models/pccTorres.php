@@ -117,6 +117,7 @@ class pccTorres extends CI_Model{
 	    );
 		foreach ($this->urlTorres as $marca => $value) {
 			foreach ($value as $key1 => $url) {
+<<<<<<< HEAD
 				 if ($marca=='aerocool') {
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='antec'){
@@ -158,6 +159,9 @@ class pccTorres extends CI_Model{
 				}else if ($marca=='tooq'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}
+=======
+				array_push($contenido[$marca], file_get_contents($url));
+>>>>>>> master
 			}
 		}
 		$nombre = "data-name";
@@ -177,17 +181,27 @@ class pccTorres extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
+<<<<<<< HEAD
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
+=======
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+>>>>>>> master
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
 				$contInicio=0;
 				$contFin=0;
+<<<<<<< HEAD
 				$nombreProducto="";
 				end($productos);
 				$key=key($productos);
+=======
+				$imagenProducto="";
+>>>>>>> master
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
 					if ($b=='"'&&!$aux2) {
@@ -200,18 +214,36 @@ class pccTorres extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+<<<<<<< HEAD
 			 		@$nombreProducto.= $contenido[$val][0][$i];
 			 	}
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
+=======
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($nombreProducto == @$productos[$key]['imagen']) {
+			 		$j++;
+					continue;
+				}
+				/*====================PRODUCT NAME==============*/
+				$anterior=$a;
+				$a = strpos($contenido[$val][0], $nombre,$a);
+>>>>>>> master
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
 				$contInicio=0;
 				$contFin=0;
+<<<<<<< HEAD
 				$precioProducto="";
 
+=======
+				$nombreProducto="";
+				end($productos);
+				$key=key($productos);
+>>>>>>> master
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
 					if ($b=='"'&&!$aux2) {
@@ -224,6 +256,7 @@ class pccTorres extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+<<<<<<< HEAD
 			 		@$precioProducto.= $contenido[$val][0][$i];
 			 	}
 				if ($nombreProducto == @$productos[$key]['producto']) {
@@ -235,12 +268,24 @@ class pccTorres extends CI_Model{
 				/*=================IMAGES=====================*/
 
 				$a = strpos($contenido[$val][0], $imagen,$a);
+=======
+			 		@$nombreProducto.= $contenido[$val][0][$i];
+			 	}
+				/*=================PRICING=====================*/
+
+				$a = strpos($contenido[$val][0], $precio,$a);
+>>>>>>> master
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
 				$contInicio=0;
 				$contFin=0;
+<<<<<<< HEAD
 				$imagenProducto="";
+=======
+				$precioProducto="";
+
+>>>>>>> master
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
 					if ($b=='"'&&!$aux2) {
@@ -253,9 +298,15 @@ class pccTorres extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+<<<<<<< HEAD
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
 				if ($nombreProducto == @$productos[$key]['imagen']) {
+=======
+			 		@$precioProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($nombreProducto == @$productos[$key]['producto']) {
+>>>>>>> master
 				 		$j++;
 						continue;
 				}else{
@@ -268,10 +319,17 @@ class pccTorres extends CI_Model{
 			
 			}
 		}
+<<<<<<< HEAD
 			echo "<pre>";
 			print_r($productos);
 			echo "</pre>";
 			/*return $productos;*/
+=======
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "</pre>";
+			return $productos;
+>>>>>>> master
 	}
 }
 ?>

@@ -1,26 +1,20 @@
 <?php 
-class pccProcesadores extends CI_Model{
+class pccSistemasOperativos extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlProcesadores=array(
-    	'amd'=>array(
-    		'https://www.pccomponentes.com/procesadores/amd',
-	    	'https://www.pccomponentes.com/procesadores/amd#relevance-1',    	
-    	),
-    	'intel'=>array(
-    		'https://www.pccomponentes.com/procesadores-intel',	
-    		'https://www.pccomponentes.com/procesadores-intel#relevance-1',	
-	    	'https://www.pccomponentes.com/procesadores-intel#relevance-2',	    	
+    private $urlSistemasOperativos=array(
+    	'windows'=>array(
+    		'https://www.pccomponentes.com/sistemas-operativos', 
     	),
     	
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'amd'=>array(),
-	    	'intel'=>array(),
+			'windows'=>array(),
+	    	
 	    );
-		foreach ($this->urlProcesadores as $marca => $value) {
+		foreach ($this->urlSistemasOperativos as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
@@ -33,7 +27,7 @@ class pccProcesadores extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('amd','intel');
+		$marca = array('windows');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -65,6 +59,10 @@ class pccProcesadores extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
+<<<<<<< HEAD
+				/*=================PRICING=====================*/
+				$a = strpos($contenido[$val][0], $precio,$a);
+=======
 				if ($imagenProducto == @$productos[$key]['imagen']) {
 				 		$j++;
 						continue;
@@ -72,6 +70,7 @@ class pccProcesadores extends CI_Model{
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
+>>>>>>> kevin
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
@@ -125,7 +124,7 @@ class pccProcesadores extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_img'=>$imagenProducto,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val));	
+					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_img'=>$imagenProducto,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val));	
 				}
 				$j++;
 			

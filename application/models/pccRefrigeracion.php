@@ -54,6 +54,7 @@ class pccRefrigeracion extends CI_Model{
 
     	'antec-liquida'=>array(
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/antec',
+<<<<<<< HEAD
     	),
 
     	'cooler-master-liquida'=>array(
@@ -97,6 +98,51 @@ class pccRefrigeracion extends CI_Model{
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/silverstone',
     	),
 
+=======
+    	),
+
+    	'cooler-master-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/cooler-master',
+    	),    
+
+    	'corsair-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/corsair',
+    	),	
+
+    	'ekwb-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb',
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-1',
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-2',
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-3',
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-4',
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-5',
+    	),
+
+	'enermax-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/enermax',
+    	),
+
+    	'fractal-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/fractal',
+    	),
+
+    	'lepa-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/lepa',
+    	),
+
+    	'nox-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/nox',
+    	), 
+
+    	'nzxt-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/nzxt',
+    	),    	
+
+    	'silverstone-liquida'=>array(
+	    	'https://www.pccomponentes.com/refrigeracion-liquida/silverstone',
+    	),
+
+>>>>>>> master
     	'thermaltake-liquida'=>array(
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/thermaltake',
     	),     	      	
@@ -131,6 +177,7 @@ class pccRefrigeracion extends CI_Model{
 	    );
 		foreach ($this->urlRefrigeracion as $marca => $value) {
 			foreach ($value as $key1 => $url) {
+<<<<<<< HEAD
 				 if ($marca=='antec') {
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='cooler-master'){
@@ -176,6 +223,9 @@ class pccRefrigeracion extends CI_Model{
 				}else if ($marca=='thermaltake-liquida'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}
+=======
+				array_push($contenido[$marca], file_get_contents($url));
+>>>>>>> master
 			}
 		}
 		$nombre = "data-name";
@@ -194,6 +244,33 @@ class pccRefrigeracion extends CI_Model{
 			while(true){
 				if ($a<$anterior) {
 					break;
+				}
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+				 		$j++;
+						continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -247,37 +324,8 @@ class pccRefrigeracion extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
 					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
@@ -286,10 +334,10 @@ class pccRefrigeracion extends CI_Model{
 			
 			}
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "</pre>";
-			/*return $productos;*/
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "</pre>";
+			return $productos;
 	}
 }
 ?>

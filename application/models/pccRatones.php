@@ -1,151 +1,420 @@
 <?php 
-class pccFuentes extends CI_Model{
+class pccRatones extends CI_Model{
     function __construct(){
         parent::__construct();
     }
     private $cont=0;
-    private $urlFuentes=array(
-    	'aerocool'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/aerocool',
-    	),
-    	'antec'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/antec',
-    	),
-    	'cooler-master'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/cooler-master',
-    	),
-    	'corsair'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/corsair',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/corsair#relevance-1',
-    	),
-    	'enermax'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/enermax',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/enermax#relevance-1',
-    	),
-    	'evga'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/evga',
-    	),
-    	'fractal'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/fractal',
-	    	
-    	),
-    	'l-link'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/l-link',
-	    	
-    	),
-    	'nfortec'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/nfortec',
-    	),
-    	'nox'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/nox',
-    	),
-    	'owlotech'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/owlotech',
-    	),
-    	'phoenix'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/phoenix',
-    	),
-    	'seasonic'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/seasonic',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/seasonic#relevance-1',
-    	),
-    	'silverstone'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/silverstone',
-    	),
-    	'tacens'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/tacens',
-    	),
-    	'thermaltake'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/thermaltake',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/thermaltake#relevance-1',
-    	),
+    private $urlRatones=array(
+		'3dconnexion'=>array(
+	  		'https://www.pccomponentes.com/ratones/3dconnexion',
+	    	),
+<<<<<<< HEAD
+	    	'apple'=>array(
+		    	'https://www.pccomponentes.com/ratones/apple',
+	    	),
+=======
+>>>>>>> kevin
+	    	'approx'=>array(
+		    	'https://www.pccomponentes.com/ratones/approx',
+		    ),
+	    	'asus'=>array(
+		    	'https://www.pccomponentes.com/ratones/asus',
+<<<<<<< HEAD
+	    	),
+	    	'bg'=>array(
+	    		'https://www.pccomponentes.com/ratones/bg',
+	    	),
+	    	'bluestork'=>array(
+		    	'https://www.pccomponentes.com/ratones/bluestork',
+	    	),
+	    	'bultaco'=>array(
+		    	'https://www.pccomponentes.com/ratones/bultaco',
+	    	),
+	    	'conceptronic'=>array(
+		    	'https://www.pccomponentes.com/ratones/conceptronic',
+	    	),
+	    	'cooler-master'=>array(
+		    	'https://www.pccomponentes.com/ratones/cooler-master',
+	    	),
+	    	'corsair'=>array(
+		    	'https://www.pccomponentes.com/ratones/corsair',
+	    	),
+	    	'creative'=>array(
+		    	'https://www.pccomponentes.com/ratones/creative',
+	    	),
+	    	'elephone'=>array(
+		    	'https://www.pccomponentes.com/ratones/elephone',
+	    	),
+	    	'g-skill'=>array(
+		    	'https://www.pccomponentes.com/ratones/g-skill',
+	    	),
+	    	'kingston'=>array(
+		    	'https://www.pccomponentes.com/ratones/kingston',
+	    	),
+	    	'krom'=>array(
+		    	'https://www.pccomponentes.com/ratones/krom',
+	    	),
+	    	'logitech'=>array(
+		    	'https://www.pccomponentes.com/raton-logitech',
+		    	'https://www.pccomponentes.com/raton-logitech#relevance-1',
+	    	),
+	    	'mad-catz'=>array(
+		    	'https://www.pccomponentes.com/ratones-mad-catz',
+	    	),
+	    	'microsoft'=>array(
+		    	'https://www.pccomponentes.com/ratones/microsoft',
+		    	'https://www.pccomponentes.com/ratones/microsoft#relevance-1'
+	    	),
+	    	'newskill'=>array(
+		    	'https://www.pccomponentes.com/ratones/newskill',
+	    	),
+	    	'ngs'=>array(
+		    	'https://www.pccomponentes.com/ratones/ngs',
+	    	),
+	    	'owlotech'=>array(
+		    	'https://www.pccomponentes.com/ratones/owlotech',
+	    	),
+	    	'ozone'=>array(
+	    		'https://www.pccomponentes.com/ratones/ozone',
+	    	),
+	    	'razer'=>array(
+		    	'https://www.pccomponentes.com/raton-razer',
+	    	),
+	    	'sharkoon'=>array(
+		    	'https://www.pccomponentes.com/ratones/sharkoon',
+	    	),
+	    	'steelseries'=>array(
+		    	'https://www.pccomponentes.com/raton-steelseries',
+	    	),
+	    	'tacens'=>array(
+		    	'https://www.pccomponentes.com/ratones/tacens',
+	    	),
+	    	'the-g-lab'=>array(
+		    	'https://www.pccomponentes.com/ratones/the-g-lab',
+	    	),
+	    	'thermaltake'=>array(
+		    	'https://www.pccomponentes.com/ratones/thermaltake',
+	    	),
+	    	'thunder-x3'=>array(
+		    	'https://www.pccomponentes.com/ratones/thunder-x3',
+	    	),
+	    	'toshiba'=>array(
+		    	'https://www.pccomponentes.com/ratones/toshiba',
+	    	),
+	    	'trust'=>array(
+		    	'https://www.pccomponentes.com/ratones/trust',
+		    	'https://www.pccomponentes.com/ratones/trust#relevance-1',
+	    	),
+	    	'unotec'=>array(
+		    	'https://www.pccomponentes.com/ratones/unotec',
+	    	),
+	    	'zowie'=>array(
+		    	'https://www.pccomponentes.com/ratones/zowie',
+	    	),
     );
+
 	function saveProductsPCC(){
 		$contenido=array(
+<<<<<<< HEAD
 		'aerocool'=>array(
+=======
+			'3dconnexion'=>array(
+>>>>>>> master
 	  
 	    	),
-	    	'antec'=>array(
+	    	'apple'=>array(
+		    	
+	    	),
+	    	'approx'=>array(
+		    	
+		    ),
+	    	'asus'=>array(
+		    	
+	    	),
+	    	'bg'=>array(
+
+	    	),
+	    	'bluestork'=>array(
+		    	
+	    	),
+	    	'bultaco'=>array(
+		    	
+	    	),
+	    	'conceptronic'=>array(
 		    	
 	    	),
 	    	'cooler-master'=>array(
 		    	
-		    ),
+	    	),
 	    	'corsair'=>array(
 		    	
 	    	),
-	    	'enermax'=>array(
-
-	    	),
-	    	'evga'=>array(
+	    	'creative'=>array(
 		    	
 	    	),
-	    	'fractal'=>array(
+	    	'elephone'=>array(
 		    	
 	    	),
-	    	'l-link'=>array(
+	    	'g-skill'=>array(
 		    	
 	    	),
-	    	'nfortec'=>array(
+	    	'kingston'=>array(
 		    	
 	    	),
-	    	'nox'=>array(
+	    	'krom'=>array(
 		    	
+	    	),
+	    	'raton-logitech'=>array(
+		    	
+	    	),
+	    	'mad-catz'=>array(
+		    	
+	    	),
+	    	'microsoft'=>array(
+		    	
+	    	),
+	    	'newskill'=>array(
+		    	
+	    	),
+	    	'ngs'=>array(
+		    	
+=======
+	    	),
+	    	'bg'=>array(
+	    		'https://www.pccomponentes.com/ratones/bg',
+	    	),
+	    	'bluestork'=>array(
+		    	'https://www.pccomponentes.com/ratones/bluestork',
+	    	),
+	    	'bultaco'=>array(
+		    	'https://www.pccomponentes.com/ratones/bultaco',
+	    	),
+	    	'conceptronic'=>array(
+		    	'https://www.pccomponentes.com/ratones/conceptronic',
+	    	),
+	    	'cooler-master'=>array(
+		    	'https://www.pccomponentes.com/ratones/cooler-master',
+	    	),
+	    	'corsair'=>array(
+		    	'https://www.pccomponentes.com/ratones/corsair',
+	    	),
+	    	'creative'=>array(
+		    	'https://www.pccomponentes.com/ratones/creative',
+	    	),
+	    	'elephone'=>array(
+		    	'https://www.pccomponentes.com/ratones/elephone',
+	    	),
+	    	'g-skill'=>array(
+		    	'https://www.pccomponentes.com/ratones/g-skill',
+	    	),
+	    	'kingston'=>array(
+		    	'https://www.pccomponentes.com/ratones/kingston',
+	    	),
+	    	'krom'=>array(
+		    	'https://www.pccomponentes.com/ratones/krom',
+	    	),
+	    	'logitech'=>array(
+		    	'https://www.pccomponentes.com/raton-logitech',
+		    	'https://www.pccomponentes.com/raton-logitech#relevance-1',
+	    	),
+	    	'mad-catz'=>array(
+		    	'https://www.pccomponentes.com/ratones-mad-catz',
+	    	),
+	    	'microsoft'=>array(
+		    	'https://www.pccomponentes.com/ratones/microsoft',
+		    	'https://www.pccomponentes.com/ratones/microsoft#relevance-1'
+	    	),
+	    	'newskill'=>array(
+		    	'https://www.pccomponentes.com/ratones/newskill',
+	    	),
+	    	'ngs'=>array(
+		    	'https://www.pccomponentes.com/ratones/ngs',
+>>>>>>> kevin
 	    	),
 	    	'owlotech'=>array(
+		    	'https://www.pccomponentes.com/ratones/owlotech',
+	    	),
+	    	'ozone'=>array(
+<<<<<<< HEAD
 		    	
 	    	),
-	    	'phoenix'=>array(
+	    	'razer'=>array(
 		    	
 	    	),
-	    	'seasonic'=>array(
+	    	'sharkoon'=>array(
 		    	
 	    	),
-	    	'silverstone'=>array(
+	    	'raton-steelseries'=>array(
 		    	
+=======
+	    		'https://www.pccomponentes.com/ratones/ozone',
+	    	),
+	    	'razer'=>array(
+		    	'https://www.pccomponentes.com/raton-razer',
+	    	),
+	    	'sharkoon'=>array(
+		    	'https://www.pccomponentes.com/ratones/sharkoon',
+	    	),
+	    	'steelseries'=>array(
+		    	'https://www.pccomponentes.com/raton-steelseries',
+>>>>>>> kevin
 	    	),
 	    	'tacens'=>array(
+		    	'https://www.pccomponentes.com/ratones/tacens',
+	    	),
+	    	'the-g-lab'=>array(
+		    	'https://www.pccomponentes.com/ratones/the-g-lab',
+	    	),
+	    	'the-g-lab'=>array(
 		    	
 	    	),
 	    	'thermaltake'=>array(
+		    	'https://www.pccomponentes.com/ratones/thermaltake',
+	    	),
+	    	'thunder-x3'=>array(
+		    	'https://www.pccomponentes.com/ratones/thunder-x3',
+	    	),
+	    	'toshiba'=>array(
+		    	'https://www.pccomponentes.com/ratones/toshiba',
+	    	),
+<<<<<<< HEAD
+	    	'thunder-x3'=>array(
+		    	
+	    	),
+	    	'toshiba'=>array(
+		    	
+	    	),
+	    	'trust'=>array(
+		    	
+	    	),
+	    	'unotec'=>array(
+		    	
+	    	),
+	    	'zowie'=>array(
 		    	
 	    	),
 	    );
-		foreach ($this->urlFuentes as $marca => $value) {
+		foreach ($this->urlRatones as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='aerocool') {
+				if ($marca=='3dconnexion') {
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='antec') {
+				}else if ($marca=='apple') {
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='approx'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='asus'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='bg'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='bluestork'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='bultaco'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='conceptronic'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='cooler-master'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='corsair'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='enermax'){
+				}else if ($marca=='creative'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='evga'){
+				}else if ($marca=='elephone'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='fractal'){
+				}else if ($marca=='g-skill'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='l-link'){
+				}else if ($marca=='kingston'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nfortec'){
+				}else if ($marca=='krom'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nox'){
+				}else if ($marca=='raton-logitech'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='mad-catz'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='microsoft'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='newskill'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='ngs'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='owlotech'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='phoenix'){
+				}else if ($marca=='ozone'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='seasonic'){
+				}else if ($marca=='razer'){
 					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='silverstone'){
+				}else if ($marca=='sharkoon'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='raton-steelseries'){
 					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='tacens'){
 					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='the-g-lab'){
+					array_push($contenido[$marca], file_get_contents($url));
 				}else if ($marca=='thermaltake'){
 					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='thunder-x3'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='toshiba'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='trust'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='unotec'){
+					array_push($contenido[$marca], file_get_contents($url));
+				}else if ($marca=='zowie'){
+					array_push($contenido[$marca], file_get_contents($url));
 				}
+=======
+	    	'trust'=>array(
+		    	'https://www.pccomponentes.com/ratones/trust',
+		    	'https://www.pccomponentes.com/ratones/trust#relevance-1',
+	    	),
+	    	'unotec'=>array(
+		    	'https://www.pccomponentes.com/ratones/unotec',
+	    	),
+	    	'zowie'=>array(
+		    	'https://www.pccomponentes.com/ratones/zowie',
+	    	),
+    );
+
+	function saveProductsPCC(){
+		$contenido=array(
+			'3dconnexion'=>array(),
+	    	'approx'=>array(),
+	    	'asus'=>array(),
+	    	'bg'=>array(),
+	    	'bluestork'=>array(),
+	    	'bultaco'=>array(),
+	    	'conceptronic'=>array(),
+	    	'cooler-master'=>array(),
+	    	'corsair'=>array(),
+	    	'creative'=>array(),
+	    	'elephone'=>array(),
+	    	'g-skill'=>array(),
+	    	'kingston'=>array(),
+	    	'krom'=>array(),
+	    	'logitech'=>array(),
+	    	'mad-catz'=>array(),
+	    	'microsoft'=>array(),
+	    	'newskill'=>array(),
+	    	'ngs'=>array(),
+	    	'owlotech'=>array(),
+	    	'ozone'=>array(),
+	    	'razer'=>array(),
+	    	'sharkoon'=>array(),
+	    	'steelseries'=>array(),
+	    	'tacens'=>array(),
+	    	'the-g-lab'=>array(),
+	    	'thermaltake'=>array(),
+	    	'thunder-x3'=>array(),
+	    	'toshiba'=>array(),
+	    	'trust'=>array(),
+	    	'unotec'=>array(),
+	    	'zowie'=>array(),
+	    );
+		foreach ($this->urlRatones as $marca => $value) {
+			foreach ($value as $key1 => $url) {
+				array_push($contenido[$marca], file_get_contents($url));
+>>>>>>> kevin
 			}
 		}
 		$nombre = "data-name";
@@ -156,14 +425,45 @@ class pccFuentes extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('aerocool','antec','cooler-master','corsair','enermax','evga','fractal','l-link','nfortec','nox','owlotech','phoenix','seasonic','silverstone','tacens','thermaltake');
+<<<<<<< HEAD
+		$marca = array('3dconnexion','apple','approx','asus','bg','bluestork','bultaco','conceptronic','cooler-master','corsair','creative','elephone','g-skill','kingston','krom','raton-logitech','mad-catz','microsoft','newskill','ngs','owlotech','ozone','razer','sharkoon','raton-steelseries','tacens','the-g-lab','thermaltake','thunder-x3','toshiba','trust','unotec','zowie');
 
+=======
+		$marca = array('3dconnexion','approx','asus','bg','bluestork','bultaco', 'conceptronic', 'cooler-master', 'corsair', 'creative', 'elephone', 'g-skill', 'kingston', 'krom', 'logitech', 'mad-catz', 'microsoft', 'newskill', 'ngs', 'owlotech', 'ozone', 'razer', 'sharkoon', 'steelseries', 'tacens', 'the-g-lab', 'thermaltake', 'thunder-x3', 'toshiba', 'trust', 'unotec', 'zowie',);
+>>>>>>> kevin
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
 			while(true){
 				if ($a<$anterior) {
 					break;
+				}
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+				 		$j++;
+						continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -218,40 +518,11 @@ class pccFuentes extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val));	
+					array_push($productos, array('FK_RAT_PK_PROD'=>11,'RAT_img'=>$imagenProducto,'RAT_nombre'=>$nombreProducto,'RAT_precio'=>$precioProducto,'RAT_marca'=>$val));	
 				}
 				$j++;
 			
@@ -260,10 +531,10 @@ class pccFuentes extends CI_Model{
 			// return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			// return $productos;
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "<pre>";
+			return $productos;
 			// $this->cont=0;
 	}
 }

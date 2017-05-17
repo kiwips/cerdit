@@ -10,44 +10,44 @@ class pccPlacasBase extends CI_Model{
     		'https://www.pccomponentes.com/placas-base/asus#relevance-2', 
     		'https://www.pccomponentes.com/placas-base/asus#relevance-3', 
     		'https://www.pccomponentes.com/placas-base/asus#relevance-4', 
-	    	'https://www.pccomponentes.com/placas-base/asus#relevance-5',    	
+    		'https://www.pccomponentes.com/placas-base/asus#relevance-5', 
     	),
     	'gigabyte'=>array(
-    		'https://www.pccomponentes.com/placas-base/gigabyte',	 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1',	 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2',	 
-	    	'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3',	    	
+    		'https://www.pccomponentes.com/placas-base/gigabyte', 
+    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1', 
+    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2', 
+    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3', 
     	),
     	'msi'=>array(
-    		'https://www.pccomponentes.com/placas-base/msi#relevance',
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-1',
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-2',
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-3',
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-4',	 	
+    		'https://www.pccomponentes.com/placas-base/msi', 
+    		'https://www.pccomponentes.com/placas-base/msi#relevance-1', 
+    		'https://www.pccomponentes.com/placas-base/msi#relevance-2', 
+    		'https://www.pccomponentes.com/placas-base/msi#relevance-3', 
+    		'https://www.pccomponentes.com/placas-base/msi#relevance-4', 
     	),
     	
     );
 	function saveProductsPCC(){
 		$contenido=array(
+<<<<<<< HEAD
 		'asus'=>array(),
 	    	'gigabyte'=>array(),
 	    	'msi'=>array(),
+=======
+			'asus'=>array(),
+			'gigabyte'=>array(),
+			'msi'=>array(),
+	    	
+>>>>>>> master
 	    );
 		foreach ($this->urlPlacasBase as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				if ($marca=='asus') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='gigabyte') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='msi') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
 		$precio = "data-price";
 		$imagen = "src";
-		
 		$productos = array();
 		$j=0;
 		$a=0;
@@ -61,7 +61,33 @@ class pccPlacasBase extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
+				/*=================IMAGES=====================*/
 
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+				$imagenProducto="";
+				while (true) {
+					$b=$contenido[$val][0][$a+$aux];
+					if ($b=='"'&&!$aux2) {
+						$aux2++;
+						$aux3=true;
+						$contInicio=$aux+1;
+					}else if ($b=='"'&&$aux2) {
+						$contFin=$aux;
+						break;
+					}$aux++;
+				}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+			 		$j++;
+					continue;
+				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -114,40 +140,11 @@ class pccPlacasBase extends CI_Model{
 				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
-				}
-				
-
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>1,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val));	
+					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val));	
 				}
 				$j++;
 			
