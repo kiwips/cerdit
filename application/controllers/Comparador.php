@@ -8,6 +8,7 @@
         }
 
         function index(){      
+            $data['titulo'] = 'DreamPc';
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
         }

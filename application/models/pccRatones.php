@@ -62,7 +62,7 @@ class pccFuentes extends CI_Model{
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'aerocool'=>array(
+		'aerocool'=>array(
 	  
 	    	),
 	    	'antec'=>array(

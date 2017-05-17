@@ -26,11 +26,6 @@ $password = array(
 	'required' => 'true',
 	);
 	?>
-<div class="jumbotron">
-	<div class="container text-center">	
-		<h1 class="titulo">DreamPC</h1>
-	</div>
-</div>
 <div class="container-fluid">
 	<div class="registro">
 		<?=form_open('/registro')?>
@@ -50,10 +45,6 @@ $password = array(
 			<br>
 			<div align="center">				
 				<button class="btn btn-info">Registrarse</button>
-			</div>
-			<div clas="anclaVolver" align="right">
-				<br><br>	
-				<small><a clas="anclaVolver" href="<?=base_url()?>"> Volver <span class="glyphicon glyphicon-share-alt"></span></a></small>
 			</div>
 		<?=form_close()?>
 	</div>

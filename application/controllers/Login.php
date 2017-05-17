@@ -7,7 +7,7 @@ class Login extends CI_Controller {
         parent::__construct();
     }
 
-    function index(){            
+    function index(){                          
         $data['main_content'] = 'index_View'; 
         $this->parser->parse('includes/template',$data);
     }

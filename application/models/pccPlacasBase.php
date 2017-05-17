@@ -29,7 +29,7 @@ class pccPlacasBase extends CI_Model{
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'asus'=>array(),
+		'asus'=>array(),
 	    	'gigabyte'=>array(),
 	    	'msi'=>array(),
 	    );

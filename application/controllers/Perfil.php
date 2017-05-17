@@ -10,11 +10,13 @@ class Perfil extends CI_Controller {
     }
 
     function index(){            
+        $data['titulo'] = 'Mi Perfil';
         $data['main_content'] = 'perfil_View'; 
         $this->parser->parse('includes/template',$data);
     }
 
     function cargarPerfil(){
+        $data['titulo'] = 'Mi Perfil';
         $data['allUser'] = $this->User->get_USR_all_where($this->session->userdata('nick'));
         $data['main_content'] = 'perfil_View'; 
         $this->parser->parse('includes/template',$data);

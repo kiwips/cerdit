@@ -56,10 +56,15 @@ $route['translate_uri_dashes'] = FALSE;
 /*Comprobador*/
 $route['login'] = 'Login/loguearse';
 $route['finSesion'] = 'Login/cerrarSesion';
+
 $route['crear'] = 'Registro/pantallaRegistro';
 $route['registro'] = 'Registro/registroNuevoUsuario';
+
 $route['permiso'] = 'Permisos/cambiaPermiso';
 $route['borrarCookiePermiso'] = 'Permisos/borrarCookiePermiso';
+
 $route['miPerfil'] = 'Perfil/cargarPerfil';
 $route['canviarPerfil'] = 'Perfil/canviarPerfil';
+
+$route['actualizarbbdd'] = '';
 

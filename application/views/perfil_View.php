@@ -45,7 +45,7 @@ $password = array(
 			</div>
 			<br>
 			<div align="center">				
-				<button class="btn btn-info">Canviar</button>
+				<button class="btn btn-info">Modificar</button>
 			</div>
 		<?=form_close()?>
 	</div>
