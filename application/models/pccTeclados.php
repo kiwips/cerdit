@@ -248,7 +248,7 @@ class pccTeclados extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
 					array_push($productos, array('FK_REF_PK_PROD'=>10,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
@@ -257,10 +257,10 @@ class pccTeclados extends CI_Model{
 			
 			}
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "</pre>";
-			/*return $productos;*/
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "</pre>";
+			return $productos;
 	}
 }
 ?>

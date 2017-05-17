@@ -133,14 +133,6 @@ class pccFuentes extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
-				/*====================PRODUCT NAME==============*/
-				$anterior=$a;
-				$a = strpos($contenido[$val][0], $nombre,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
 				/*=================IMAGES=====================*/
 
 				$a = strpos($contenido[$val][0], $imagen,$a);
@@ -149,6 +141,17 @@ class pccFuentes extends CI_Model{
 				$aux3=false;
 				$contInicio=0;
 				$contFin=0;
+<<<<<<< HEAD
+				/*=================IMAGES=====================*/
+
+				$a = strpos($contenido[$val][0], $imagen,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+=======
+>>>>>>> kevin
 				$imagenProducto="";
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
@@ -161,6 +164,7 @@ class pccFuentes extends CI_Model{
 						break;
 					}$aux++;
 				}
+<<<<<<< HEAD
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { //oc
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
@@ -174,6 +178,23 @@ class pccFuentes extends CI_Model{
 					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val));	
 				}
 				$j++;
+=======
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
+			 		@$imagenProducto.= $contenido[$val][0][$i];
+			 	}
+				if ($imagenProducto == @$productos[$key]['imagen']) {
+				 		$j++;
+						continue;
+				}
+				/*====================PRODUCT NAME==============*/
+				$anterior=$a;
+				$a = strpos($contenido[$val][0], $nombre,$a);
+				$aux=0;
+				$aux2=0;
+				$aux3=false;
+				$contInicio=0;
+				$contFin=0;
+>>>>>>> kevin
 				$nombreProducto="";
 				end($productos);
 				$key=key($productos);
@@ -193,6 +214,10 @@ class pccFuentes extends CI_Model{
 			 	}
 				
 				/*=================PRICING=====================*/
+<<<<<<< HEAD
+=======
+
+>>>>>>> kevin
 				$a = strpos($contenido[$val][0], $precio,$a);
 				$aux=0;
 				$aux2=0;
@@ -215,7 +240,11 @@ class pccFuentes extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$precioProducto.= $contenido[$val][0][$i];
 			 	}
+<<<<<<< HEAD
 				if ($precioProducto == @$productos[$key]['FUE_precio']) {
+=======
+				if ($precioProducto == @$productos[$key]['producto']) {
+>>>>>>> kevin
 				 		$j++;
 						continue;
 				}
@@ -227,10 +256,10 @@ class pccFuentes extends CI_Model{
 			// return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			// return $productos;
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "<pre>";
+			return $productos;
 			// $this->cont=0;
 	}
 }
