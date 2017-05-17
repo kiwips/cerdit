@@ -49,17 +49,7 @@ class pccMemoriaRam extends CI_Model{
 	    );
 		foreach ($this->urlRam as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-				 if ($marca=='avexir') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='crucial'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
+				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
 		$nombre = "data-name";
