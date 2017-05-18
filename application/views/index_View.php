@@ -1,12 +1,3 @@
-<?php require ('modalL.php'); ?>
-
-
-<!-- <?php if(get_cookie('errorLogin')){ ?>
-<script type="text/javascript"> 
-  $('#modalError').show(); 
-</script>
-<?php } ?>
- -->
 <div class="modal fade" id="modalError" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -17,3 +8,9 @@
     </div>
   </div>
 </div>
+<!-- <?php if(get_cookie('errorLogin')){ ?>
+<script type="text/javascript"> 
+  $('#modalError').show(); 
+</script>
+<?php } ?>
+ -->

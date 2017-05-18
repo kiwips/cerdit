@@ -1,3 +1,7 @@
+.footer{
+	margin-top: 20%;
+}
+
 .footer-distributed{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -5,7 +9,6 @@
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-
 	padding: 55px 50px;
 	margin-top: 80px;
 }
@@ -21,14 +24,6 @@
 
 .footer-distributed .footer-left{
 	width: 40%;
-}
-
-/* The company logo */
-
-.footer-distributed h3{
-	color:  #ffffff;
-	font: normal 36px 'Cookie', cursive;
-	margin: 0;
 }
 
 .footer-distributed h3 span{
@@ -133,7 +128,7 @@
 	height: 35px;
 	cursor: pointer;
 	background-color:  #33383b;
-	border-radius: 2px;
+	border-radius: 20px;
 
 	font-size: 20px;
 	color: #ffffff;

@@ -40,7 +40,7 @@ $password = array(
  			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 				<?= form_input($password);?>	
-				<img  id="ojoAbierto" src="assets/img/ver.png" align="right" title="Mostrar contraseña">		
+				<img  id="ojoAbierto" src="assets/img/ver.png" align="right" title="Mostrar" alt="Ojo">		
 			</div> 
 			<br>
 			<div align="center">				

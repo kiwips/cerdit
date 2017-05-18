@@ -66,5 +66,5 @@ $route['borrarCookiePermiso'] = 'Permisos/borrarCookiePermiso';
 $route['miPerfil'] = 'Perfil/cargarPerfil';
 $route['canviarPerfil'] = 'Perfil/canviarPerfil';
 
-$route['actualizarbbdd'] = '';
+$route['actualizarbbdd'] = 'meterProductos';
 

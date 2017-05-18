@@ -19,7 +19,6 @@ class Login extends CI_Controller {
         if ($correctPass) {
             $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
             $this->crearSesion($usuarioRegistrado);
-
             if($data['recordarL']){
                 setcookie('recordar', $usuarioRegistrado[0]['USR_nick']);
                 setcookie('errorLogin','',time()-3600);
