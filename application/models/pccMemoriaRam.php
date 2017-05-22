@@ -152,7 +152,7 @@ class pccMemoriaRam extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val));	
+					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val,'FK_RAM_PK_TIE'=>1));	
 				}
 				$j++;
 			

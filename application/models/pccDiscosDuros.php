@@ -177,7 +177,7 @@ class pccDiscosDuros extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_DD_PK_PROD'=>3,'DD_img'=>$imagenProducto,'DD_nombre'=>$nombreProducto,'DD_precio'=>$precioProducto,'DD_marca'=>$val));	
+					array_push($productos, array('FK_DD_PK_PROD'=>3,'DD_img'=>$imagenProducto,'DD_nombre'=>$nombreProducto,'DD_precio'=>$precioProducto,'DD_marca'=>$val,'FK_DD_PK_TIE'=>1));	
 				}
 				$j++;
 			

@@ -234,7 +234,7 @@ class pccRefrigeracion extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
+					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val,'FK_REF_PK_TIE'=>1));	
 				}
 				$j++;
 			

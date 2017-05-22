@@ -138,7 +138,7 @@ class pccPlacasBase extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val));	
+					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>1));	
 				}
 				$j++;
 			
@@ -147,9 +147,9 @@ class pccPlacasBase extends CI_Model{
 			// return $productos;
 			// $this->cont++;
 		}
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
+			// echo "<pre>";
+			// print_r($productos);
+			// echo "<pre>";
 			return $productos;
 	}
 }

@@ -249,7 +249,7 @@ class pccTeclados extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_REF_PK_PROD'=>10,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
+					array_push($productos, array('FK_TEC_PK_PROD'=>10,'TEC_img'=>$imagenProducto,'TEC_nombre'=>$nombreProducto,'TEC_precio'=>$precioProducto,'TEC_marca'=>$val,'FK_TEC_PK_TIE'=>1));	
 				}
 				$j++;
 			

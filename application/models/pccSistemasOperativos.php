@@ -115,7 +115,7 @@ class pccSistemasOperativos extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_img'=>$imagenProducto,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val));	
+					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_img'=>$imagenProducto,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>1));	
 				}
 				$j++;
 			

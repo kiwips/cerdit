@@ -247,7 +247,7 @@ class pccRatones extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_RAT_PK_PROD'=>11,'RAT_img'=>$imagenProducto,'RAT_nombre'=>$nombreProducto,'RAT_precio'=>$precioProducto,'RAT_marca'=>$val));	
+					array_push($productos, array('FK_RAT_PK_PROD'=>11,'RAT_img'=>$imagenProducto,'RAT_nombre'=>$nombreProducto,'RAT_precio'=>$precioProducto,'RAT_marca'=>$val,'FK_RAT_PK_TIE'=>1));	
 				}
 				$j++;
 			

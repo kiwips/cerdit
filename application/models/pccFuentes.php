@@ -226,7 +226,7 @@ class pccFuentes extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://')
 						continue;
 					}
-					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val));	
+					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>1));	
 				}
 				$j++;
 				

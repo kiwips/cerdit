@@ -125,7 +125,7 @@ class pccProcesadores extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_img'=>$imagenProducto,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val));	
+					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_img'=>$imagenProducto,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>1));	
 				}
 				$j++;
 			
