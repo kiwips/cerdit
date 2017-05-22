@@ -7,27 +7,24 @@
 <?php } ?>
 
 <?php if ($this->session->userdata('logueado')) { ?>
-	<?php 
-		$attr = array(
-			'name' => 'formularioDeComparacion',
-		);
-	?>
+<?php 
+	$attr = array(
+		'name' => 'formularioDeComparacion',
+	);
+?>
+	
+		<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
+		<div class="cerrarMenu"><button class="menu" onclick="closeMenu()"><span class="glyphicon glyphicon-remove"></span></button></div>
+			<?=form_open('/productoComparar',$attr)?>
+				<ul>				
+					{productos}
+						<p class="w3-bar-item w3-button" onclick="enviar()" value="{PROD_nom}">{PROD_nom}</p>
+					{/productos}
+				</ul>
+			<?=form_close()?>
+		</div>
+
 	<div class="container-fluid">
-		<button id="menu" onclick="openMenu();"><span class="glyphicon glyphicon-list"></span></button>
-		
-<!-- 		<div class="row">
-			<div class="col-md-2 col-md-offset-2">
-				<div class="input-group">	
-					<?=form_open('/productoComparar',$attr)?>
-					<select id="componente" name="componente">
-						<option disabled selected>Elige un pop-up...</option>
-						{productos}
-						<option  value="{PROD_nom}">{PROD_nom}</option>
-						{/productos}
-					</select>
-					<?=form_close()?>
-				</div>
-			</div>
-		</div> -->
+		<button class="menu" onclick="openMenu();"><span class="glyphicon glyphicon-list"></span></button>
 	</div>
 <?php } ?>

@@ -1,5 +1,3 @@
-$(document).ready(function(){
-	$('#componente').on('change',function(){
-		formularioDeComparacion.submit();
-	});
+$(document).ready(function enviar(){
+		formularioDeComparacion.submit();	
 });

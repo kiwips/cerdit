@@ -7,9 +7,11 @@
         <!-- CSS -->
         <link rel="stylesheet" type="text/css"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css"  href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/indexPage.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/registro.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/permiso.css')?>" />
+        <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/header.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/footer.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/comparador.css')?>" />
 
@@ -17,6 +19,7 @@
         <script type="text/javascript" src="<?=base_url('assets/js/jquery-3.1.1.min.js')?>" ></script>
         <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
         <script type="text/javascript" src="<?=base_url('assets/js/comparador.js')?>"></script>
+        <script type="text/javascript" src="<?=base_url('assets/js/index.js')?>"></script>
 
         <style type="text/css">
         body{
@@ -30,7 +33,8 @@
     <body>
     <div class="jumbotron">
     <div class="container text-center"> 
-        <h1 class="titulo"> {titulo} </h1>
+        <!-- <h1 class="titulo"> {titulo} </h1> -->
+        <img class="imagenLogo" src="<?=base_url('assets/img/DreamPC.png')?>">
     </div>
 </div>
 <nav class="navbar navbar-inverse">

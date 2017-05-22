@@ -44,8 +44,17 @@ nav>li>a:hover{
 }
 
 
-#menu{
+.menu{
     width: 3%;
     background-color: white;
     border: 0; 
+}
+
+.cerrarMenu{
+	margin-top: 4%;
+	margin-left: 2%;
+}
+
+button:focus{
+	outline: none;
 }
