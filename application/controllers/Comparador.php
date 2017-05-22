@@ -8,8 +8,18 @@
         }
 
         function index(){      
+            $data['titulo'] = 'DreamPc';
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
+        }
+
+        function sacarProductosComparables(){
+            echo "string";
+            $data = $this->input->post();
+            $componente = $data['componente'];
+           $this->load->model($componente);
+           print_r($componente);
+           die;
         }
         
     }

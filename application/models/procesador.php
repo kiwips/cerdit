@@ -1,5 +1,5 @@
 <?php 
-class micro extends CI_Model{
+class procesador extends CI_Model{
     function __construct(){
         parent::__construct();
     }  

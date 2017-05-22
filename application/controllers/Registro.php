@@ -8,26 +8,43 @@ class Registro extends CI_Controller {
         parent::__construct();
     }
 
-    function index(){            
+    function index(){
+        $data['titulo'] = 'DreamPC';            
         $data['main_content'] = 'index_View'; 
         $this->parser->parse('includes/template',$data);
     }
 
     function pantallaRegistro(){
+        $data['titulo'] = 'Formulario de Registro';  
         $data['main_content'] = 'registro_View'; 
         $this->parser->parse('includes/template',$data);
     }
 
     function registroNuevoUsuario(){
-        $data = $this->input->post();
-        $this->load->model("User");
-        if ($this->User->setNewUser($data)){
-                $this->index();
+        if($this->input->post()){
+            $data = $this->input->post();
+            $this->load->model("User");
+            if ($this->User->setNewUser($data)){
+                    $this->crearSesion($data);
+                    $this->index();
+            }else{
+                $this->pantallaRegistro();
+            }
         }else{
-            $this->pantallaRegistro();
+            redirect('/');
         }
     }
 
+
+    function crearSesion($usuarioRegistrado){
+        $userdata = array(
+           'nick' => $usuarioRegistrado['nickR'],
+           'email' => $usuarioRegistrado['emailR'],
+           'permiso' => 'User',
+           'logueado' => TRUE
+           );
+        $this->session->set_userdata($userdata);  
+    }
 /*
     function generaPass(){
         $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
