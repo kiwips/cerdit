@@ -1,40 +1,78 @@
 <?php 
-class pccPlacasBase extends CI_Model{
+class pccDiscosDuros extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlPlacasBase=array(
+    private $urlDiscosDuros=array(
     	'asus'=>array(
-    		'https://www.pccomponentes.com/placas-base/asus', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-4', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-5', 
+	    	'https://www.pccomponentes.com/discos-duros/asus',	    	
     	),
-    	'gigabyte'=>array(
-    		'https://www.pccomponentes.com/placas-base/gigabyte', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3', 
+    	'avexir'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/avexir',	    	
     	),
-    	'msi'=>array(
-    		'https://www.pccomponentes.com/placas-base/msi', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-4', 
+    	'corsair'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/corsair',
+		),	    	
+    	'crucial'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/crucial',
     	),
-    	
+    	'g-skill'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/g-skill',
+	    	
+    	),
+    	'intel'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/intel',
+	    	
+    	),
+    	'kingston'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/kingston',
+	    	'https://www.pccomponentes.com/discos-duros/kingston#relevance-1',
+	    	
+    	),
+    	'samsung'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/samsung',
+	    	'https://www.pccomponentes.com/discos-duros/samsung#relevance-1',
+    	),
+    	'sandisk'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/sandisk',
+    	),
+    	'seagate'=>array(
+    		'https://www.pccomponentes.com/discos-duros/seagate',
+	    	'https://www.pccomponentes.com/discos-duros/seagate#relevance-1',
+    	),
+    	'toshiba'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/toshiba',
+	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1'
+    	),
+    	'transcend'=>array(
+    		'https://www.pccomponentes.com/discos-duros/toshiba',
+	    	'https://www.pccomponentes.com/discos-duros/toshiba#relevance-1',
+    	),
+    	'western-digital'=>array(
+	    	'https://www.pccomponentes.com/discos-duros/western-digital',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-1',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-2',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-3',
+	    	'https://www.pccomponentes.com/discos-duros/western-digital#relevance-4',
+    	),
     );
 	function saveProductsPCC(){
 		$contenido=array(
 			'asus'=>array(),
-			'gigabyte'=>array(),
-			'msi'=>array(),
-	    	
+	    	'avexir'=>array(),
+	    	'corsair'=>array(),
+	    	'crucial'=>array(),
+	    	'g-skill'=>array(),
+	    	'intel'=>array(),
+	    	'kingston'=>array(),
+	    	'samsung'=>array(),
+	    	'seagate'=>array(),
+	    	'sandisk'=>array(),
+	    	'toshiba'=>array(),
+	    	'transcend'=>array(),
+	    	'western-digital'=>array(),
 	    );
-		foreach ($this->urlPlacasBase as $marca => $value) {
+		foreach ($this->urlDiscosDuros as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
@@ -42,11 +80,12 @@ class pccPlacasBase extends CI_Model{
 		$nombre = "data-name";
 		$precio = "data-price";
 		$imagen = "src";
+		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','gigabyte','msi');
+		$marca = array('asus','avexir','corsair','crucial','g-skill','intel','kingston','samsung','seagate','sandisk','toshiba','transcend','western-digital');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -79,8 +118,8 @@ class pccPlacasBase extends CI_Model{
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
 				if ($imagenProducto == @$productos[$key]['imagen']) {
-			 		$j++;
-					continue;
+				 		$j++;
+						continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -138,7 +177,7 @@ class pccPlacasBase extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>1));	
+					array_push($productos, array('FK_DD_PK_PROD'=>3,'DD_img'=>$imagenProducto,'DD_nombre'=>$nombreProducto,'DD_precio'=>$precioProducto,'DD_marca'=>$val,'FK_DD_PK_TIE'=>2));	
 				}
 				$j++;
 			

@@ -194,35 +194,11 @@ class pccGraficas extends CI_Model{
 				$j++;
 			
 			}
-<<<<<<< HEAD
-<<<<<<< HEAD
-			
-			 return $productos;
-			// $this->cont++;
-		}
-
-			/*echo "<pre>";
-			print_r($productos);
-			echo "<pre>";*/
-
-=======
->>>>>>> master
-			// echo "<pre>";
-			// print_r($productos);
-			return $productos;
-<<<<<<< HEAD
-
-			// $this->cont=0;
-=======
-		}
->>>>>>> master
-=======
 			
 		}
 			// echo "<pre>";
 			// print_r($productos);
 			return $productos;
->>>>>>> 73750f3bc1431ad74690cdbcc1c4d292458e83b6
 	}
 }
 ?>

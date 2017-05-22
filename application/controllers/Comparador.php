@@ -14,12 +14,9 @@
         }
 
         function sacarProductosComparables(){
-            echo "string";
             $data = $this->input->post();
             $componente = $data['componente'];
            $this->load->model($componente);
-           print_r($componente);
-           die;
         }
         
     }
