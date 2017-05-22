@@ -128,8 +128,7 @@ class pccTorres extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('antec', 'cooler-master', 'enermax', 'lepa', 'nfortec', 'noctua', 'nox', 'phanteks', 'silverstone', 'tacens', 'thermalright', 'thermaltake','antec-liquida', 'cooler-master-liquida', 'corsair-liquida', 'ekwb-liquida', 'enermax-liquida', 'fractal-liquida', 'lepa-liquida', 'nox-liquida', 'nzxt-liquida', 'silverstone-liquida', 'thermaltake-liquida');
-
+		$marca = array('aerocool', 'antec', 'b-move', 'bitfenix', 'bultaco', 'cooler-master', 'corsair', 'enermax', 'fractal', 'l-link', 'lian-li', 'nfortec', 'nox', 'nzxt', 'owlotech', 'phanteks', 'silverstone', 'tacens', 'thermaltake', 'tooq',);
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -160,7 +159,7 @@ class pccTorres extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
+				if ($imagenProducto == @$productos[$key]['imagen']) {
 			 		$j++;
 					continue;
 				}

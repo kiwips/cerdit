@@ -194,10 +194,11 @@ class pccGraficas extends CI_Model{
 				$j++;
 			
 			}
+			
+		}
 			// echo "<pre>";
 			// print_r($productos);
 			return $productos;
-		}
 	}
 }
 ?>

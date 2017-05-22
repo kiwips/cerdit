@@ -77,11 +77,7 @@ class pccMonitores extends CI_Model{
 	    );
 		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-<<<<<<< HEAD
-					array_push($contenido[$marca], file_get_contents($url));
-=======
 				array_push($contenido[$marca], file_get_contents($url));
->>>>>>> kevin
 			}
 		}
 		$nombre = "data-name";

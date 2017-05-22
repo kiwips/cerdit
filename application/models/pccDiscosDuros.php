@@ -74,11 +74,7 @@ class pccDiscosDuros extends CI_Model{
 	    );
 		foreach ($this->urlDiscosDuros as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-<<<<<<< HEAD
-					array_push($contenido[$marca], file_get_contents($url));
-=======
 				array_push($contenido[$marca], file_get_contents($url));
->>>>>>> kevin
 			}
 		}
 		$nombre = "data-name";

@@ -8,18 +8,12 @@ class pccRatones extends CI_Model{
 		'3dconnexion'=>array(
 	  		'https://www.pccomponentes.com/ratones/3dconnexion',
 	    	),
-<<<<<<< HEAD
-	    	'apple'=>array(
-		    	'https://www.pccomponentes.com/ratones/apple',
-	    	),
-=======
->>>>>>> kevin
+
 	    	'approx'=>array(
 		    	'https://www.pccomponentes.com/ratones/approx',
 		    ),
 	    	'asus'=>array(
 		    	'https://www.pccomponentes.com/ratones/asus',
-<<<<<<< HEAD
 	    	),
 	    	'bg'=>array(
 	    		'https://www.pccomponentes.com/ratones/bg',
@@ -101,265 +95,6 @@ class pccRatones extends CI_Model{
 	    	'toshiba'=>array(
 		    	'https://www.pccomponentes.com/ratones/toshiba',
 	    	),
-	    	'trust'=>array(
-		    	'https://www.pccomponentes.com/ratones/trust',
-		    	'https://www.pccomponentes.com/ratones/trust#relevance-1',
-	    	),
-	    	'unotec'=>array(
-		    	'https://www.pccomponentes.com/ratones/unotec',
-	    	),
-	    	'zowie'=>array(
-		    	'https://www.pccomponentes.com/ratones/zowie',
-	    	),
-    );
-
-	function saveProductsPCC(){
-		$contenido=array(
-			'3dconnexion'=>array(
-	  
-	    	),
-	    	'apple'=>array(
-		    	
-	    	),
-	    	'approx'=>array(
-		    	
-		    ),
-	    	'asus'=>array(
-		    	
-	    	),
-	    	'bg'=>array(
-
-	    	),
-	    	'bluestork'=>array(
-		    	
-	    	),
-	    	'bultaco'=>array(
-		    	
-	    	),
-	    	'conceptronic'=>array(
-		    	
-	    	),
-	    	'cooler-master'=>array(
-		    	
-	    	),
-	    	'corsair'=>array(
-		    	
-	    	),
-	    	'creative'=>array(
-		    	
-	    	),
-	    	'elephone'=>array(
-		    	
-	    	),
-	    	'g-skill'=>array(
-		    	
-	    	),
-	    	'kingston'=>array(
-		    	
-	    	),
-	    	'krom'=>array(
-		    	
-	    	),
-	    	'raton-logitech'=>array(
-		    	
-	    	),
-	    	'mad-catz'=>array(
-		    	
-	    	),
-	    	'microsoft'=>array(
-		    	
-	    	),
-	    	'newskill'=>array(
-		    	
-	    	),
-	    	'ngs'=>array(
-		    	
-=======
-	    	),
-	    	'bg'=>array(
-	    		'https://www.pccomponentes.com/ratones/bg',
-	    	),
-	    	'bluestork'=>array(
-		    	'https://www.pccomponentes.com/ratones/bluestork',
-	    	),
-	    	'bultaco'=>array(
-		    	'https://www.pccomponentes.com/ratones/bultaco',
-	    	),
-	    	'conceptronic'=>array(
-		    	'https://www.pccomponentes.com/ratones/conceptronic',
-	    	),
-	    	'cooler-master'=>array(
-		    	'https://www.pccomponentes.com/ratones/cooler-master',
-	    	),
-	    	'corsair'=>array(
-		    	'https://www.pccomponentes.com/ratones/corsair',
-	    	),
-	    	'creative'=>array(
-		    	'https://www.pccomponentes.com/ratones/creative',
-	    	),
-	    	'elephone'=>array(
-		    	'https://www.pccomponentes.com/ratones/elephone',
-	    	),
-	    	'g-skill'=>array(
-		    	'https://www.pccomponentes.com/ratones/g-skill',
-	    	),
-	    	'kingston'=>array(
-		    	'https://www.pccomponentes.com/ratones/kingston',
-	    	),
-	    	'krom'=>array(
-		    	'https://www.pccomponentes.com/ratones/krom',
-	    	),
-	    	'logitech'=>array(
-		    	'https://www.pccomponentes.com/raton-logitech',
-		    	'https://www.pccomponentes.com/raton-logitech#relevance-1',
-	    	),
-	    	'mad-catz'=>array(
-		    	'https://www.pccomponentes.com/ratones-mad-catz',
-	    	),
-	    	'microsoft'=>array(
-		    	'https://www.pccomponentes.com/ratones/microsoft',
-		    	'https://www.pccomponentes.com/ratones/microsoft#relevance-1'
-	    	),
-	    	'newskill'=>array(
-		    	'https://www.pccomponentes.com/ratones/newskill',
-	    	),
-	    	'ngs'=>array(
-		    	'https://www.pccomponentes.com/ratones/ngs',
->>>>>>> kevin
-	    	),
-	    	'owlotech'=>array(
-		    	'https://www.pccomponentes.com/ratones/owlotech',
-	    	),
-	    	'ozone'=>array(
-<<<<<<< HEAD
-		    	
-	    	),
-	    	'razer'=>array(
-		    	
-	    	),
-	    	'sharkoon'=>array(
-		    	
-	    	),
-	    	'raton-steelseries'=>array(
-		    	
-=======
-	    		'https://www.pccomponentes.com/ratones/ozone',
-	    	),
-	    	'razer'=>array(
-		    	'https://www.pccomponentes.com/raton-razer',
-	    	),
-	    	'sharkoon'=>array(
-		    	'https://www.pccomponentes.com/ratones/sharkoon',
-	    	),
-	    	'steelseries'=>array(
-		    	'https://www.pccomponentes.com/raton-steelseries',
->>>>>>> kevin
-	    	),
-	    	'tacens'=>array(
-		    	'https://www.pccomponentes.com/ratones/tacens',
-	    	),
-	    	'the-g-lab'=>array(
-		    	'https://www.pccomponentes.com/ratones/the-g-lab',
-	    	),
-	    	'the-g-lab'=>array(
-		    	
-	    	),
-	    	'thermaltake'=>array(
-		    	'https://www.pccomponentes.com/ratones/thermaltake',
-	    	),
-	    	'thunder-x3'=>array(
-		    	'https://www.pccomponentes.com/ratones/thunder-x3',
-	    	),
-	    	'toshiba'=>array(
-		    	'https://www.pccomponentes.com/ratones/toshiba',
-	    	),
-<<<<<<< HEAD
-	    	'thunder-x3'=>array(
-		    	
-	    	),
-	    	'toshiba'=>array(
-		    	
-	    	),
-	    	'trust'=>array(
-		    	
-	    	),
-	    	'unotec'=>array(
-		    	
-	    	),
-	    	'zowie'=>array(
-		    	
-	    	),
-	    );
-		foreach ($this->urlRatones as $marca => $value) {
-			foreach ($value as $key1 => $url) {
-				if ($marca=='3dconnexion') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='apple') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='approx'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='asus'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='bg'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='bluestork'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='bultaco'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='conceptronic'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='cooler-master'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='creative'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='elephone'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='g-skill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='kingston'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='krom'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='raton-logitech'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='mad-catz'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='microsoft'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='newskill'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='ngs'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='owlotech'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='ozone'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='razer'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='sharkoon'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='raton-steelseries'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='tacens'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='the-g-lab'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermaltake'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thunder-x3'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='toshiba'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='trust'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='unotec'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='zowie'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
-=======
 	    	'trust'=>array(
 		    	'https://www.pccomponentes.com/ratones/trust',
 		    	'https://www.pccomponentes.com/ratones/trust#relevance-1',
@@ -410,7 +145,6 @@ class pccRatones extends CI_Model{
 		foreach ($this->urlRatones as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
->>>>>>> kevin
 			}
 		}
 		$nombre = "data-name";
@@ -421,12 +155,7 @@ class pccRatones extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-<<<<<<< HEAD
-		$marca = array('3dconnexion','apple','approx','asus','bg','bluestork','bultaco','conceptronic','cooler-master','corsair','creative','elephone','g-skill','kingston','krom','raton-logitech','mad-catz','microsoft','newskill','ngs','owlotech','ozone','razer','sharkoon','raton-steelseries','tacens','the-g-lab','thermaltake','thunder-x3','toshiba','trust','unotec','zowie');
-
-=======
 		$marca = array('3dconnexion','approx','asus','bg','bluestork','bultaco', 'conceptronic', 'cooler-master', 'corsair', 'creative', 'elephone', 'g-skill', 'kingston', 'krom', 'logitech', 'mad-catz', 'microsoft', 'newskill', 'ngs', 'owlotech', 'ozone', 'razer', 'sharkoon', 'steelseries', 'tacens', 'the-g-lab', 'thermaltake', 'thunder-x3', 'toshiba', 'trust', 'unotec', 'zowie',);
->>>>>>> kevin
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -529,7 +258,7 @@ class pccRatones extends CI_Model{
 		}
 			// echo "<pre>";
 			// print_r($productos);
-			// echo "<pre>";
+			// echo "</pre>";
 			return $productos;
 			// $this->cont=0;
 	}

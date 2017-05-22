@@ -59,18 +59,9 @@ class pccSistemasOperativos extends CI_Model{
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
-<<<<<<< HEAD
-				/*=================PRICING=====================*/
-				$a = strpos($contenido[$val][0], $precio,$a);
-=======
-				if ($imagenProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
-				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
->>>>>>> kevin
 				$aux=0;
 				$aux2=0;
 				$aux3=false;

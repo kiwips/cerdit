@@ -5,8 +5,7 @@ class insertProducto extends CI_Model{
   }  
 
   public function insertarProductos($listaProducto,$tipoProducto){
-  	$this->db->query("ALTER TABLE ".$tipoProducto." AUTO_INCREMENT = 1");
-  	$this->db->query("truncate ".$tipoProducto);
+  	$this->db->query("truncate table ".$tipoProducto);
     foreach ($listaProducto as $key => $value) {
         $this->db->insert($tipoProducto, $listaProducto[$key]); 
     }
