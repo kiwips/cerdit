@@ -15,19 +15,26 @@ class Login extends CI_Controller {
     public function loguearse(){
         $data = $this->input->post();
         $this->load->model("User");
-        $correctPass = $this->User->get_USR_pass_where($data);
-        if ($correctPass) {
-            $usuarioRegistrado = $this->User->get_USR_all_where($data['nickL']);
-            $this->crearSesion($usuarioRegistrado);
-            if($data['recordarL']){
-                setcookie('recordar', $usuarioRegistrado[0]['USR_nick']);
-                setcookie('errorLogin','',time()-3600);
+        if ($this->User->get_USR_pass_where($data)) {
+            $this->crearSesion($this->User->get_USR_all_where($data['nickL']));
+            if(isset($data['recordarL'])){
+              $usuarioRegistrado = array(
+                  'Nick' => $data['nickL'],
+                  'Password' => $data['passwdL']
+                );
+                setcookie('recordar', serialize($usuarioRegistrado));
             }
-            redirect('/');
+            setcookie('errorLogin','',time()-3600);
+            delete_cookie('errorLogin');
         }else{
             setcookie('errorLogin','Error en la autenticaçion',time()+3600);
             redirect('/');
         }
+            $this->load->model("productos");
+            $data['productos'] = $this->productos->get_PROD_NOM();            
+            $data['titulo'] = 'DreamPC';
+            $data['main_content'] = 'index_View'; 
+            $this->parser->parse('includes/template',$data);
     }
 
     function crearSesion($usuarioRegistrado){
@@ -45,7 +52,6 @@ class Login extends CI_Controller {
          'logueado' => FALSE
          );
       $this->session->sess_destroy();
-      setcookie('recordar', $usuario['nickL']);
       redirect('/');
   }
     

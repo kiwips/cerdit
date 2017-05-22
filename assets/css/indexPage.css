@@ -1,6 +1,18 @@
 .jumbotron{
 	margin-bottom: 0;	
 	height: 150px;
+	background-color: #FAAC58;
+	color: white; 
+
+}
+
+.navbar-inverse{
+	background-color: #585858;
+	border-color: #585858;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+	color: #81BEF7;
 }
 
 .titulo{
@@ -29,4 +41,11 @@
 
 nav>li>a:hover{
 	color: #81BEF7;
+}
+
+
+#menu{
+    width: 3%;
+    background-color: white;
+    border: 0; 
 }

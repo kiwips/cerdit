@@ -3,9 +3,8 @@
 	<div class="footer-left">
 		<p class="footer-links">
 			<a href="<?=base_url()?>">Home</a> ·
-			<a href="#">Blog</a> ·
 			<a href="#">About</a> ·
-			<a href="#">Contact</a>
+			<a href="contacto">Contact</a>
 		</p>
 		<p class="footer-company-name">DreamPC &copy; 2017</p>
 	</div>
@@ -20,23 +19,19 @@
 		</div>
 		<div>
 			<i class="fa fa-envelope"></i>
-			<p><a href="mailto:support@company.com">comparadorpc@gmail.com</a></p>
+			<p><a href="mailto:comparadorpc@gmail.com">comparadorpc@gmail.com</a></p>
 		</div>
 	</div>
 	<div class="footer-right">
 		<p class="footer-company-about">
-			<span>Sobre nosotros</span>
+			<span>Que ofrecemos</span>
 			Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
 		</p>
 		<div class="footer-icons">
 			<a href="https://www.instagram.com/Dream_pc/?hl=es" title="Instagram"><i class="fa fa-instagram"></i></a>
 			<a href="https://github.com/kiwips/cerdit"><i class="fa fa-github" title="GitHub"></i></a>
 			<a href="#"><i class="fa fa-facebook"></i></a>
-			<p class="footer-company-about"> 
-				<span> Jaime Serrano <a href="#"><i class="fa fa-linkedin nuestro"></i></a> </span>
-				 <span> Kevin Pérez-Sala <a href="#"><i class="fa fa-linkedin nuestro"></i></a> </span>
-				 <span> Christian Perez <a href="#"><i class="fa fa-linkedin nuestro"></i></a> </span> 
-			 </p>
+			<a href="#"><i class="fa fa-linkedin nuestro"></i></a>
 		</div>
 	</div>
 </footer>

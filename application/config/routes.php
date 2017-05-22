@@ -68,3 +68,6 @@ $route['canviarPerfil'] = 'Perfil/canviarPerfil';
 
 $route['actualizarbbdd'] = 'meterProductos';
 
+$route['productoComparar'] = 'comparador/sacarProductosComparables';
+
+$route['contacto'] = 'Paginas/contacto';
