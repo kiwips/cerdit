@@ -8,18 +8,12 @@ class pccRatones extends CI_Model{
 		'3dconnexion'=>array(
 	  		'https://www.pccomponentes.com/ratones/3dconnexion',
 	    	),
-<<<<<<< HEAD
-	    	'apple'=>array(
-		    	'https://www.pccomponentes.com/ratones/apple',
-	    	),
-=======
->>>>>>> kevin
+
 	    	'approx'=>array(
 		    	'https://www.pccomponentes.com/ratones/approx',
 		    ),
 	    	'asus'=>array(
 		    	'https://www.pccomponentes.com/ratones/asus',
-<<<<<<< HEAD
 	    	),
 	    	'bg'=>array(
 	    		'https://www.pccomponentes.com/ratones/bg',
@@ -115,6 +109,7 @@ class pccRatones extends CI_Model{
 
 	function saveProductsPCC(){
 		$contenido=array(
+<<<<<<< HEAD
 <<<<<<< HEAD
 		'aerocool'=>array(
 =======
@@ -378,6 +373,8 @@ class pccRatones extends CI_Model{
 
 	function saveProductsPCC(){
 		$contenido=array(
+=======
+>>>>>>> 73750f3bc1431ad74690cdbcc1c4d292458e83b6
 			'3dconnexion'=>array(),
 	    	'approx'=>array(),
 	    	'asus'=>array(),
@@ -414,7 +411,6 @@ class pccRatones extends CI_Model{
 		foreach ($this->urlRatones as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
->>>>>>> kevin
 			}
 		}
 		$nombre = "data-name";
@@ -425,12 +421,7 @@ class pccRatones extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-<<<<<<< HEAD
-		$marca = array('3dconnexion','apple','approx','asus','bg','bluestork','bultaco','conceptronic','cooler-master','corsair','creative','elephone','g-skill','kingston','krom','raton-logitech','mad-catz','microsoft','newskill','ngs','owlotech','ozone','razer','sharkoon','raton-steelseries','tacens','the-g-lab','thermaltake','thunder-x3','toshiba','trust','unotec','zowie');
-
-=======
 		$marca = array('3dconnexion','approx','asus','bg','bluestork','bultaco', 'conceptronic', 'cooler-master', 'corsair', 'creative', 'elephone', 'g-skill', 'kingston', 'krom', 'logitech', 'mad-catz', 'microsoft', 'newskill', 'ngs', 'owlotech', 'ozone', 'razer', 'sharkoon', 'steelseries', 'tacens', 'the-g-lab', 'thermaltake', 'thunder-x3', 'toshiba', 'trust', 'unotec', 'zowie',);
->>>>>>> kevin
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -522,7 +513,7 @@ class pccRatones extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_RAT_PK_PROD'=>11,'RAT_img'=>$imagenProducto,'RAT_nombre'=>$nombreProducto,'RAT_precio'=>$precioProducto,'RAT_marca'=>$val));	
+					array_push($productos, array('FK_RAT_PK_PROD'=>11,'RAT_img'=>$imagenProducto,'RAT_nombre'=>$nombreProducto,'RAT_precio'=>$precioProducto,'RAT_marca'=>$val,'FK_RAT_PK_TIE'=>1));	
 				}
 				$j++;
 			
@@ -533,7 +524,7 @@ class pccRatones extends CI_Model{
 		}
 			// echo "<pre>";
 			// print_r($productos);
-			// echo "<pre>";
+			// echo "</pre>";
 			return $productos;
 			// $this->cont=0;
 	}

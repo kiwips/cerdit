@@ -189,11 +189,12 @@ class pccGraficas extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val));	
+					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val,'FK_GRF_PK_TIE'=>1));	
 				}
 				$j++;
 			
 			}
+<<<<<<< HEAD
 <<<<<<< HEAD
 			
 			 return $productos;
@@ -215,6 +216,13 @@ class pccGraficas extends CI_Model{
 =======
 		}
 >>>>>>> master
+=======
+			
+		}
+			// echo "<pre>";
+			// print_r($productos);
+			return $productos;
+>>>>>>> 73750f3bc1431ad74690cdbcc1c4d292458e83b6
 	}
 }
 ?>

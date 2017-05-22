@@ -75,7 +75,7 @@ class pccTorres extends CI_Model{
 	    	'https://www.pccomponentes.com/torres-atx/phanteks#relevance-2',
     	),
 
-	'silverstone'=>array(
+		'silverstone'=>array(
 	    	'https://www.pccomponentes.com/torres-atx/silverstone',
     	),
 
@@ -172,8 +172,7 @@ class pccTorres extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('antec', 'cooler-master', 'enermax', 'lepa', 'nfortec', 'noctua', 'nox', 'phanteks', 'silverstone', 'tacens', 'thermalright', 'thermaltake','antec-liquida', 'cooler-master-liquida', 'corsair-liquida', 'ekwb-liquida', 'enermax-liquida', 'fractal-liquida', 'lepa-liquida', 'nox-liquida', 'nzxt-liquida', 'silverstone-liquida', 'thermaltake-liquida');
-
+		$marca = array('aerocool', 'antec', 'b-move', 'bitfenix', 'bultaco', 'cooler-master', 'corsair', 'enermax', 'fractal', 'l-link', 'lian-li', 'nfortec', 'nox', 'nzxt', 'owlotech', 'phanteks', 'silverstone', 'tacens', 'thermaltake', 'tooq',);
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -223,7 +222,7 @@ class pccTorres extends CI_Model{
 =======
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
-				if ($nombreProducto == @$productos[$key]['imagen']) {
+				if ($imagenProducto == @$productos[$key]['imagen']) {
 			 		$j++;
 					continue;
 				}
@@ -313,7 +312,7 @@ class pccTorres extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-hTOR=') {
 						continue;
 					}
-					array_push($productos, array('FK_TOR_PK_PROD'=>7,'TOR_img'=>$imagenProducto,'TOR_nombre'=>$nombreProducto,'TOR_precio'=>$precioProducto,'TOR_marca'=>$val));	
+					array_push($productos, array('FK_TOR_PK_PROD'=>7,'TOR_img'=>$imagenProducto,'TOR_nombre'=>$nombreProducto,'TOR_precio'=>$precioProducto,'TOR_marca'=>$val,'FK_TOR_PK_TIE'=>1));	
 				}
 				$j++;
 			
