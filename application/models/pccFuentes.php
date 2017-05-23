@@ -132,14 +132,7 @@ class pccFuentes extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
-				/*=================IMAGES=====================*/
 
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
 				/*=================IMAGES=====================*/
 
 				$a = strpos($contenido[$val][0], $imagen,$a);

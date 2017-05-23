@@ -5,7 +5,8 @@ class meterProductos extends CI_Controller {
 
 	public function index() {
 		// if ($this->session->userdata('permiso')=='Admin'){
-			$this->load->model('pcbGraficas');
+			// $this->load->model('pcbGraficas');
+			$this->load->model('pcbTorres');
 			// $this->load->model('pccDiscosDuros');
 			// $this->load->model('pccFuentes');
 			// $this->load->model('pccGraficas');
@@ -20,7 +21,8 @@ class meterProductos extends CI_Controller {
 			// $this->load->model('pccTorres');
 			// $this->load->model('insertProducto');
 			$productos = array(
-				'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
+				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
+				'torre'=>$this->pcbTorres->saveProductsPCB(),
 				// 'disco_duro' => $this->pccDiscosDuros->saveProductsPCC(),
 				// 'fuente_alimentacion' => $this->pccFuentes->saveProductsPCC(),
 				// 'tarjeta_grafica' => $this->pccGraficas->saveProductsPCC(),

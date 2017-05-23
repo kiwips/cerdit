@@ -14,19 +14,18 @@ class pcbGraficas extends CI_Model{
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/6?nodo=112',
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/7?nodo=112',
     	),
-    	// 'amd'=>array(
-
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express?nodo=113',
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/2?nodo=113',
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/3?nodo=113',
-    	// ),'asus'=>array(
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express?nodo=112/m/asus',
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/2/m/asus',
-	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/3/m/asus',
-    	// ),
+    	'amd'=>array(
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express?nodo=113',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/2?nodo=113',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/3?nodo=113',
+    	),'asus'=>array(
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express?nodo=112/m/asus',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/2/m/asus',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/3/m/asus',
+    	),
     	// 'gigabyte'=>array(
 	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte',
-	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-1',
+	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/2/m/gigabyte',
 	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-2',
 	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-3',
     	// ),
@@ -58,30 +57,30 @@ class pcbGraficas extends CI_Model{
 			'nvidia'=>array(
 	  
 	    	),
-	    	// 'amd'=>array(
+	    	'amd'=>array(
 		    	
-	    	// ),
-	    	// 'asus'=>array(
+	    	),
+	    	'asus'=>array(
 		    	
-		    // ),
-	    	// 'gigabyte'=>array(
+		    ),
+	    	'gigabyte'=>array(
 		    	
-	    	// ),
-	    	// 'evga'=>array(
+	    	),
+	    	'evga'=>array(
 
-	    	// ),
-	    	// 'msi'=>array(
+	    	),
+	    	'msi'=>array(
 		    	
-	    	// ),
-	    	// 'pny'=>array(
+	    	),
+	    	'pny'=>array(
 		    	
-	    	// ),
-	    	// 'sapphire'=>array(
+	    	),
+	    	'sapphire'=>array(
 		    	
-	    	// ),
-	    	// 'xfx'=>array(
+	    	),
+	    	'xfx'=>array(
 		    	
-	    	// ),
+	    	),
 	    );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
@@ -89,8 +88,8 @@ class pcbGraficas extends CI_Model{
 			}
 		}
 		$nombre = 'itemprop="name" title';
-		$precio = 'content';
-		
+		$precio = 'itemprop="price" content';
+		$retards = 'Consultar';
 		$productos = array();
 		$j=0;
 		$a=0;
@@ -161,6 +160,9 @@ class pcbGraficas extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
+					if ($no) {
+						# code...
+					}
 					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val,'FK_GRF_PK_TIE'=>2));	
 				}
 				$j++;
@@ -170,7 +172,7 @@ class pcbGraficas extends CI_Model{
 		}
 			echo "<pre>";
 			print_r($productos);
-			// return $productos;
+			return $productos;
 	}
 }
 ?>

@@ -116,9 +116,8 @@ class pccFuentes extends CI_Model{
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
+		$nombre = 'itemprop="name" title';
 		$precio = "data-price";
-		$imagen = "src";
 		
 		$productos = array();
 		$j=0;
@@ -132,42 +131,7 @@ class pccFuentes extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { //oc
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($imagenProducto == @$productos[$key]['FUE_img']) {
-				 		$j++;
-						continue;
-				}
-
+		
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -181,11 +145,11 @@ class pccFuentes extends CI_Model{
 				$key=key($productos);
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -226,7 +190,7 @@ class pccFuentes extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://')
 						continue;
 					}
-					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	
+					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	
 				}
 				$j++;
 				
