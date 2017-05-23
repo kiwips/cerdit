@@ -1,7 +1,3 @@
-.footer{
-	margin-top: 20%;
-}
-
 .footer-distributed{
 	background-color: #FAAC58;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -10,7 +6,7 @@
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 5px 5px;
-	margin-top: 27.8%;
+	margin-top: 5%;
 }
 
 .footer-distributed .footer-left,

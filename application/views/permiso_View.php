@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-4 col-md-offset-4">	
+	<div class="col-md-5 col-md-offset-4">	
 		<table class="table table-border">
 			<tr>
 				<th style="border-top: 0;">Nick</th>
@@ -8,8 +8,8 @@
 			{user}			
 			<tr>
 				<?=form_open('/permiso')?>
-				<td style="width: 5%;"> <input name="nickP" value="{USR_nick}" readonly style="border: 0px;"></td>
-				<td style="width: 5%;"> {USR_permiso} </td>				
+				<td> <input name="nickP" value="{USR_nick}" readonly style="border: 0px;"></td>
+				<td> {USR_permiso} </td>				
 				<td>
 					<select name="permiso" id="selectorPermisos">
 						<option value="Admin">Admin</option>

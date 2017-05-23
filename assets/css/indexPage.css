@@ -1,9 +1,13 @@
 .jumbotron{
 	margin-bottom: 0;	
-	height: 150px;
 	background-color: #FAAC58;
 	color: white; 
 
+}
+
+.imagenLogo{
+	width: 25%;
+    	margin-top: -4%; 
 }
 
 .navbar-inverse{
@@ -20,7 +24,7 @@
 }
 
 .cuenta{
-	margin-right: 50px;
+	margin-right: 48px;
 }
 
 .navbar{
@@ -51,10 +55,19 @@ nav>li>a:hover{
 }
 
 .cerrarMenu{
-	margin-top: 4%;
-	margin-left: 2%;
+	margin-top: 1%;
+	margin-left: 1%;
+	position: fixed;
 }
 
 button:focus{
 	outline: none;
+}
+
+.mayusculas{
+	text-transform: uppercase;
+}
+
+.todo{
+	margin-top: 10%;
 }

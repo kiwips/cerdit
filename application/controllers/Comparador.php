@@ -5,21 +5,76 @@
         
         function __construct(){
             parent::__construct();
+            $this->load->model("productos");
         }
 
         function index(){      
-            $data['titulo'] = 'DreamPc';
+            $data['productos'] = $this->productos->get_PROD_NOM();              
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
         }
 
         function sacarProductosComparables(){
-            echo "string";
-            $data = $this->input->post();
-            $componente = $data['componente'];
+            $data = $this->input->get();
+            $componente = $data['n'];
+            $componente = str_replace(" ","_",$componente);
            $this->load->model($componente);
-           print_r($componente);
-           die;
+           $data['todoComponente'] = $this->$componente->get_all();           
+           $cont=0;
+           foreach ($data['todoComponente'] as $key => $value) {
+               foreach ($value as $key1 => $value1) {
+                $replace = array(
+                  'MIC_' =>  '',
+                  'PLB_' => '',
+                  'RAT_' => '',
+                  'DD_' => '',
+                  'FUE_' => '',
+                  'RAM_' => '',
+                  'MON_' => '',
+                  'REF_' => '',
+                  'SO_' => '',
+                  'GRF_' => '',
+                  'TEC_' => '',
+                  'TOR_' => '',
+                );
+                   $aux = strtr($key1,$replace);
+                   $data['todoComponente'][$cont][$aux] = $data['todoComponente'][$cont][$key1];
+                   unset($data['todoComponente'][$cont][$key1]);
+                   
+               }
+               $cont++;
+           }
+
+            $cont=0;
+            $data['marcaFiltrado'] = $this->$componente->get_all_marca(); 
+           foreach ($data['marcaFiltrado']  as $key => $value) {
+               foreach ($value as $key1 => $value1) {
+                $replace = array(
+                  'MIC_' =>  '',
+                  'PLB_' => '',
+                  'RAT_' => '',
+                  'DD_' => '',
+                  'FUE_' => '',
+                  'RAM_' => '',
+                  'MON_' => '',
+                  'REF_' => '',
+                  'SO_' => '',
+                  'GRF_' => '',
+                  'TEC_' => '',
+                  'TOR_' => '',
+                );
+                   $aux = strtr($key1,$replace);
+                   $data['marcaFiltrado'] [$cont][$aux] = $data['marcaFiltrado'] [$cont][$key1];
+                   unset($data['marcaFiltrado'] [$cont][$key1]);
+                   
+               }
+               $cont++;
+           }
+            $data['precioFiltrado'] = $this->$componente->get_min_max_precio();
+            $data['productos'] = $this->productos->get_PROD_NOM();
+            $data['main_content'] = 'index_View'; 
+            $this->parser->parse('includes/template',$data);
+
         }
         
     }

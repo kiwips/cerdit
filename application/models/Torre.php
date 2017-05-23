@@ -1,5 +1,5 @@
 <?php 
-class torres extends CI_Model{
+class Torre extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
@@ -50,6 +50,25 @@ class torres extends CI_Model{
             $this->db->select('TOR_tamano_z');
             $query = $this->db->get('torre');
             return $query->result_array();
-        }         
+        }  
+
+        /*No tocar*/
+        public function get_all(){
+            $this->db->select('TOR_nombre, TOR_precio,TOR_precio,TOR_img,TOR_marca');
+            $query = $this->db->get('torre');
+            return $query->result_array();
+        } 
+
+        public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('TOR_marca');
+            $query = $this->db->get('torre');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(TOR_PRECIO)) AS precio_minimo, ROUND(MAX(TOR_PRECIO)) AS precio_maximo from torre;");
+            return $query->result_array();
+        }                
 }
 ?>

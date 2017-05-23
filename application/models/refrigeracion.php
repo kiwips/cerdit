@@ -63,6 +63,25 @@ class refrigeracion extends CI_Model{
             $query = $this->db->get('refrigeracion');
             return $query->result_array();
         }     
-             
+          
+
+            /*No tocar*/
+        public function get_all(){
+            $this->db->select('REF_nombre, REF_precio,REF_precio,REF_img,REF_marca');
+            $query = $this->db->get('refrigeracion');
+            return $query->result_array();
+        }  
+
+        public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('REF_marca');
+            $query = $this->db->get('refrigeracion');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(REF_PRECIO)) AS precio_minimo, ROUND(MAX(REF_PRECIO)) AS precio_maximo from refrigeracion;");
+            return $query->result_array();
+        }                    
 }
 ?>

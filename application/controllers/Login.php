@@ -31,8 +31,7 @@ class Login extends CI_Controller {
             redirect('/');
         }
             $this->load->model("productos");
-            $data['productos'] = $this->productos->get_PROD_NOM();            
-            $data['titulo'] = 'DreamPC';
+            $data['productos'] = $this->productos->get_PROD_NOM();                     
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
     }

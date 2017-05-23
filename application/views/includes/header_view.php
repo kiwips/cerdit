@@ -11,16 +11,9 @@
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/indexPage.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/registro.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/permiso.css')?>" />
-        <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/header.css')?>" />
         <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/footer.css')?>" />
-        <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/comparador.css')?>" />
-
-        <!-- JS -->
-        <script type="text/javascript" src="<?=base_url('assets/js/jquery-3.1.1.min.js')?>" ></script>
-        <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
-        <script type="text/javascript" src="<?=base_url('assets/js/comparador.js')?>"></script>
-        <script type="text/javascript" src="<?=base_url('assets/js/index.js')?>"></script>
-
+        <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/articulos.css')?>" />
+        
         <style type="text/css">
         body{
             font-family: Arial;
@@ -32,15 +25,14 @@
     </head>
     <body>
     <div class="jumbotron">
-    <div class="container text-center"> 
-        <!-- <h1 class="titulo"> {titulo} </h1> -->
+    <div class="container text-center">         
         <img class="imagenLogo" src="<?=base_url('assets/img/DreamPC.png')?>">
     </div>
 </div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="<?=base_url()?>">DreamPC</a>
+      <a class="navbar-brand" href="index">DreamPC</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">

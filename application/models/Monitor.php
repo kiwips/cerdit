@@ -1,5 +1,5 @@
 <?php 
-class monitores extends CI_Model{
+class Monitor extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
@@ -57,5 +57,25 @@ class monitores extends CI_Model{
             $query = $this->db->get('monitor');
             return $query->result_array();
         }
+
+
+            /*No tocar*/
+        public function get_all(){
+            $this->db->select('MON_nombre, MON_precio,MON_precio,MON_img,MON_marca');
+            $query = $this->db->get('monitor');
+            return $query->result_array();
+        }   
+
+        public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('MON_marca');
+            $query = $this->db->get('monitor');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(MON_PRECIO)) AS precio_minimo, ROUND(MAX(MON_PRECIO)) AS precio_maximo from monitor;");
+            return $query->result_array();
+        }             
 }
 ?>

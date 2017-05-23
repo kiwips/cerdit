@@ -54,6 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /*Comprobador*/
+$route['index'] = 'Comparador';
+
 $route['login'] = 'Login/loguearse';
 $route['finSesion'] = 'Login/cerrarSesion';
 
@@ -68,6 +70,6 @@ $route['canviarPerfil'] = 'Perfil/canviarPerfil';
 
 $route['actualizarbbdd'] = 'meterProductos';
 
-$route['productoComparar'] = 'comparador/sacarProductosComparables';
+$route['componente'] = 'comparador/sacarProductosComparables';
 
 $route['contacto'] = 'Paginas/contacto';
