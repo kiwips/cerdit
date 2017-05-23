@@ -18,6 +18,7 @@ class pcbGraficas extends CI_Model{
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express?nodo=113',
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/2?nodo=113',
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-amd-pci-express/p/3?nodo=113',
+<<<<<<< HEAD
     	),
     	'asus'=>array(
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/m/asus',
@@ -36,6 +37,41 @@ class pcbGraficas extends CI_Model{
     	'pny'=>array(
 	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/m/pny', 	
     	),
+=======
+    	),'asus'=>array(
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express?nodo=112/m/asus',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/2/m/asus',
+	    	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/3/m/asus',
+    	),
+    	// 'gigabyte'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte',
+	    // 	'http://www.pcbox.com/categorias/tarjetas-graficas-nvidia-pci-express/p/2/m/gigabyte',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-2',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/gigabyte#relevance-3',
+    	// ),
+    	// 'evga'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/evga',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/evga#relevance-1',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/evga#relevance-2',
+    	// ),
+    	// 'msi'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/msi',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/msi#relevance-1',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/msi#relevance-2',
+    	// ),
+    	// 'pny'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/pny',
+	    	
+    	// ),
+    	// 'sapphire'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/sapphire',
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/sapphire#relevance-1',
+	    	
+    	// ),
+    	// 'xfx'=>array(
+	    // 	'https://www.pccomponentes.com/tarjetas-graficas/xfx',
+    	// ),
+>>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
     );
 	function saveProductsPCB(){
 		$contenido=array(
@@ -43,6 +79,7 @@ class pcbGraficas extends CI_Model{
 	  
 	    	),
 	    	'amd'=>array(
+<<<<<<< HEAD
 		    	
 	    	),
 	    	'asus'=>array(
@@ -55,6 +92,29 @@ class pcbGraficas extends CI_Model{
 		    	
 	    	),
 	    	'pny'=>array(
+=======
+		    	
+	    	),
+	    	'asus'=>array(
+		    	
+		    ),
+	    	'gigabyte'=>array(
+		    	
+	    	),
+	    	'evga'=>array(
+
+	    	),
+	    	'msi'=>array(
+		    	
+	    	),
+	    	'pny'=>array(
+		    	
+	    	),
+	    	'sapphire'=>array(
+		    	
+	    	),
+	    	'xfx'=>array(
+>>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
 		    	
 	    	),
 	    );
@@ -64,8 +124,8 @@ class pcbGraficas extends CI_Model{
 			}
 		}
 		$nombre = 'itemprop="name" title';
-		$precio = 'content';
-		
+		$precio = 'itemprop="price" content';
+		$retards = 'Consultar';
 		$productos = array();
 		$j=0;
 		$a=0;
@@ -136,8 +196,13 @@ class pcbGraficas extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
+<<<<<<< HEAD
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
+=======
+					if ($no) {
+						# code...
+>>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
 					}
 					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val,'FK_GRF_PK_TIE'=>2));	
 				}

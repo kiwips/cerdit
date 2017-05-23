@@ -91,7 +91,11 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 			}
 		}
 		$nombre = 'itemprop="name" title';
+<<<<<<< HEAD
 		$precio = 'content';
+=======
+		$precio = "data-price";
+>>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
 		
 		$productos = array();
 		$j=0;
@@ -105,7 +109,11 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				if ($a<$anterior) {
 					break;
 				}
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);

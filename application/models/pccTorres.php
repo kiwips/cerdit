@@ -216,7 +216,7 @@ class pccTorres extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-hTOR=') {
+					if ($nombreProducto=='es'||$imagenProducto==' data-href=') {
 						continue;
 					}
 					array_push($productos, array('FK_TOR_PK_PROD'=>7,'TOR_img'=>$imagenProducto,'TOR_nombre'=>$nombreProducto,'TOR_precio'=>$precioProducto,'TOR_marca'=>$val,'FK_TOR_PK_TIE'=>1));	
