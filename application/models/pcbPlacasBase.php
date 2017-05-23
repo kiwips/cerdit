@@ -1,37 +1,41 @@
 <?php 
-class pcbPlacasBase extends CI_Model{
+class pcbPlacasBase extends CI_Model{//novanovanovanovanovanovanova
     function __construct(){
         parent::__construct();
     }  
     private $urlPlacasBase=array(
-    	'asus'=>array(
-    		'https://www.pccomponentes.com/placas-base/asus', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-4', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-5', 
+    	'intel'=>array(
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1150?nodo=90',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1150/p/2?nodo=90',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/2?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/3?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/4?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/5?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/6?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/7?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/8?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/9?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i3-i5-i7-1151/p/10?nodo=411',
+    		'http://www.pcbox.com/categorias/placas-intel-core-i7-sk-2011-3?nodo=93',
+    		'http://www.pcbox.com/categorias/placas-intel-core2-duo-775?nodo=84',
+    		'http://www.pcbox.com/categorias/placas-intel-atom-ion?nodo=85',
+
     	),
-    	'gigabyte'=>array(
-    		'https://www.pccomponentes.com/placas-base/gigabyte', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3', 
-    	),
-    	'msi'=>array(
-    		'https://www.pccomponentes.com/placas-base/msi', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-4', 
+    	'amd'=>array(
+    		'http://www.pcbox.com/categorias/placas-amd-fm2plus?nodo=91',
+    		'http://www.pcbox.com/categorias/placas-amd-fm2?nodo=89',
+    		'http://www.pcbox.com/categorias/placas-amd-am4?nodo=428',
+    		'http://www.pcbox.com/categorias/placas-amd-am4/p/2?nodo=428',
+    		'http://www.pcbox.com/categorias/placas-amd-am3plus?nodo=87',
+    		'http://www.pcbox.com/categorias/placas-amd-am1?nodo=92',
     	),
     	
     );
-	function saveProductsPCC(){
+	function saveProductsPCB(){
 		$contenido=array(
-			'asus'=>array(),
-			'gigabyte'=>array(),
-			'msi'=>array(),
+			'intel'=>array(),
+			'amd'=>array(),
 	    	
 	    );
 		foreach ($this->urlPlacasBase as $marca => $value) {
@@ -39,14 +43,14 @@ class pcbPlacasBase extends CI_Model{
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
-		$precio = "data-price";
-		$imagen = "src";
+		$nombre = 'itemprop="name" title';
+		$precio = 'content';
+
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','gigabyte','msi');
+		$marca = array('intel','amd');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -92,11 +96,11 @@ class pcbPlacasBase extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -108,21 +112,22 @@ class pcbPlacasBase extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
+					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>2));	
+					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>2));	
 				}
+			}
 				$j++;
 			
-			}
+
 			
 			// return $productos;
 			// $this->cont++;
 		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "<pre>";
+			echo "<pre>";
+			print_r($productos);
+			echo "<pre>";
 			return $productos;
 	}
 }

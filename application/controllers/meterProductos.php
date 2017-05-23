@@ -8,8 +8,15 @@ class meterProductos extends CI_Controller {
 		// if ($this->session->userdata('permiso')=='Admin'){
 			// $this->load->model('pcbGraficas');
 			//$this->load->model('pcbDiscosDuros');
+<<<<<<< HEAD
 			$this->load->model('pcbFuentes');
 			 // $this->load->model('pcbMemoriaRam');
+=======
+			// $this->load->model('pcbFuentes');
+<<<<<<< HEAD
+			 $this->load->model('pcbMemoriaRam');
+=======
+>>>>>>> 6f4a4e7d9dea0dba6c6d699c9604c44ed5979a8e
 			// $this->load->model('pcbGraficas');
 			// $this->load->model('pcbTorres');
 			// $this->load->model('pccDiscosDuros');
@@ -21,6 +28,14 @@ class meterProductos extends CI_Controller {
 			// $this->load->model('pccProcesadores');
 			// $this->load->model('pccRatones');
 			// $this->load->model('pccRefrigeracion');
+=======
+			// $this->load->model('pcbMemoriaRam');
+			 //$this->load->model('pcbMonitores');
+			 //$this->load->model('pcbPlacasBase');
+			//$this->load->model('pcbProcesadores');
+			 //$this->load->model('pcbRatones');
+			 $this->load->model('pcbRefrigeracion');
+>>>>>>> jaime
 			// $this->load->model('pccSistemasOperativos');
 			// $this->load->model('pccTeclados');
 			// $this->load->model('pccTorres');
@@ -28,8 +43,15 @@ class meterProductos extends CI_Controller {
 			$productos = array(
 				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
 				// 'disco_duro' => $this->pcbDiscosDuros->saveProductsPCB(),
+<<<<<<< HEAD
 				'fuente_alimentacion' => $this->pcbFuentes->saveProductsPCB(),
 				 // 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
+=======
+				// 'fuente_alimentacion' => $this->pcbFuentes->saveProductsPCB(),
+<<<<<<< HEAD
+				 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
+=======
+>>>>>>> 6f4a4e7d9dea0dba6c6d699c9604c44ed5979a8e
 				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
 				// 'torre'=>$this->pcbTorres->saveProductsPCB(),
 				// 'disco_duro' => $this->pccDiscosDuros->saveProductsPCC(),
@@ -41,6 +63,14 @@ class meterProductos extends CI_Controller {
 				// 'micro' => $this->pccProcesadores->saveProductsPCC(),
 				// 'raton' => $this->pccRatones->saveProductsPCC(),
 				// 'refrigeracion' => $this->pccRefrigeracion->saveProductsPCC(),
+=======
+				// 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
+				// 'monitor' => $this->pcbMonitores->saveProductsPCB(),
+				// 'placa_base' => $this->pcbPlacasBase->saveProductsPCB(),
+				// 'micro' => $this->pcbProcesadores->saveProductsPCB(),
+				//'raton' => $this->pcbRatones->saveProductsPCB(),
+				'refrigeracion' => $this->pcbRefrigeracion->saveProductsPCB(),
+>>>>>>> jaime
 				// 'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
 				// 'teclado' => $this->pccTeclados->saveProductsPCC(),
 				// 'torre' => $this->pccTorres->saveProductsPCC(),
