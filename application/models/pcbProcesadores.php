@@ -1,21 +1,26 @@
 <?php 
-class pcbProcesadores extends CI_Model{
+class pcbProcesadores extends CI_Model{//novanovanovanovanova
     function __construct(){
         parent::__construct();
     }  
     private $urlProcesadores=array(
     	'amd'=>array(
-    		'https://www.pccomponentes.com/procesadores/amd',
-	    	'https://www.pccomponentes.com/procesadores/amd#relevance-1',    	
+    		'http://www.pcbox.com/categorias/procesadores-amd-fm2plus?nodo=101',
+    		'http://www.pcbox.com/categorias/procesadores-amd-fm2?nodo=99',
+    		'http://www.pcbox.com/categorias/procesadores-amd-am4?nodo=429',
+    		'http://www.pcbox.com/categorias/procesadores-amd-am3plus?nodo=97',
+    		'http://www.pcbox.com/categorias/procesadores-amd-am3?nodo=94',
+    		'http://www.pcbox.com/categorias/procesadores-amd-am1?nodo=102',
     	),
     	'intel'=>array(
-    		'https://www.pccomponentes.com/procesadores-intel',	
-    		'https://www.pccomponentes.com/procesadores-intel#relevance-1',	
-	    	'https://www.pccomponentes.com/procesadores-intel#relevance-2',	    	
+    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1150?nodo=100',
+    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151?nodo=414',
+    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151/p/2?nodo=414',
+    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i7-sk-2011-3?nodo=103',	
     	),
     	
     );
-	function saveProductsPCC(){
+	function saveProductsPCB(){
 		$contenido=array(
 			'amd'=>array(),
 	    	'intel'=>array(),
@@ -25,9 +30,8 @@ class pcbProcesadores extends CI_Model{
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
-		$precio = "data-price";
-		$imagen = "src";
+		$nombre = 'itemprop="name" title';
+		$precio = 'content';
 		
 		$productos = array();
 		$j=0;
@@ -41,7 +45,7 @@ class pcbProcesadores extends CI_Model{
 			while(true){
 				if ($a<$anterior) {
 					break;
-				}s
+				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -79,11 +83,11 @@ class pcbProcesadores extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -95,21 +99,21 @@ class pcbProcesadores extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
+					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_img'=>$imagenProducto,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>1));	
+					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>1));	
 				}
+			}
 				$j++;
 			
 			}
 			
 			// return $productos;
 			// $this->cont++;
-		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "<pre>";
+			echo "<pre>";
+			print_r($productos);
+			echo "<pre>";
 			return $productos;
 	}
 }
