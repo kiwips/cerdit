@@ -15,9 +15,6 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
     	'cooler-master'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/cooler-master?nodo=392/m/approx/',
     	),
-    	'corsair'=>array(
-	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/corsair?nodo=392/m/approx/',
-    	),
     	'coolbox'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/coolbox?nodo=392/m/approx/',
     	),
@@ -46,8 +43,8 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
     	),
     );
 	function saveProductsPCB(){
+		set_time_limit(90);
 		$contenido=array(
-		
 	    	'aerocool'=>array(
 		    	
 	    	),
@@ -56,9 +53,6 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 		    ),
 	    	'cooler-master'=>array(
 		    	
-	    	),
-	    	'corsair'=>array(
-
 	    	),
 	    	'coolbox'=>array(
 		    	
@@ -91,17 +85,12 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 			}
 		}
 		$nombre = 'itemprop="name" title';
-<<<<<<< HEAD
 		$precio = 'content';
-=======
-		$precio = "data-price";
->>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
-		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('aerocool', 'approx', 'cooler-master', 'corsair', 'coolbox', 'b-move', 'gigabyte', 'hiditec', 'innobo', 'mars-gaming', 'nox', 'tacens');
+		$marca = array('aerocool', 'approx', 'cooler-master', 'coolbox', 'b-move', 'gigabyte', 'hiditec', 'innobo', 'mars-gaming', 'nox', 'tacens');
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -109,14 +98,10 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				if ($a<$anterior) {
 					break;
 				}
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> 2f72348f216fd4506628ad92412338abba04ed78
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
+
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
@@ -127,6 +112,7 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				$key=key($productos);
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
+					
 					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
@@ -143,6 +129,7 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
+
 				$aux=0;
 				$aux2=0;
 				$aux3=false;
@@ -152,11 +139,11 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=="'"&&!$aux2) {
+					if ($b=='"'&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=="'"&&$aux2) {
+					}else if ($b=='"'&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -164,30 +151,30 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
 			 		@$precioProducto.= $contenido[$val][0][$i];
 			 	}
-				if ($precioProducto == @$productos[$key]['FUE_precio']) {
-
+				if ($nombreProducto == @$productos[$key]['producto']) {
 				 		$j++;
 						continue;
 				}else{
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	
+
+					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));
 				}
 			}
 				$j++;
-				
-
-			
-			}
-			echo "<pre>";
-			print_r($productos);
-			echo "</pre>";
-			// return $productos;
-			// $this->cont++;
-			return $productos;
+			// break;
 		}
+			
+		echo "<pre>";
+		print_r($productos);
+		return $productos;	
+		
+		
+	}
 						
 			// $this->cont=0;
 }
 ?>
+<!-- $marca = array('aerocool', 'approx', 'cooler-master', 'corsair', 'coolbox', 'b-move', 'gigabyte', 'hiditec', 'innobo', 'mars-gaming', 'nox', 'tacens'); -->
+<!-- array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	 -->
