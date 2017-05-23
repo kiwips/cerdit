@@ -1,113 +1,87 @@
 <?php 
-class pccFuentes extends CI_Model{
+class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
     function __construct(){
         parent::__construct();
     }
     private $cont=0;
     private $urlFuentes=array(
+
     	'aerocool'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/aerocool',
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/aerocool?nodo=392/',
     	),
-    	'antec'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/antec',
+    	'approx'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/approx?nodo=392/m/approx/',
     	),
     	'cooler-master'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/cooler-master',
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/cooler-master?nodo=392/m/approx/',
     	),
     	'corsair'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/corsair',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/corsair#relevance-1',
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/corsair?nodo=392/m/approx/',
     	),
-    	'enermax'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/enermax',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/enermax#relevance-1',
+    	'coolbox'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/coolbox?nodo=392/m/approx/',
     	),
-    	'evga'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/evga',
+    	'b-move'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/b-move?nodo=392/m/approx/',
     	),
-    	'fractal'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/fractal',
+    	'gigabyte'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/gigabyte?nodo=392/m/approx/',
 	    	
     	),
-    	'l-link'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/l-link',
+    	'hiditec'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/hiditec?nodo=392/m/approx/',
 	    	
     	),
-    	'nfortec'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/nfortec',
+    	'innobo'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/innobo?nodo=392/m/approx/',
+    	),
+    	'mars-gaming'=>array(
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/mars-gaming?nodo=392/m/approx/',
     	),
     	'nox'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/nox',
-    	),
-    	'owlotech'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/owlotech',
-    	),
-    	'phoenix'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/phoenix',
-    	),
-    	'seasonic'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/seasonic',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/seasonic#relevance-1',
-    	),
-    	'silverstone'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/silverstone',
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/nox?nodo=392/m/approx/',
     	),
     	'tacens'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/tacens',
-    	),
-    	'thermaltake'=>array(
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/thermaltake',
-	    	'https://www.pccomponentes.com/fuentes-alimentacion/thermaltake#relevance-1',
+	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/tacens?nodo=392/m/approx/',
     	),
     );
-	function saveProductsPCC(){
+	function saveProductsPCB(){
 		$contenido=array(
-			'aerocool'=>array(
-	  
-	    	),
-	    	'antec'=>array(
+		
+	    	'aerocool'=>array(
 		    	
 	    	),
-	    	'cooler-master'=>array(
+	    	'approx'=>array(
 		    	
 		    ),
-	    	'corsair'=>array(
+	    	'cooler-master'=>array(
 		    	
 	    	),
-	    	'enermax'=>array(
+	    	'corsair'=>array(
 
 	    	),
-	    	'evga'=>array(
+	    	'coolbox'=>array(
 		    	
 	    	),
-	    	'fractal'=>array(
+	    	'b-move'=>array(
 		    	
 	    	),
-	    	'l-link'=>array(
+	    	'gigabyte'=>array(
 		    	
 	    	),
-	    	'nfortec'=>array(
+	    	'hiditec'=>array(
+		    	
+	    	),
+	    	'innobo'=>array(
+		    	
+	    	),
+	    	'mars-gaming'=>array(
 		    	
 	    	),
 	    	'nox'=>array(
 		    	
 	    	),
-	    	'owlotech'=>array(
-		    	
-	    	),
-	    	'phoenix'=>array(
-		    	
-	    	),
-	    	'seasonic'=>array(
-		    	
-	    	),
-	    	'silverstone'=>array(
-		    	
-	    	),
 	    	'tacens'=>array(
-		    	
-	    	),
-	    	'thermaltake'=>array(
 		    	
 	    	),
 	    );
@@ -116,56 +90,20 @@ class pccFuentes extends CI_Model{
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
-		$precio = "data-price";
-		$imagen = "src";
+		$nombre = 'itemprop="name" title';
+		$precio = 'content';
 		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('aerocool', 'antec', 'cooler-master', 'corsair', 'enermax', 'evga', 'fractal', 'l-link', 'nfortec', 'nox', 'owlotech', 'phoenix', 'seasonic', 'silverstone', 'tacens', 'thermaltake',);
+		$marca = array('aerocool', 'approx', 'cooler-master', 'corsair', 'coolbox', 'b-move', 'gigabyte', 'hiditec', 'innobo', 'mars-gaming', 'nox', 'tacens');
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
 			while(true){
 				if ($a<$anterior) {
 					break;
-				}
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { //oc
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($imagenProducto == @$productos[$key]['FUE_img']) {
-				 		$j++;
-						continue;
 				}
 
 				/*====================PRODUCT NAME==============*/
@@ -181,11 +119,11 @@ class pccFuentes extends CI_Model{
 				$key=key($productos);
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -206,11 +144,11 @@ class pccFuentes extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -223,25 +161,25 @@ class pccFuentes extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://')
+					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_img'=>$imagenProducto,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	
+					array_push($productos, array('FK_FUE_PK_PROD'=>4,'FUE_nombre'=>$nombreProducto,'FUE_precio'=>$precioProducto,'FUE_marca'=>$val,'FK_FUE_PK_TIE'=>2));	
 				}
+			}
 				$j++;
 				
 
 			
 			}
-			
+			echo "<pre>";
+			print_r($productos);
+			echo "</pre>";
 			// return $productos;
 			// $this->cont++;
 			return $productos;
 		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "</pre>";
-			
+						
 			// $this->cont=0;
 }
 ?>
