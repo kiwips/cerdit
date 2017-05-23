@@ -4,54 +4,54 @@ class pcbMonitores extends CI_Model{//novanovanovanovanovanovanovanovanova
 		parent::__construct();
 	}  
 	private $urlMonitores=array(
-		'lg'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/lg?nodo=121/',
-			'http://www.pcbox.com/categorias/monitores/p/2/m/lg?nodo=121/',
-		),
+		// 'lg'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/lg?nodo=121/',
+		// 	'http://www.pcbox.com/categorias/monitores/p/2/m/lg?nodo=121/',
+		// ),
 		'asus'=>array(
 			'http://www.pcbox.com/categorias/monitores/m/asus?nodo=121/',
 		),
-		'samsung'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/samsung?nodo=121/',
-		),
-		'acer'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/acer?nodo=121/',
-		),
-		'aoc'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/aoc?nodo=121/',
-		),
-		'netway'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/netway?nodo=121/',
-		),
-		'benq'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/benq?nodo=121/',
-		),
-		'hannsg'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/hannsg?nodo=121/',
-		),
-		'hewlett-packard'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/hewlett-packard?nodo=121/',
-		),
-		'lenovo'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/lenovo?nodo=121/',
-		),
-		'philips'=>array(
-			'http://www.pcbox.com/categorias/monitores/m/philips?nodo=121/',
-		),    	       	
+		// 'samsung'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/samsung?nodo=121/',
+		// ),
+		// 'acer'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/acer?nodo=121/',
+		// ),
+		// 'aoc'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/aoc?nodo=121/',
+		// ),
+		// 'netway'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/netway?nodo=121/',
+		// ),
+		// 'benq'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/benq?nodo=121/',
+		// ),
+		// 'hannsg'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/hannsg?nodo=121/',
+		// ),
+		// 'hewlett-packard'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/hewlett-packard?nodo=121/',
+		// ),
+		// 'lenovo'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/lenovo?nodo=121/',
+		// ),
+		// 'philips'=>array(
+		// 	'http://www.pcbox.com/categorias/monitores/m/philips?nodo=121/',
+		// ),    	       	
 		);
 	function saveProductsPCB(){
 		$contenido=array(			
-			'lg'=>array(),
+			// 'lg'=>array(),
 			'asus'=>array(),
-			'samsung'=>array(),
-			'acer'=>array(),
-			'aoc'=>array(),
-			'netway'=>array(),
-			'benq'=>array(),
-			'hannsg'=>array(),
-			'hewlett-packard'=>array(),
-			'lenovo'=>array(),
-			'philips'=>array(),    	
+			// 'samsung'=>array(),
+			// 'acer'=>array(),
+			// 'aoc'=>array(),
+			// 'netway'=>array(),
+			// 'benq'=>array(),
+			// 'hannsg'=>array(),
+			// 'hewlett-packard'=>array(),
+			// 'lenovo'=>array(),
+			// 'philips'=>array(),    	
 			);
 		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
@@ -59,13 +59,13 @@ class pcbMonitores extends CI_Model{//novanovanovanovanovanovanovanovanova
 			}
 		}
 		$nombre = 'itemprop="name" title';
-		$precio = 'content';
+		$precio = 'itemprop="price" content';
 
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('lg', 'asus', 'samsung', 'acer', 'aoc', 'netway', 'benq', 'hannsg', 'hewlett-packard', 'lenovo', 'philips');
+		$marca = array('asus',);
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -108,8 +108,16 @@ class pcbMonitores extends CI_Model{//novanovanovanovanovanovanovanovanova
 				$contInicio=0;
 				$contFin=0;
 				$precioProducto="";
-
+				$contador=0;
 				while (true) {
+					while (true) {
+						if(is_numeric($b)||$contador==500){
+							$b=$contenido[$val][0][$a+$aux];
+							break;
+						}
+							$contador++;
+				}
+					echo $contador;
 					$b=$contenido[$val][0][$a+$aux];
 					if ($b=="'"&&!$aux2) {
 						$aux2++;
