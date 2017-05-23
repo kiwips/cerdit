@@ -9,6 +9,7 @@ class meterProductos extends CI_Controller {
 			//$this->load->model('pcbGraficas');
 			//$this->load->model('pcbDiscosDuros');
 			// $this->load->model('pcbFuentes');
+<<<<<<< HEAD
 			 $this->load->model('pcbMemoriaRam');
 =======
 			// $this->load->model('pcbGraficas');
@@ -23,6 +24,14 @@ class meterProductos extends CI_Controller {
 			// $this->load->model('pccProcesadores');
 			// $this->load->model('pccRatones');
 			// $this->load->model('pccRefrigeracion');
+=======
+			// $this->load->model('pcbMemoriaRam');
+			 //$this->load->model('pcbMonitores');
+			 //$this->load->model('pcbPlacasBase');
+			//$this->load->model('pcbProcesadores');
+			 //$this->load->model('pcbRatones');
+			 $this->load->model('pcbRefrigeracion');
+>>>>>>> jaime
 			// $this->load->model('pccSistemasOperativos');
 			// $this->load->model('pccTeclados');
 			// $this->load->model('pccTorres');
@@ -32,6 +41,7 @@ class meterProductos extends CI_Controller {
 				//'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
 				// 'disco_duro' => $this->pcbDiscosDuros->saveProductsPCB(),
 				// 'fuente_alimentacion' => $this->pcbFuentes->saveProductsPCB(),
+<<<<<<< HEAD
 				 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
 =======
 				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
@@ -46,6 +56,14 @@ class meterProductos extends CI_Controller {
 				// 'micro' => $this->pccProcesadores->saveProductsPCC(),
 				// 'raton' => $this->pccRatones->saveProductsPCC(),
 				// 'refrigeracion' => $this->pccRefrigeracion->saveProductsPCC(),
+=======
+				// 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
+				// 'monitor' => $this->pcbMonitores->saveProductsPCB(),
+				// 'placa_base' => $this->pcbPlacasBase->saveProductsPCB(),
+				// 'micro' => $this->pcbProcesadores->saveProductsPCB(),
+				//'raton' => $this->pcbRatones->saveProductsPCB(),
+				'refrigeracion' => $this->pcbRefrigeracion->saveProductsPCB(),
+>>>>>>> jaime
 				// 'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
 				// 'teclado' => $this->pccTeclados->saveProductsPCC(),
 				// 'torre' => $this->pccTorres->saveProductsPCC(),

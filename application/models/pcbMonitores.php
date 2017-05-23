@@ -1,79 +1,57 @@
 <?php 
-class pcbMonitores extends CI_Model{
+class pcbMonitores extends CI_Model{//novanovanovanovanovanovanovanovanova
 	function __construct(){
 		parent::__construct();
 	}  
 	private $urlMonitores=array(
-		'acer'=>array(
-			'https://www.pccomponentes.com/monitor-acer',
-			'https://www.pccomponentes.com/monitor-acer#relevance-1',
-			),
-
-		'aoc'=>array(
-			'https://www.pccomponentes.com/monitor-aoc',
-			'https://www.pccomponentes.com/monitor-aoc#relevance-1',
-			),
-
-		'asus'=>array(
-			'https://www.pccomponentes.com/monitor-asus',
-			'https://www.pccomponentes.com/monitor-asus#relevance-1',
-			'https://www.pccomponentes.com/monitor-asus#relevance-2',   	
-			),
-
-		'benq'=>array(
-			'https://www.pccomponentes.com/monitor-benq',
-			'https://www.pccomponentes.com/monitor-benq#relevance-1',
-			'https://www.pccomponentes.com/monitor-benq#relevance-2',	    	
-			),    
-
-		'dell'=>array(
-			'https://www.pccomponentes.com/monitor-dell',	    	
-			),	
-
-		'hannspree'=>array(
-			'https://www.pccomponentes.com/monitores-pc/hannspree',	    	
-			),
-
-		'hp'=>array(
-			'https://www.pccomponentes.com/monitores-pc/hp',	    	
-			),
-
-		'lenovo'=>array(
-			'https://www.pccomponentes.com/monitores-pc/lenovo',	    	
-			),
-
 		'lg'=>array(
-			'https://www.pccomponentes.com/monitores-pc/lenovo',
-			'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
-			), 
-
-		'philips'=>array(
-			'https://www.pccomponentes.com/monitor-philips',
-			'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
-			),
-
+			'http://www.pcbox.com/categorias/monitores/m/lg?nodo=121/',
+			'http://www.pcbox.com/categorias/monitores/p/2/m/lg?nodo=121/',
+		),
+		'asus'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/asus?nodo=121/',
+		),
 		'samsung'=>array(
-			'https://www.pccomponentes.com/monitores-pc/samsung',	    	
-			),
-
-		'viewsonic'=>array(
-			'https://www.pccomponentes.com/monitores-pc/viewsonic',	    	
-			)     	       	
+			'http://www.pcbox.com/categorias/monitores/m/samsung?nodo=121/',
+		),
+		'acer'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/acer?nodo=121/',
+		),
+		'aoc'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/aoc?nodo=121/',
+		),
+		'netway'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/netway?nodo=121/',
+		),
+		'benq'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/benq?nodo=121/',
+		),
+		'hannsg'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/hannsg?nodo=121/',
+		),
+		'hewlett-packard'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/hewlett-packard?nodo=121/',
+		),
+		'lenovo'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/lenovo?nodo=121/',
+		),
+		'philips'=>array(
+			'http://www.pcbox.com/categorias/monitores/m/philips?nodo=121/',
+		),    	       	
 		);
 	function saveProductsPCB(){
 		$contenido=array(			
+			'lg'=>array(),
+			'asus'=>array(),
+			'samsung'=>array(),
 			'acer'=>array(),
 			'aoc'=>array(),
-			'asus'=>array(),
+			'netway'=>array(),
 			'benq'=>array(),
-			'dell'=>array(),
-			'hannspree'=>array(),
-			'hp'=>array(),
+			'hannsg'=>array(),
+			'hewlett-packard'=>array(),
 			'lenovo'=>array(),
-			'lg'=>array(),
-			'philips'=>array(),
-			'samsung'=>array(),
-			'viewsonic'=>array(),	    	
+			'philips'=>array(),    	
 			);
 		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
@@ -87,7 +65,7 @@ class pcbMonitores extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'philips', 'samsung', 'viewsonic');
+		$marca = array('lg', 'asus', 'samsung', 'acer', 'aoc', 'netway', 'benq', 'hannsg', 'hewlett-packard', 'lenovo', 'philips');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
