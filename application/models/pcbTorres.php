@@ -4,6 +4,7 @@ class pcbTorres extends CI_Model{
         parent::__construct();
     }  
     private $urlTorres=array(
+<<<<<<< HEAD
     	'aerocool'=>array(
 	    	'http://www.pcbox.com/categorias/cajas-atx/m/aerocool?nodo=79/',
     	),
@@ -91,10 +92,61 @@ class pcbTorres extends CI_Model{
   //   	'tooq'=>array(
 	 //    	'https://www.pccomponentes.com/torres-atx/tooq',
   //   	),   	      	
+=======
+	      	'nox'=>array(
+	      		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/nox?nodo=80/',
+	      		'http://www.pcbox.com/categorias/cajas-atx/m/nox?nodo=79/',
+	      		'http://www.pcbox.com/categorias/cajas-micro-atx/m/nox?nodo=81/',
+	      	),
+	    	'hiditec'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/hiditec?nodo=80/',
+	    	),
+	    	'aerocool'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/aerocool?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-atx/m/aerocool?nodo=79/',
+	    	),
+	    	'coolbox'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/coolbox?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-atx/m/coolbox?nodo=79/',
+	    	),
+	    	'bitfenix'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/bitfenix?nodo=80/',
+	    	),
+	    	'cooler-master'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/cooler-master?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-atx/m/cooler-master?nodo=79/',
+	    		'http://www.pcbox.com/categorias/cajas-micro-atx/m/cooler-master?nodo=81/',
+	    	),
+	    	'corsair'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/corsair?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-micro-atx/m/corsair?nodo=81/',
+	    	),
+	    	'innobo'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/innobo?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-atx/m/innobo?nodo=79/',
+	    	),
+	    	'mars-gaming'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/mars-gaming?nodo=80/',
+	    	),
+	    	'nzxt'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/nzxt?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-atx/m/nzxt?nodo=79/',
+	    	),
+	    	'tacens'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/tacens?nodo=80/',
+	    		'http://www.pcbox.com/categorias/cajas-micro-atx/m/tacens?nodo=81/',
+	    	),
+	    	'zalman'=>array(
+	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/zalman?nodo=80/',
+	    	),
+>>>>>>> jaime
     );
 	function saveProductsPCB(){
 		$contenido=array(			
+	    	'nox'=>array(),
+	    	'hiditec'=>array(),
 	    	'aerocool'=>array(),
+<<<<<<< HEAD
 	    	// 'antec'=>array(),
 	    	// 'b-move'=>array(),
 	    	// 'bitfenix'=>array(),
@@ -114,6 +166,17 @@ class pcbTorres extends CI_Model{
 	    	// 'tacens'=>array(),
 	    	// 'thermaltake'=>array(),
 	    	// 'tooq'=>array(),
+=======
+	    	'coolbox'=>array(),
+	    	'bitfenix'=>array(),
+	    	'cooler-master'=>array(),
+	    	'corsair'=>array(),
+	    	'innobo'=>array(),
+	    	'mars-gaming'=>array(),
+	    	'nzxt'=>array(),
+	    	'tacens'=>array(),
+	    	'zalman'=>array(),
+>>>>>>> jaime
 	    );
 		foreach ($this->urlTorres as $marca => $value) {
 			foreach ($value as $key1 => $url) {
@@ -121,13 +184,21 @@ class pcbTorres extends CI_Model{
 			}
 		}
 		$nombre = 'itemprop="name" title';
+<<<<<<< HEAD
 		$precio = "content";
+=======
+		$precio = 'content';
+>>>>>>> jaime
 		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
+<<<<<<< HEAD
 		$marca = array('aerocool');
+=======
+		$marca = array('nox', 'hiditec', 'aerocool', 'coolbox', 'bitfenix', 'cooler-master', 'corsair', 'innobo', 'mars-gaming', 'nzxt', 'tacens', 'zalman');
+>>>>>>> jaime
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -172,11 +243,11 @@ class pcbTorres extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -193,10 +264,14 @@ class pcbTorres extends CI_Model{
 					}
 					array_push($productos, array('FK_TOR_PK_PROD'=>7,'TOR_nombre'=>$nombreProducto,'TOR_precio'=>$precioProducto,'TOR_marca'=>$val,'FK_TOR_PK_TIE'=>2));	
 				}
+			}
 				$j++;
 			
 			}
+<<<<<<< HEAD
 		}
+=======
+>>>>>>> jaime
 			echo "<pre>";
 			print_r($productos);
 			echo "</pre>";

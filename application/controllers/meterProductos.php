@@ -30,11 +30,18 @@ class meterProductos extends CI_Controller {
 			 //$this->load->model('pcbPlacasBase');
 			//$this->load->model('pcbProcesadores');
 			 //$this->load->model('pcbRatones');
+<<<<<<< HEAD
 			 $this->load->model('pcbRefrigeracion');
 >>>>>>> jaime
 			// $this->load->model('pccSistemasOperativos');
 			// $this->load->model('pccTeclados');
 			// $this->load->model('pccTorres');
+=======
+			 //$this->load->model('pcbRefrigeracion');
+			//$this->load->model('pcbSistemasOperativos');
+			//$this->load->model('pcbTeclados');
+			$this->load->model('pcbTorres');
+>>>>>>> jaime
 			// $this->load->model('insertProducto');
 			$productos = array(
 <<<<<<< HEAD
@@ -62,11 +69,18 @@ class meterProductos extends CI_Controller {
 				// 'placa_base' => $this->pcbPlacasBase->saveProductsPCB(),
 				// 'micro' => $this->pcbProcesadores->saveProductsPCB(),
 				//'raton' => $this->pcbRatones->saveProductsPCB(),
+<<<<<<< HEAD
 				'refrigeracion' => $this->pcbRefrigeracion->saveProductsPCB(),
 >>>>>>> jaime
 				// 'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
 				// 'teclado' => $this->pccTeclados->saveProductsPCC(),
 				// 'torre' => $this->pccTorres->saveProductsPCC(),
+=======
+				//'refrigeracion' => $this->pcbRefrigeracion->saveProductsPCB(),
+				//'sistema_operativo' => $this->pcbSistemasOperativos->saveProductsPCB(),
+				 //'teclado' => $this->pcbTeclados->saveProductsPCB(),
+				 'torre' => $this->pcbTorres->saveProductsPCB(),
+>>>>>>> jaime
 				);
 			// foreach ($productos as $key => $value) {
 			// 	$this->insertProducto->insertarProductos($value,$key);

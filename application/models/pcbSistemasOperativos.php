@@ -5,11 +5,11 @@ class pcbSistemasOperativos extends CI_Model{
     }  
     private $urlSistemasOperativos=array(
     	'windows'=>array(
-    		'https://www.pccomponentes.com/sistemas-operativos', 
+    		'http://www.pcbox.com/categorias/sistemas-operativos?nodo=404/',
     	),
     	
     );
-	function saveProductsPCC(){
+	function saveProductsPCB(){
 		$contenido=array(
 			'windows'=>array(),
 	    	
@@ -19,9 +19,8 @@ class pcbSistemasOperativos extends CI_Model{
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
-		$precio = "data-price";
-		$imagen = "src";
+		$nombre = 'itemprop="name" title';
+		$precio = 'content';
 		
 		$productos = array();
 		$j=0;
@@ -73,11 +72,11 @@ class pcbSistemasOperativos extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
@@ -89,21 +88,21 @@ class pcbSistemasOperativos extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
+					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_img'=>$imagenProducto,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>2));	
+					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>2));	
 				}
+			}
 				$j++;
 			
 			}
 			
 			// return $productos;
 			// $this->cont++;
-		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "<pre>";
+			echo "<pre>";
+			print_r($productos);
+			echo "<pre>";
 			return $productos;
 	}
 }
