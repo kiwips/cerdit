@@ -6,16 +6,18 @@ class Registro extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        $this->load->model("productos");
     }
 
     function index(){
-        $data['titulo'] = 'DreamPC';            
+        $data['productos'] = $this->productos->get_PROD_NOM();     
+        print_r($data['productos']);
+        die;  
         $data['main_content'] = 'index_View'; 
         $this->parser->parse('includes/template',$data);
     }
 
     function pantallaRegistro(){
-        $data['titulo'] = 'Formulario de Registro';  
         $data['main_content'] = 'registro_View'; 
         $this->parser->parse('includes/template',$data);
     }

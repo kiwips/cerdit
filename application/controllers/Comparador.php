@@ -18,7 +18,6 @@
         }
 
         function sacarProductosComparables(){
-<<<<<<< HEAD
             $data = $this->input->get();
             $componente = $data['n'];
             $componente = str_replace(" ","_",$componente);
@@ -78,12 +77,6 @@
             $data['productos'] = $this->productos->get_PROD_NOM();
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
-
-=======
-            $data = $this->input->post();
-            $componente = $data['componente'];
-           $this->load->model($componente);
->>>>>>> 928e163406a279236b221c2635c457228bb71723
         }
         
     }
