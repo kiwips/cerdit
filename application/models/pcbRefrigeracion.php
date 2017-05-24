@@ -42,10 +42,13 @@ class pcbRefrigeracion extends CI_Model{
 				'http://www.pcbox.com/categorias/refrigeracion-liquida/m/corsair?nodo=203/',
 			),
 			'nzxt'=>array(
-				'hhttp://www.pcbox.com/categorias/refrigeracion-liquida/m/nzxt?nodo=203/',
+				'http://www.pcbox.com/categorias/refrigeracion-liquida/m/nzxt?nodo=203/',
 			),
 
 		);
+	function price(){
+		return rand(20,120);
+	}
 	function saveProductsPCB(){
 		$contenido=array(			
 			'nox'=>array(),
@@ -135,10 +138,11 @@ class pcbRefrigeracion extends CI_Model{
 					$j++;
 					continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val,'FK_REF_PK_TIE'=>1));	
+					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val,'FK_REF_PK_TIE'=>2));	
 				}
 			}
 			$j++;

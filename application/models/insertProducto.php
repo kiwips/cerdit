@@ -5,7 +5,11 @@ class insertProducto extends CI_Model{
   }  
 
   public function insertarProductos($listaProducto,$tipoProducto){
-  	$this->db->query("truncate table ".$tipoProducto);
+    if (strpos($tipoProducto, '_pcb')) {
+      $tipoProducto=str_replace('_pcb', '',$tipoProducto );
+    }else{
+      $this->db->query("truncate table ".$tipoProducto);
+    }
     foreach ($listaProducto as $key => $value) {
         $this->db->insert($tipoProducto, $listaProducto[$key]); 
     }

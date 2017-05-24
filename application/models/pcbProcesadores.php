@@ -1,5 +1,5 @@
 <?php 
-class pcbProcesadores extends CI_Model{//novanovanovanovanova
+class pcbProcesadores extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
@@ -13,13 +13,16 @@ class pcbProcesadores extends CI_Model{//novanovanovanovanova
     		'http://www.pcbox.com/categorias/procesadores-amd-am1?nodo=102',
     	),
     	'intel'=>array(
-    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1150?nodo=100',
-    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151?nodo=414',
-    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151/p/2?nodo=414',
-    		   'http://www.pcbox.com/categorias/procesadores-intel-core-i7-sk-2011-3?nodo=103',	
+		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1150?nodo=100',
+		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151?nodo=414',
+		   'http://www.pcbox.com/categorias/procesadores-intel-core-i3-i5-i7-1151/p/2?nodo=414',
+		   'http://www.pcbox.com/categorias/procesadores-intel-core-i7-sk-2011-3?nodo=103',	
     	),
     	
     );
+    function price(){
+		return rand(40,200);
+	}
 	function saveProductsPCB(){
 		$contenido=array(
 			'amd'=>array(),
@@ -102,7 +105,8 @@ class pcbProcesadores extends CI_Model{//novanovanovanovanova
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>1));	
+					$precioProducto=$this->price();
+					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>2));	
 				}
 			}
 				$j++;

@@ -1,163 +1,122 @@
 <?php 
-class pccTeclados extends CI_Model{
+class pcbTeclados extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
     private $urlTeclados=array(
-    	'asus'=>array(
-	    	'https://www.pccomponentes.com/teclados/asus',
+    	'mars-gaming'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/mars-gaming?nodo=398/',
     	),
-
-    	'b-move'=>array(
-	    	'https://www.pccomponentes.com/teclados/b-move',
-    	),    
-
-    	'bg'=>array(
-	    	'https://www.pccomponentes.com/teclados/bg',	    	
-    	),	
-
-    	'bluestork'=>array(
-	    	'https://www.pccomponentes.com/teclados/bluestork',	    	
-    	),
-
-    	'cooler-master'=>array(
-	    	'https://www.pccomponentes.com/teclados/cooler-master',	    	
-    	),
-
-    	'corsair'=>array(
-    		'https://www.pccomponentes.com/teclado-corsair',	  
-	    	'https://www.pccomponentes.com/teclado-corsair#relevance-1',	    	
-    	),    	
-
-    	'g-skill'=>array(
-	    	'https://www.pccomponentes.com/teclados/g-skill',
-    	),
-
-    	'kingston'=>array(
-	    	'https://www.pccomponentes.com/teclados/kingston',	    	
-    	),
-
-    	'krom'=>array(
-	    	'https://www.pccomponentes.com/teclados/krom',	    	
-    	),     	       	
-    	'l-link'=>array(
-	    	'https://www.pccomponentes.com/teclados/l-link',	    	
-    	),
-    	'leotec'=>array(
-	    	'https://www.pccomponentes.com/teclados/leotec',	    	
-    	),
-    	'logitech'=>array(
-    		'https://www.pccomponentes.com/teclados/logitech',	    	
-	    	'https://www.pccomponentes.com/teclados/logitech#relevance-1',	    	
-    	),
-    	'microsoft'=>array(
-	    	'https://www.pccomponentes.com/teclados/microsoft',	    	
-    	),
-    	'newskill'=>array(
-	    	'https://www.pccomponentes.com/teclados/newskill',	    	
-    	),
-    	'ngs'=>array(
-	    	'https://www.pccomponentes.com/teclados/ngs',	    	
+    	'netway'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/netway?nodo=398/',
     	),
     	'nox'=>array(
-	    	'https://www.pccomponentes.com/teclados/nox',	    	
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/nox?nodo=398/',
     	),
-
-    	'oem'=>array(
-	    	'https://www.pccomponentes.com/teclados/oem',
+    	'b-move'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/b-move?nodo=398/',
+    	),
+    	'aerocool'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/aerocool?nodo=398/',
+    	),
+    	'bluestork'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/bluestork?nodo=398/',
+    	),
+    	'cherry'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/cherry?nodo=398/',
+    	),
+    	'coolbox'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/coolbox?nodo=398/',
+    	),    	
+    	'cooler-master'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/cooler-master?nodo=398/',
+    	),     	      	
+    	'corsair'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/corsair?nodo=398/',
+    	),
+    	'gigabyte'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/gigabyte?nodo=398/',
+    	),
+    	'hiditec'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/hiditec?nodo=398/',
+    	),
+    	'hyperx'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/hyperx?nodo=398/',
+    	),
+    	'keep-out'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/keep-out?nodo=398/',
+    	),
+    	'logitech'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/logitech?nodo=398/',
+    	),
+    	'nacon'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/nacon?nodo=398/',
+    	),
+    	'natec-genesis'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/natec-genesis?nodo=398/',
     	), 
-    	'owlotech'=>array(
-	    	'https://www.pccomponentes.com/teclados/owlotech',	    	
-    	),
     	'ozone'=>array(
-	    	'https://www.pccomponentes.com/teclados/ozone',	    	
-    	),
-    	'phoenix'=>array(
-	    	'https://www.pccomponentes.com/teclados/phoenix',	    	
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/ozone?nodo=398/',
     	),
     	'razer'=>array(
-	    	'https://www.pccomponentes.com/teclado-razer',	    	
-    	),
-    	'rikomagic'=>array(
-	    	'https://www.pccomponentes.com/teclados/rikomagic',	    	
-    	),
-    	'satechi'=>array(
-	    	'https://www.pccomponentes.com/teclados/satechi',	    	
-    	),
-    	'silverht'=>array(
-	    	'https://www.pccomponentes.com/teclados/silverht',	    	
-    	),
-    	'steelseries'=>array(
-	    	'https://www.pccomponentes.com/teclados/steelseries',	    	
-    	),
-    	'tacens'=>array(
-	    	'https://www.pccomponentes.com/teclados/tacens',	    	
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/razer?nodo=398/',
     	),
     	'the-g-lab'=>array(
-	    	'https://www.pccomponentes.com/teclados/the-g-lab',	    	
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/the-g-lab?nodo=398/',
     	),
-    	'thermaltake'=>array(
-	    	'https://www.pccomponentes.com/teclados/thermaltake',	    	
-    	),
-    	'thunder-x3'=>array(
-	    	'https://www.pccomponentes.com/teclados/thunder-x3',	    	
+    	'thunderx3'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/thunderx3?nodo=398/',
     	),
     	'trust'=>array(
-	    	'https://www.pccomponentes.com/teclados/trust',	    	
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/trust?nodo=398/',
     	),
-    	'unotec'=>array(
-	    	'https://www.pccomponentes.com/teclados/unotec',	    	
+    	'woxter'=>array(
+    		'http://www.pcbox.com/categorias/teclados-gaming/m/woxter?nodo=398/',
     	),
     	
     );
-	function saveProductsPCC(){
+    function price(){
+    	return rand(20,120);
+    }
+	function saveProductsPCB(){
 		$contenido=array(			
-	    	'asus'=>array(),
-	    	'b-move'=>array(),
-	    	'bg'=>array(),
-	    	'bluestork'=>array(),
-	    	'cooler-master'=>array(),
-	    	'corsair'=>array(),
-	    	'g-skill'=>array(),
-	    	'kingston'=>array(),    	
-	    	'krom'=>array(),     	       	
-	    	'l-link'=>array(),
-	    	'leotec'=>array(),
-	    	'logitech'=>array(),
-	    	'microsoft'=>array(),
-	    	'newskill'=>array(),
-	    	'ngs'=>array(),
-	    	'nox'=>array(),
-	    	'oem'=>array(), 
-	    	'owlotech'=>array(),
-	    	'ozone'=>array(),
-	    	'phoenix'=>array(),
-	    	'razer'=>array(),
-	    	'rikomagic'=>array(),
-	    	'satechi'=>array(),
-	    	'silverht'=>array(),
-	    	'steelseries'=>array(),
-	    	'tacens'=>array(),
-	    	'the-g-lab'=>array(),
-	    	'thermaltake'=>array(),
-	    	'thunder-x3'=>array(),
-	    	'trust'=>array(),
-	    	'unotec'=>array(),
-	    );
+	   	'mars-gaming'=>array(),
+	   	'netway'=>array(),
+	   	'nox'=>array(),
+	   	'b-move'=>array(),
+	   	'aerocool'=>array(),
+	   	'bluestork'=>array(),
+	   	'cherry'=>array(),
+	   	'coolbox'=>array(),    	
+	   	'cooler-master'=>array(),     	      	
+	   	'corsair'=>array(),
+	   	'gigabyte'=>array(),
+	   	'hiditec'=>array(),
+	   	'hyperx'=>array(),
+	   	'keep-out'=>array(),
+	   	'logitech'=>array(),
+	   	'nacon'=>array(),
+	   	'natec-genesis'=>array(), 
+	   	'ozone'=>array(),
+	   	'razer'=>array(),
+	   	'the-g-lab'=>array(),
+	   	'thunderx3'=>array(),
+	   	'trust'=>array(),
+	   	'woxter'=>array(),
+	   );
 		foreach ($this->urlTeclados as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
 		}
-		$nombre = "data-name";
-		$precio = "data-price";
-		$imagen = "src";
+		$nombre = 'itemprop="name" title';
+		$precio = 'content';
 		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','b-move','bg','bluestork','cooler-master','corsair','g-skill','kingston',    'krom','l-link','leotec','logitech','microsoft','newskill','ngs','nox','oem', 'owlotech','ozone','phoenix','razer','rikomagic','satechi','silverht','steelseries','tacens','the-g-lab','thermaltake','thunder-x3','trust','unotec',);
+		$marca = array('mars-gaming','netway','nox','b-move','aerocool','bluestork','cherry','coolbox','cooler-master','corsair','gigabyte','hiditec','hyperx','keep-out','logitech','nacon','natec-genesis','ozone','razer','the-g-lab','thunderx3','trust','woxter');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -166,33 +125,7 @@ class pccTeclados extends CI_Model{
 				if ($a<$anterior) {
 					break;
 				}
-				/*=================IMAGES=====================*/
-
-				$a = strpos($contenido[$val][0], $imagen,$a);
-				$aux=0;
-				$aux2=0;
-				$aux3=false;
-				$contInicio=0;
-				$contFin=0;
-				$imagenProducto="";
-				while (true) {
-					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
-						$aux2++;
-						$aux3=true;
-						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
-						$contFin=$aux;
-						break;
-					}$aux++;
-				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$imagenProducto.= $contenido[$val][0][$i];
-			 	}
-				if ($imagenProducto == @$productos[$key]['imagen']) {
-				 		$j++;
-						continue;
-				}	
+	
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
 				$a = strpos($contenido[$val][0], $nombre,$a);
@@ -206,18 +139,18 @@ class pccTeclados extends CI_Model{
 				$key=key($productos);
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$nombreProducto.= $contenido[$val][0][$i];
-			 	}
+					@$nombreProducto.= $contenido[$val][0][$i];
+				}
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
@@ -230,34 +163,35 @@ class pccTeclados extends CI_Model{
 
 				while (true) {
 					$b=$contenido[$val][0][$a+$aux];
-					if ($b=='"'&&!$aux2) {
+					if ($b=="'"&&!$aux2) {
 						$aux2++;
 						$aux3=true;
 						$contInicio=$aux+1;
-					}else if ($b=='"'&&$aux2) {
+					}else if ($b=="'"&&$aux2) {
 						$contFin=$aux;
 						break;
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$precioProducto.= $contenido[$val][0][$i];
-			 	}
+					@$precioProducto.= $contenido[$val][0][$i];
+				}
 				if ($nombreProducto == @$productos[$key]['producto']) {
-				 		$j++;
+						$j++;
 						continue;
 				}else{
-					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
+					$precioProducto=$this->price();
+					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_TEC_PK_PROD'=>10,'TEC_img'=>$imagenProducto,'TEC_nombre'=>$nombreProducto,'TEC_precio'=>$precioProducto,'TEC_marca'=>$val,'FK_TEC_PK_TIE'=>2));	
+					array_push($productos, array('FK_TEC_PK_PROD'=>10,'TEC_nombre'=>$nombreProducto,'TEC_precio'=>$precioProducto,'TEC_marca'=>$val,'FK_TEC_PK_TIE'=>2));	
 				}
+			}
 				$j++;
 			
 			}
-		}
-			// echo "<pre>";
-			// print_r($productos);
-			// echo "</pre>";
+			echo "<pre>";
+			print_r($productos);
+			echo "</pre>";
 			return $productos;
 	}
 }

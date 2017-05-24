@@ -40,6 +40,9 @@ class pcbFuentes extends CI_Model{
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/tacens?nodo=392/m/approx/',
     	),
     );
+    function price(){
+		return rand(30,200);
+	}
 	function saveProductsPCB(){
 		set_time_limit(90);
 		$contenido=array(
@@ -153,6 +156,7 @@ class pcbFuentes extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
