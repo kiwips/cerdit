@@ -9,6 +9,9 @@
         }
 
         function index(){      
+            $data['todoComponente'] = "";
+            $data['precioFiltrado'] = "";
+            $data['marcaFiltrado'] = "";
             $data['productos'] = $this->productos->get_PROD_NOM();              
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);

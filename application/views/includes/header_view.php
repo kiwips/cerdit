@@ -38,7 +38,7 @@
       <ul class="nav navbar-nav navbar-right">
       <?php if ($this->session->userdata('permiso') =='Admin') { ?>
           <li><a href="actualizarbbdd" title="Actualizar"><span class="glyphicon glyphicon-refresh"></span></a></li>          
-          <li><a href="permiso"><span class="glyphicon glyphicon-cog"></span> Administrar </a></li>
+          <li><a href="permiso"><span class="fa fa-cog fa-spin fa-1x fa-fw"></span> Administrar </a></li>
         <?php } ?>
         <?php if ($this->session->userdata('logueado')) { ?>
         <li><a href="miPerfil"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('nick'); ?></a></li>

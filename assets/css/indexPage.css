@@ -69,5 +69,40 @@ button:focus{
 }
 
 .todo{
-	margin-top: 10%;
+	margin-top: 4%;
+}
+
+.ir-arriba {
+	display:none;
+	border-radius: 15px;
+	padding:10px;
+	background:#FAAC58;
+	font-size:20px;
+	color: white;
+	cursor:pointer;
+	position: fixed;
+	top:90%;
+	right:20px;
+}
+
+.borrar{
+	display: none; 
+}
+.ver{
+	display: block;
+}
+
+#valorRange{
+    width: 20%;
+    border: 1px solid black;
+    margin-left: 35%;
+    text-align: center;
+    float: left;	
+    border-radius: 15%;
+    font-weight: bold;
+}
+
+.fa-search{
+	margin-left: 9%;
+	cursor: pointer;
 }

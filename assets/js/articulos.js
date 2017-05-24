@@ -1,46 +1,103 @@
-var divs = $('div.articulo');		
+var divs;
+var marcaD;
+var marcaE;
+var precioD;
+var precioE;
+var textoE;
 
 $(document).ready(function(){
-	$("#marca").change(function(){
-		var value = $('#marca').val();
-		divs.css('display','block');
-		if (value!='TODO') {		  			
-			$(divs).each(function(indice, elemento) {
-				var marca = $(elemento).data('marca');        						
-				if(marca.indexOf(value)){
-					$(this).css('display','none');
-				}
-			});	
-		}else{
-			divs.css('display','block');
-		}
 
-	});	
-});
+	divs = $('div.articulo');	
 
-$(document).ready(function(){
-	$("#precio").change(function(){
-		var value = $('#precio').val();
-		divs.css('display','block');     		
-		$(divs).each(function(indice, elemento) {
-			var precio = $(elemento).data('precio');
-			if(precio > value){
-				$(this).css('display','none');
-			}
-		});	
-	})
+	$("#marca, #precio").change(function(){
+		actualizarWeb();
+	});
+	
+	$('.ir-arriba').click(function(){
+		$('body, html').animate({
+			scrollTop: '0px'
+		}, 300);
+	});
 
-});
-
-
-/*$(document).ready(function(){
-	$("#index").ready(function(){
-		var URLsearch = window.location.search;
-		URLsearch = URLsearch.split('=');
-		alert(URLsearch[1]);
-		if(URLsearch.indexOf('Procesador')){
-
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 0 ){
+			$('.ir-arriba').slideDown(300);
+		} else {
+			$('.ir-arriba').slideUp(300);
 		}
 	});
-});*/
 
+	$('#search').click(function() {
+		if($('#busqueda').hasClass('borrar')){
+			$('#busqueda').removeClass('borrar');
+		}else{
+			$('#busqueda').addClass('borrar');
+		}
+	});
+});
+
+function actualizarWeb(){
+	precioE = $('#precio').val();
+	marcaE = $('#marca').val();
+	textoE = $('#textoBuscar').val().toLowerCase();	
+
+	$('#valorRange').html(precioE);
+
+	divs.removeClass('ver');
+	divs.removeClass('borrar');
+
+	if (marcaE!='TODO') {	
+		$(divs).each(function(indice, elemento) {
+			precioD = $(elemento).data('precio');	
+			marcaD = $(elemento).data('marca');     			
+			if(precioD > precioE || marcaD.indexOf(marcaE)){
+				$(elemento).addClass('borrar');
+			}else{
+				$(elemento).addClass('ver');
+				if(textoE.length > 0){
+					if(buscarDataName($(elemento).text())){
+						$(this).addClass('ver');
+					}else{
+						$(this).removeClass('ver');
+						$(this).addClass('borrar');
+					}
+				}
+			}
+		});
+	}else{
+		$(divs).each(function(indice, elemento) {
+			precioD = $(elemento).data('precio');	
+			marcaD = $(elemento).data('marca');        		
+			if(precioD > precioE){
+				$(this).addClass('borrar');
+			}else{
+				$(this).addClass('ver');
+				if(textoE.length > 0){
+					if(buscarDataName($(elemento).text())){
+						$(this).addClass('ver');
+					}else{
+						$(this).removeClass('ver');
+						$(this).addClass('borrar');
+					}
+				}
+			}
+		});
+	}
+}
+
+
+$(document).keydown(function(e) {
+	if(e.keyCode==13){
+		actualizarWeb();
+	}
+});
+
+
+function buscarDataName(textoD) {
+	textoD = textoD.toLowerCase();
+	if(textoD.indexOf(textoE) != -1){
+		return true;
+	}else{
+		return false;
+	}
+}
