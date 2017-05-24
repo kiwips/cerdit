@@ -1,0 +1,26 @@
+.articulo{
+	margin: 0% 0.5% 0.5% 0%;
+	float: left;
+	width: 31%;
+}
+
+.articuloIMG{
+	width: 50%;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+}
+
+.articuloNOMBRE{	
+	font-size: 67%;
+	margin-top: 1%;
+}
+
+.articuloPRECIO{
+	font-weight: bold;
+}
+
+#componente{
+	margin-top: 5%;
+	width: 110%;
+	padding: 2%;	
+}

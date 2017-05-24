@@ -39,5 +39,24 @@ class procesador extends CI_Model{
             $query = $this->db->get('micro');
             return $query->result_array();
         }   
+
+        /*No tocar*/
+        public function get_all(){
+            $this->db->select('MIC_nombre, MIC_precio, MIC_marca,MIC_img');
+            $query = $this->db->get('micro');
+            return $query->result_array();
+        }
+
+      public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('MIC_marca');
+            $query = $this->db->get('micro');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(MIC_PRECIO)) AS precio_minimo, ROUND(MAX(MIC_PRECIO)) AS precio_maximo from micro;");
+            return $query->result_array();
+        }
 }
 ?>

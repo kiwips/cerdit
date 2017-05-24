@@ -1,9 +1,9 @@
 
 function openMenu() {
-  $(".container-fluid").css('margin-left','25%');
   var style = {
-  	width : '25%',
-  	height : '45%',
+     margin : '-19px 0px 0px 0px',
+  	width : '17.3%',
+  	height : '55%',
   	display : 'block',
   }
   $("#mySidebar").css(style);

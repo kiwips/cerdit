@@ -45,5 +45,24 @@ class raton extends CI_Model{
             $query = $this->db->get('raton');
             return $query->result_array();
         }
+
+            /*No tocar*/
+        public function get_all(){
+            $this->db->select('RAT_nombre, RAT_precio,RAT_precio,RAT_img,RAT_marca');
+            $query = $this->db->get('raton');
+            return $query->result_array();
+        }         
+
+        public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('RAT_marca');
+            $query = $this->db->get('raton');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(RAT_PRECIO)) AS precio_minimo, ROUND(MAX(RAT_PRECIO)) AS precio_maximo from raton;");
+            return $query->result_array();
+        }          
 }
 ?>
