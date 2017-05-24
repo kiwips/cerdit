@@ -29,16 +29,10 @@ class pccPlacasBase extends CI_Model{
     );
 	function saveProductsPCC(){
 		$contenido=array(
-<<<<<<< HEAD
-		'asus'=>array(),
-	    	'gigabyte'=>array(),
-	    	'msi'=>array(),
-=======
 			'asus'=>array(),
 			'gigabyte'=>array(),
 			'msi'=>array(),
 	    	
->>>>>>> master
 	    );
 		foreach ($this->urlPlacasBase as $marca => $value) {
 			foreach ($value as $key1 => $url) {
