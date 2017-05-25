@@ -1,40 +1,81 @@
 <?php 
-class pccPlacasBase extends CI_Model{
+class pccMonitores extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlPlacasBase=array(
+    private $urlMonitores=array(
+    	'acer'=>array(
+	    	'https://www.pccomponentes.com/monitor-acer',
+	    	'https://www.pccomponentes.com/monitor-acer#relevance-1',
+    	),
+
+    	'aoc'=>array(
+    		'https://www.pccomponentes.com/monitor-aoc',
+	    	'https://www.pccomponentes.com/monitor-aoc#relevance-1',
+    	),
+
     	'asus'=>array(
-    		'https://www.pccomponentes.com/placas-base/asus', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-4', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-5', 
+	    	'https://www.pccomponentes.com/monitor-asus',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-asus#relevance-2',   	
     	),
-    	'gigabyte'=>array(
-    		'https://www.pccomponentes.com/placas-base/gigabyte', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3', 
+
+    	'benq'=>array(
+	    	'https://www.pccomponentes.com/monitor-benq',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-1',
+	    	'https://www.pccomponentes.com/monitor-benq#relevance-2',	    	
+    	),    
+
+    	'dell'=>array(
+	    	'https://www.pccomponentes.com/monitor-dell',	    	
+    	),	
+
+    	'hannspree'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hannspree',	    	
     	),
-    	'msi'=>array(
-    		'https://www.pccomponentes.com/placas-base/msi', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-4', 
+
+    	'hp'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/hp',	    	
     	),
-    	
+
+    	'lenovo'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',	    	
+    	),
+
+    	'lg'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/lenovo',
+	    	'https://www.pccomponentes.com/monitor-lg#relevance-1',	    	
+    	), 
+
+    	'philips'=>array(
+	    	'https://www.pccomponentes.com/monitor-philips',
+	    	'https://www.pccomponentes.com/monitor-philips#relevance-1',	    	
+    	),
+
+    	'samsung'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/samsung',	    	
+    	),
+
+    	'viewsonic'=>array(
+	    	'https://www.pccomponentes.com/monitores-pc/viewsonic',	    	
+    	)     	       	
     );
 	function saveProductsPCC(){
-		$contenido=array(
-			'asus'=>array(),
-			'gigabyte'=>array(),
-			'msi'=>array(),
-	    	
+		$contenido=array(			
+	    	'acer'=>array(),
+	    	'aoc'=>array(),
+	    	'asus'=>array(),
+	    	'benq'=>array(),
+	    	'dell'=>array(),
+	    	'hannspree'=>array(),
+	    	'hp'=>array(),
+	    	'lenovo'=>array(),
+	    	'lg'=>array(),
+	    	'philips'=>array(),
+	    	'samsung'=>array(),
+	    	'viewsonic'=>array(),	    	
 	    );
-		foreach ($this->urlPlacasBase as $marca => $value) {
+		foreach ($this->urlMonitores as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
@@ -42,11 +83,12 @@ class pccPlacasBase extends CI_Model{
 		$nombre = "data-name";
 		$precio = "data-price";
 		$imagen = "src";
+		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','gigabyte','msi');
+		$marca = array('acer', 'aoc', 'asus', 'benq', 'dell', 'hannspree', 'hp', 'lenovo', 'lg', 'philips', 'samsung', 'viewsonic');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -138,18 +180,15 @@ class pccPlacasBase extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>1));	
+					array_push($productos, array('FK_MON_PK_PROD'=>5,'MON_img'=>$imagenProducto,'MON_nombre'=>$nombreProducto,'MON_precio'=>$precioProducto,'MON_marca'=>$val,'FK_MON_PK_TIE'=>1));	
 				}
 				$j++;
 			
 			}
-			
-			// return $productos;
-			// $this->cont++;
 		}
 			// echo "<pre>";
 			// print_r($productos);
-			// echo "<pre>";
+			// echo "</pre>";
 			return $productos;
 	}
 }

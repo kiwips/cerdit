@@ -54,7 +54,6 @@ class pccRefrigeracion extends CI_Model{
 
     	'antec-liquida'=>array(
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/antec',
-<<<<<<< HEAD
     	),
 
     	'cooler-master-liquida'=>array(
@@ -98,51 +97,6 @@ class pccRefrigeracion extends CI_Model{
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/silverstone',
     	),
 
-=======
-    	),
-
-    	'cooler-master-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/cooler-master',
-    	),    
-
-    	'corsair-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/corsair',
-    	),	
-
-    	'ekwb-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-1',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-2',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-3',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-4',
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/ekwb#relevance-5',
-    	),
-
-	'enermax-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/enermax',
-    	),
-
-    	'fractal-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/fractal',
-    	),
-
-    	'lepa-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/lepa',
-    	),
-
-    	'nox-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/nox',
-    	), 
-
-    	'nzxt-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/nzxt',
-    	),    	
-
-    	'silverstone-liquida'=>array(
-	    	'https://www.pccomponentes.com/refrigeracion-liquida/silverstone',
-    	),
-
->>>>>>> master
     	'thermaltake-liquida'=>array(
 	    	'https://www.pccomponentes.com/refrigeracion-liquida/thermaltake',
     	),     	      	
@@ -177,55 +131,7 @@ class pccRefrigeracion extends CI_Model{
 	    );
 		foreach ($this->urlRefrigeracion as $marca => $value) {
 			foreach ($value as $key1 => $url) {
-<<<<<<< HEAD
-				 if ($marca=='antec') {
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='cooler-master'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='enermax'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lepa'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nfortec'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='noctua'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='phanteks'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='silverstone'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='tacens'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermalright'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermaltake'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='antec-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='cooler-master-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='corsair-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='ekwb-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='enermax-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='fractal-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='lepa-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nox-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='nzxt-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='silverstone-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}else if ($marca=='thermaltake-liquida'){
-					array_push($contenido[$marca], file_get_contents($url));
-				}
-=======
 				array_push($contenido[$marca], file_get_contents($url));
->>>>>>> master
 			}
 		}
 		$nombre = "data-name";
@@ -328,7 +234,7 @@ class pccRefrigeracion extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val));	
+					array_push($productos, array('FK_REF_PK_PROD'=>7,'REF_img'=>$imagenProducto,'REF_nombre'=>$nombreProducto,'REF_precio'=>$precioProducto,'REF_marca'=>$val,'FK_REF_PK_TIE'=>1));	
 				}
 				$j++;
 			

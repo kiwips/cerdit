@@ -6,10 +6,18 @@ class Registro extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        $this->load->model("productos");
     }
 
+<<<<<<< HEAD
     function index(){   
         $data['primera'] = true;
+=======
+    function index(){
+        $data['productos'] = $this->productos->get_PROD_NOM();     
+        print_r($data['productos']);
+        die;  
+>>>>>>> master
         $data['main_content'] = 'index_View'; 
         $this->parser->parse('includes/template',$data);
     }

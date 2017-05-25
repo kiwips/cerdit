@@ -1,40 +1,53 @@
 <?php 
-class pccPlacasBase extends CI_Model{
+class pccMemoriaRam extends CI_Model{
     function __construct(){
         parent::__construct();
     }  
-    private $urlPlacasBase=array(
-    	'asus'=>array(
-    		'https://www.pccomponentes.com/placas-base/asus', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-4', 
-    		'https://www.pccomponentes.com/placas-base/asus#relevance-5', 
+    private $urlRam = array(
+    	'avexir'=>array(
+	    	'https://www.pccomponentes.com/memorias-ram/avexir',	    	
     	),
-    	'gigabyte'=>array(
-    		'https://www.pccomponentes.com/placas-base/gigabyte', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/gigabyte#relevance-3', 
+
+    	'corsair'=>array(
+	    	'https://www.pccomponentes.com/memorias-ram/corsair',
+	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-1',
+	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-2',
+	    	'https://www.pccomponentes.com/memorias-ram/corsair#relevance-3',
+		),
+
+    	'crucial'=>array(
+	    	'https://www.pccomponentes.com/memorias-ram/crucial',
     	),
-    	'msi'=>array(
-    		'https://www.pccomponentes.com/placas-base/msi', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-1', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-2', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-3', 
-    		'https://www.pccomponentes.com/placas-base/msi#relevance-4', 
+
+    	'g-skill'=>array(
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-1',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-2',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-3',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-4',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-5',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-6',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-7',
+	    	'https://www.pccomponentes.com/memorias-ram/g-skill#relevance-8',
     	),
-    	
+
+    	'kingston'=>array(
+	    	'https://www.pccomponentes.com/memorias-ram/kingston',
+	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-1',
+	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-2',
+	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-3',
+	    	'https://www.pccomponentes.com/memorias-ram/kingston#relevance-4',	    	
+    	)
     );
 	function saveProductsPCC(){
-		$contenido=array(
-			'asus'=>array(),
-			'gigabyte'=>array(),
-			'msi'=>array(),
-	    	
+		$contenido=array(			
+	    	'avexir'=>array(),
+	    	'corsair'=>array(),
+	    	'crucial'=>array(),
+	    	'g-skill'=>array(),
+	    	'kingston'=>array(),
 	    );
-		foreach ($this->urlPlacasBase as $marca => $value) {
+		foreach ($this->urlRam as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
@@ -42,11 +55,12 @@ class pccPlacasBase extends CI_Model{
 		$nombre = "data-name";
 		$precio = "data-price";
 		$imagen = "src";
+		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('asus','gigabyte','msi');
+		$marca = array('avexir', 'corsair', 'crucial', 'g-skill', 'kingston');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -79,8 +93,8 @@ class pccPlacasBase extends CI_Model{
 			 		@$imagenProducto.= $contenido[$val][0][$i];
 			 	}
 				if ($imagenProducto == @$productos[$key]['imagen']) {
-			 		$j++;
-					continue;
+				 		$j++;
+						continue;
 				}
 				/*====================PRODUCT NAME==============*/
 				$anterior=$a;
@@ -138,18 +152,15 @@ class pccPlacasBase extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_PLB_PK_PROD'=>2,'PLB_img'=>$imagenProducto,'PLB_nombre'=>$nombreProducto,'PLB_precio'=>$precioProducto,'PLB_marca'=>$val,'FK_PLB_PK_TIE'=>1));	
+					array_push($productos, array('FK_RAM_PK_PROD'=>5,'RAM_img'=>$imagenProducto,'RAM_nombre'=>$nombreProducto,'RAM_precio'=>$precioProducto,'RAM_marca'=>$val,'FK_RAM_PK_TIE'=>1));	
 				}
 				$j++;
 			
 			}
-			
-			// return $productos;
-			// $this->cont++;
 		}
 			// echo "<pre>";
 			// print_r($productos);
-			// echo "<pre>";
+			// echo "</pre>";
 			return $productos;
 	}
 }

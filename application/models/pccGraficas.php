@@ -54,34 +54,16 @@ class pccGraficas extends CI_Model{
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'nvidia'=>array(
-	  
-	    	),
-	    	'amd'=>array(
-		    	
-	    	),
-	    	'asus'=>array(
-		    	
-		    ),
-	    	'gigabyte'=>array(
-		    	
-	    	),
-	    	'evga'=>array(
-
-	    	),
-	    	'msi'=>array(
-		    	
-	    	),
-	    	'pny'=>array(
-		    	
-	    	),
-	    	'sapphire'=>array(
-		    	
-	    	),
-	    	'xfx'=>array(
-		    	
-	    	),
-	    );
+			'nvidia'=>array(),
+	    		'amd'=>array(),
+	    		'asus'=>array(),
+	    		'gigabyte'=>array(),	
+	    		'evga'=>array(),
+	    		'msi'=>array(),
+	    		'pny'=>array(),
+	    		'sapphire'=>array(),
+	    		'xfx'=>array(),
+	 	   );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
@@ -189,32 +171,16 @@ class pccGraficas extends CI_Model{
 					if ($nombreProducto=='es'||$imagenProducto==' data-href='||$imagenProducto=='https://') {
 						continue;
 					}
-					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val));	
+					array_push($productos, array('FK_GRF_PK_PROD'=>6,'GRF_img'=>$imagenProducto,'GRF_nombre'=>$nombreProducto,'GRF_precio'=>$precioProducto,'GRF_marca'=>$val,'FK_GRF_PK_TIE'=>1));	
 				}
 				$j++;
 			
 			}
-<<<<<<< HEAD
 			
-			 return $productos;
-			// $this->cont++;
 		}
-
-			/*echo "<pre>";
-			print_r($productos);
-			echo "<pre>";*/
-
-=======
->>>>>>> master
 			// echo "<pre>";
 			// print_r($productos);
 			return $productos;
-<<<<<<< HEAD
-
-			// $this->cont=0;
-=======
-		}
->>>>>>> master
 	}
 }
 ?>
