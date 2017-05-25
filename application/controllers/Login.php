@@ -22,7 +22,7 @@ class Login extends CI_Controller {
                   'Nick' => $data['nickL'],
                   'Password' => $data['passwdL']
                 );
-                setcookie('recordar', serialize($usuarioRegistrado));
+                setcookie('recordar', serialize($usuarioRegistrado),time()+3600*24*365);
             }
             setcookie('errorLogin','',time()-3600);
             delete_cookie('errorLogin');
@@ -31,7 +31,8 @@ class Login extends CI_Controller {
             redirect('/');
         }
             $this->load->model("productos");
-            $data['productos'] = $this->productos->get_PROD_NOM();                     
+            $data['productos'] = $this->productos->get_PROD_NOM();  
+            $data['primera'] = true;                   
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
     }

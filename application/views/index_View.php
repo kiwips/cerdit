@@ -18,7 +18,7 @@
 <div class="container-fluid index">
 	<button class="menu" onclick="openMenu();"><span class="fa fa-indent fa-3x"></span></button>
 </div>
-<?php if(isset($data['todoComponente'])){ ?>
+<?php if(!$primera){ ?>
 <div class="row" id='index'>
 	<div align="right" class=" col-md-2 col-md-offset-10 relevancia">	
 		<select class="form-control mayusculas" id="order">
@@ -53,8 +53,7 @@
 			<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}">
 				<img src="{img}" class="articuloIMG">
 				<p class="articuloNOMBRE">{nombre}</p>
-				<a href="#"><b>Ver precios</b></a>
-				<!-- <p class="articuloPRECIO">{precio} €</p> -->
+				<div class="borrar"><b>{precio} </b><small>€</small></div>
 			</div>
 			{/todoComponente}
 		</div>

@@ -8,7 +8,10 @@
         }
 
         function index(){ 
+/*          $this->load->model('compararDiscosDuros');
+          die;*/
           $this->load->model('productos');
+            $data['primera'] = true;
             $data['todoComponente'] = " ";
             $data['precioFiltrado'] = " ";
             $data['marcaFiltrado'] = " ";
@@ -17,7 +20,7 @@
             $this->parser->parse('includes/template',$data);
         }
 
-        function sacarProductosComparables(){
+        function sacarProductosComparables(){            
             $data = $this->input->get();
             $componente = $data['n'];
             $componente = str_replace(" ","_",$componente);
@@ -76,10 +79,9 @@
             $data['precioFiltrado'] = $this->$componente->get_min_max_precio();
             $this->load->model("productos");
             $data['productos'] = $this->productos->get_PROD_NOM();
+            $data['primera'] = false;
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
-
         }
-        
     }
 ?>

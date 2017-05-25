@@ -8,14 +8,13 @@ class Registro extends CI_Controller {
         parent::__construct();
     }
 
-    function index(){
-        $data['titulo'] = 'DreamPC';            
+    function index(){   
+        $data['primera'] = true;
         $data['main_content'] = 'index_View'; 
         $this->parser->parse('includes/template',$data);
     }
 
     function pantallaRegistro(){
-        $data['titulo'] = 'Formulario de Registro';  
         $data['main_content'] = 'registro_View'; 
         $this->parser->parse('includes/template',$data);
     }
@@ -45,6 +44,8 @@ class Registro extends CI_Controller {
            );
         $this->session->set_userdata($userdata);  
     }
+
+
 /*
     function generaPass(){
         $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";

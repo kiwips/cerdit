@@ -24,3 +24,14 @@
 	width: 110%;
 	padding: 2%;	
 }
+
+.mostrarTexto{
+	border: 1px solid black;
+	width: 30%;
+	position: absolute;
+	margin-top: -20%;
+	margin-left: 1%;
+	background-color: #A4A4A4;
+	height: 5%;
+	opacity: 0.2;
+}

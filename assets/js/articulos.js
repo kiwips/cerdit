@@ -6,7 +6,6 @@ var precioE;
 var textoE;
 
 $(document).ready(function(){
-
 	divs = $('div.articulo');	
 
 	quitarReacondicionados();
@@ -35,6 +34,17 @@ $(document).ready(function(){
 		}else{
 			$('#busqueda').addClass('borrar');
 		}
+	});
+
+	$('.articuloIMG').mousedown(function() {
+		var textoO = $(this).siblings('div');
+		textoO.removeClass('borrar');
+		textoO.addClass('mostrarTexto');
+	});
+	$('.articuloIMG').mouseup(function() {
+		var textoO = $(this).siblings('div');
+		textoO.addClass('borrar');
+		textoO.removeClass('mostrarTexto');		
 	});
 });
 
