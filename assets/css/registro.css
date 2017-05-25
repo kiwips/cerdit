@@ -18,9 +18,8 @@
 }
 
 #ojoAbierto{
-	margin-top: 0.6%;
-	position: fixed;
-	margin-left: -2.3%;
-	width: 1.5%;
-	z-index: 1;
+    margin-top: 1.6%;
+    position: absolute;
+    margin-left: -10.3%;
+    z-index: 1;
 }
