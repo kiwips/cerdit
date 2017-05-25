@@ -56,8 +56,8 @@ class meterProductos extends CI_Controller {
 				// 'refrigeracion_pcb' => $this->pcbRefrigeracion->saveProductsPCB(),
 				// 'teclado' => $this->pccTeclados->saveProductsPCC(),
 				'teclado_pcb' => $this->pcbTeclados->saveProductsPCB(),
-				// 'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
-				// 'sistema_operativo_pcb' => $this->pcbSistemasOperativos->saveProductsPCB(),
+				'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
+				'sistema_operativo_pcb' => $this->pcbSistemasOperativos->saveProductsPCB(),
 				);
 			foreach ($productos as $key => $value) {
 				$this->insertProducto->insertarProductos($value,$key);
