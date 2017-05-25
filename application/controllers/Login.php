@@ -31,11 +31,8 @@ class Login extends CI_Controller {
             redirect('/');
         }
             $this->load->model("productos");
-<<<<<<< HEAD
-=======
             $data['productos'] = $this->productos->get_PROD_NOM();  
             $data['primera'] = true;                   
->>>>>>> christian
             $data['productos'] = $this->productos->get_PROD_NOM();                 
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
