@@ -1,12 +1,12 @@
 .footer-distributed{
-	background-color: #FAAC58;
+	background-color: #FF6D01;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 5px 5px;
-	margin-top: 5%;
+	margin-top: 30%;
 }
 
 .footer-distributed .footer-left,
@@ -40,7 +40,7 @@
 }
 
 .footer-distributed .footer-company-name{
-	color:  hotpink;
+	color:  white;
 	font-size: 16px;
 	font-weight: normal;
 	margin: 0;

@@ -9,6 +9,8 @@ $(document).ready(function(){
 
 	divs = $('div.articulo');	
 
+	quitarReacondicionados();
+
 	$("#marca, #precio").change(function(){
 		actualizarWeb();
 	});
@@ -100,4 +102,12 @@ function buscarDataName(textoD) {
 	}else{
 		return false;
 	}
+}
+
+function quitarReacondicionados(){
+	$(divs).each(function(indice, elemento) {
+		if($(elemento).text().indexOf('Reacondicionado') != -1){
+			$(this).remove();
+		}
+	});
 }

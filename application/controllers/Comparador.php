@@ -5,13 +5,13 @@
         
         function __construct(){
             parent::__construct();
-            $this->load->model("productos");
         }
 
-        function index(){      
-            $data['todoComponente'] = "";
-            $data['precioFiltrado'] = "";
-            $data['marcaFiltrado'] = "";
+        function index(){ 
+          $this->load->model('productos');
+            $data['todoComponente'] = " ";
+            $data['precioFiltrado'] = " ";
+            $data['marcaFiltrado'] = " ";
             $data['productos'] = $this->productos->get_PROD_NOM();              
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);
@@ -74,6 +74,7 @@
                $cont++;
            }
             $data['precioFiltrado'] = $this->$componente->get_min_max_precio();
+            $this->load->model("productos");
             $data['productos'] = $this->productos->get_PROD_NOM();
             $data['main_content'] = 'index_View'; 
             $this->parser->parse('includes/template',$data);

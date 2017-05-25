@@ -6,7 +6,6 @@
 </script>
 <?php } ?>
 
-<?php if ($this->session->userdata('logueado')) { ?>	
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
 	<div class="cerrarMenu"><button class="menu" onclick="closeMenu()"><span class="glyphicon glyphicon-remove"></span></button></div>
 	<ul>				
@@ -19,10 +18,17 @@
 <div class="container-fluid index">
 	<button class="menu" onclick="openMenu();"><span class="fa fa-indent fa-3x"></span></button>
 </div>
-
+<?php if(isset($data['todoComponente'])){ ?>
 <div class="row" id='index'>
+	<div align="right" class=" col-md-2 col-md-offset-10 relevancia">	
+		<select class="form-control mayusculas" id="order">
+			<option selected>Relevancia</option>
+			<option>Precio &uarr;</option>
+			<option>Precio &darr;</option>
+		</select>
+	</div>
 	<div class="col-md-11 col-md-offset-1">
-	<span class="fa fa-search fa-2x" id="search"></span>
+		<span class="fa fa-search fa-2x" id="search"></span>
 		<div id="busqueda" class="col-md-9 col-md-offset-2 borrar">
 			<div class="col-md-3">				
 				<select class="form-control mayusculas" id="marca">
@@ -47,7 +53,8 @@
 			<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}">
 				<img src="{img}" class="articuloIMG">
 				<p class="articuloNOMBRE">{nombre}</p>
-				<p class="articuloPRECIO">{precio} €</p>
+				<a href="#"><b>Ver precios</b></a>
+				<!-- <p class="articuloPRECIO">{precio} €</p> -->
 			</div>
 			{/todoComponente}
 		</div>
@@ -59,3 +66,5 @@
 </div>
 
 <?php } ?>
+
+

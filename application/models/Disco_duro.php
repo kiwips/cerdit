@@ -70,6 +70,5 @@ class Disco_duro extends CI_Model{
             $query = $this->db->query("SELECT ROUND(MIN(DD_PRECIO)) AS precio_minimo, ROUND(MAX(DD_PRECIO)) AS precio_maximo from disco_duro;");
             return $query->result_array();
         }
-
 }
 ?>
