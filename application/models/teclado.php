@@ -45,5 +45,24 @@ class teclado extends CI_Model{
             $query = $this->db->get('teclado');
             return $query->result_array();
         }
+
+        /*No tocar*/
+        public function get_all(){
+            $this->db->select('TEC_nombre, TEC_precio,TEC_precio,TEC_img,TEC_marca');
+            $query = $this->db->get('teclado');
+            return $query->result_array();
+        } 
+
+        public function get_all_marca(){
+            $this->db->distinct();
+            $this->db->select('TEC_marca');
+            $query = $this->db->get('teclado');
+            return $query->result_array();
+        }
+
+      public function get_min_max_precio(){
+            $query = $this->db->query("SELECT ROUND(MIN(TEC_PRECIO)) AS precio_minimo, ROUND(MAX(TEC_PRECIO)) AS precio_maximo from teclado;");
+            return $query->result_array();
+        }         
 }
 ?>

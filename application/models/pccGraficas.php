@@ -54,34 +54,16 @@ class pccGraficas extends CI_Model{
     );
 	function saveProductsPCC(){
 		$contenido=array(
-			'nvidia'=>array(
-	  
-	    	),
-	    	'amd'=>array(
-		    	
-	    	),
-	    	'asus'=>array(
-		    	
-		    ),
-	    	'gigabyte'=>array(
-		    	
-	    	),
-	    	'evga'=>array(
-
-	    	),
-	    	'msi'=>array(
-		    	
-	    	),
-	    	'pny'=>array(
-		    	
-	    	),
-	    	'sapphire'=>array(
-		    	
-	    	),
-	    	'xfx'=>array(
-		    	
-	    	),
-	    );
+			'nvidia'=>array(),
+	    		'amd'=>array(),
+	    		'asus'=>array(),
+	    		'gigabyte'=>array(),	
+	    		'evga'=>array(),
+	    		'msi'=>array(),
+	    		'pny'=>array(),
+	    		'sapphire'=>array(),
+	    		'xfx'=>array(),
+	 	   );
 		foreach ($this->urlGraficas as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));

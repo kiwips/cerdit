@@ -1,9 +1,13 @@
 .jumbotron{
 	margin-bottom: 0;	
-	height: 150px;
 	background-color: #FAAC58;
 	color: white; 
 
+}
+
+.imagenLogo{
+	width: 25%;
+    	margin-top: -4%; 
 }
 
 .navbar-inverse{
@@ -20,7 +24,7 @@
 }
 
 .cuenta{
-	margin-right: 50px;
+	margin-right: 48px;
 }
 
 .navbar{
@@ -51,10 +55,54 @@ nav>li>a:hover{
 }
 
 .cerrarMenu{
-	margin-top: 4%;
-	margin-left: 2%;
+	margin-top: 1%;
+	margin-left: 1%;
+	position: fixed;
 }
 
 button:focus{
 	outline: none;
+}
+
+.mayusculas{
+	text-transform: uppercase;
+}
+
+.todo{
+	margin-top: 4%;
+}
+
+.ir-arriba {
+	display:none;
+	border-radius: 15px;
+	padding:10px;
+	background:#FAAC58;
+	font-size:20px;
+	color: white;
+	cursor:pointer;
+	position: fixed;
+	top:90%;
+	right:20px;
+}
+
+.borrar{
+	display: none; 
+}
+.ver{
+	display: block;
+}
+
+#valorRange{
+    width: 20%;
+    border: 1px solid black;
+    margin-left: 35%;
+    text-align: center;
+    float: left;	
+    border-radius: 15%;
+    font-weight: bold;
+}
+
+.fa-search{
+	margin-left: 9%;
+	cursor: pointer;
 }
