@@ -9,6 +9,9 @@
         }
 
         function index(){      
+          $this->load->model('compararTorres');
+          $this->compararTorres->getTorres();
+          die;
             $data['todoComponente'] = "";
             $data['precioFiltrado'] = "";
             $data['marcaFiltrado'] = "";

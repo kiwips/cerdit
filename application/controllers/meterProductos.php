@@ -6,17 +6,14 @@ class meterProductos extends CI_Controller {
 	public function index() {
 		set_time_limit(90);
 		// if ($this->session->userdata('permiso')=='Admin'){
-<<<<<<< HEAD
-=======
 			// $this->load->model('pcbGraficas');
 			//$this->load->model('pcbDiscosDuros');
 			$this->load->model('pcbFuentes');
-			 // $this->load->model('pcbMemoriaRam');
+			// $this->load->model('pcbMemoriaRam');
 			// $this->load->model('pcbFuentes');
-			 $this->load->model('pcbMemoriaRam');
+			$this->load->model('pcbMemoriaRam');
 			// $this->load->model('pcbGraficas');
 			// $this->load->model('pcbTorres');
->>>>>>> master
 			// $this->load->model('pccDiscosDuros');
 			// $this->load->model('pcbDiscosDuros');
 			// $this->load->model('pccGraficas');
@@ -36,31 +33,13 @@ class meterProductos extends CI_Controller {
 			// $this->load->model('pccTorres');
 			// $this->load->model('pcbTorres');
 			// $this->load->model('pccRefrigeracion');
-<<<<<<< HEAD
 			// $this->load->model('pcbRefrigeracion');
 			// $this->load->model('pcbMemoriaRam');
 			// $this->load->model('pccTeclados');
 			$this->load->model('pcbTeclados');
-
 			// $this->load->model('pccSistemasOperativos');
 			// $this->load->model('pcbSistemasOperativos');
 			$this->load->model('insertProducto');
-			$productos = array(
-=======
-			// $this->load->model('pcbMemoriaRam');
-			 //$this->load->model('pcbMonitores');
-			 //$this->load->model('pcbPlacasBase');
-			//$this->load->model('pcbProcesadores');
-			 //$this->load->model('pcbRatones');
-			 $this->load->model('pcbRefrigeracion');
-			// $this->load->model('pccSistemasOperativos');
-			// $this->load->model('pccTeclados');
-			// $this->load->model('pccTorres');
-			 //$this->load->model('pcbRefrigeracion');
-			//$this->load->model('pcbSistemasOperativos');
-			//$this->load->model('pcbTeclados');
-			$this->load->model('pcbTorres');
-			// $this->load->model('insertProducto');
 			$productos = array(
 				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
 				// 'disco_duro' => $this->pcbDiscosDuros->saveProductsPCB(),
@@ -70,7 +49,6 @@ class meterProductos extends CI_Controller {
 				 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
 				// 'tarjeta_grafica'=>$this->pcbGraficas->saveProductsPCB(),
 				// 'torre'=>$this->pcbTorres->saveProductsPCB(),
->>>>>>> master
 				// 'disco_duro' => $this->pccDiscosDuros->saveProductsPCC(),
 				// 'disco_duro_pcb' => $this->pcbDiscosDuros->saveProductsPCB(),
 				// 'tarjeta_grafica' => $this->pccGraficas->saveProductsPCC(),
@@ -90,13 +68,11 @@ class meterProductos extends CI_Controller {
 				// 'torre' => $this->pccTorres->saveProductsPCC(),
 				// 'torre_pcb'=>$this->pcbTorres->saveProductsPCB(),
 				// 'refrigeracion' => $this->pccRefrigeracion->saveProductsPCC(),
-<<<<<<< HEAD
 				// 'refrigeracion_pcb' => $this->pcbRefrigeracion->saveProductsPCB(),
 				// 'teclado' => $this->pccTeclados->saveProductsPCC(),
 				'teclado_pcb' => $this->pcbTeclados->saveProductsPCB(),
 				'sistema_operativo' => $this->pccSistemasOperativos->saveProductsPCC(),
 				'sistema_operativo_pcb' => $this->pcbSistemasOperativos->saveProductsPCB(),
-=======
 				// 'memoria_ram' => $this->pcbMemoriaRam->saveProductsPCB(),
 				// 'monitor' => $this->pcbMonitores->saveProductsPCB(),
 				// 'placa_base' => $this->pcbPlacasBase->saveProductsPCB(),
@@ -108,9 +84,8 @@ class meterProductos extends CI_Controller {
 				'torre' => $this->pccTorres->saveProductsPCC(),
 				'refrigeracion' => $this->pcbRefrigeracion->saveProductsPCB(),
 				'sistema_operativo' => $this->pcbSistemasOperativos->saveProductsPCB(),
-				 'teclado' => $this->pcbTeclados->saveProductsPCB(),
-				 'torre' => $this->pcbTorres->saveProductsPCB(),
->>>>>>> master
+				'teclado' => $this->pcbTeclados->saveProductsPCB(),
+				'torre' => $this->pcbTorres->saveProductsPCB(),
 				);
 			foreach ($productos as $key => $value) {
 				$this->insertProducto->insertarProductos($value,$key);

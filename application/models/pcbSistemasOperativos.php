@@ -1,7 +1,6 @@
 
 <?php
 class pcbSistemasOperativos extends CI_Model{
-<<<<<<< HEAD
 	function __construct(){
 		parent::__construct();
 	}  
@@ -14,17 +13,7 @@ class pcbSistemasOperativos extends CI_Model{
 	function price(){
 		return rand(50,140);
 	}
-=======
-    function __construct(){
-        parent::__construct();
-    }  
-    private $urlSistemasOperativos=array(
-    	'windows'=>array(
-    		'http://www.pcbox.com/categorias/sistemas-operativos?nodo=404/',
-    	),
-    	
-    );
->>>>>>> master
+   
 	function saveProductsPCB(){
 		$contenido=array(
 			'windows'=>array(),
@@ -37,11 +26,6 @@ class pcbSistemasOperativos extends CI_Model{
 		}
 		$nombre = 'itemprop="name" title';
 		$precio = 'content';
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> master
 		$productos = array();
 		$j=0;
 		$a=0;
@@ -108,7 +92,6 @@ class pcbSistemasOperativos extends CI_Model{
 					$j++;
 					continue;
 				}else{
-<<<<<<< HEAD
 					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
@@ -119,31 +102,11 @@ class pcbSistemasOperativos extends CI_Model{
 			$j++;
 
 		}
-
-// return $productos;
-// $this->cont++;
-		echo "<pre>";
-		print_r($productos);
-		echo "<pre>";
+		// echo "<pre>";
+		// print_r($productos);
+		// echo "<pre>";
 		return $productos;
-=======
-					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
-						continue;
-					}
-					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>2));	
-				}
-			}
-				$j++;
-			
-			}
-			
-			// return $productos;
-			// $this->cont++;
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			return $productos;
->>>>>>> master
+				
 	}
 	
 }
