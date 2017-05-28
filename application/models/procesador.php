@@ -41,11 +41,17 @@ class procesador extends CI_Model{
         }   
 
         /*No tocar*/
-        public function get_all(){
-            $this->db->select('MIC_nombre, MIC_precio, MIC_marca,MIC_img');
-            $query = $this->db->get('micro');
-            return $query->result_array();
-        }
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `MIC_nombre`,`MIC_precio`,`MIC_img`,`MIC_marca`,`FK_MIC_PK_TIE`,`MIC_coincidir` FROM micro WHERE `MIC_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `MIC_nombre`,`MIC_precio`,`MIC_img`,`MIC_marca`,`FK_MIC_PK_TIE`,`MIC_coincidir` FROM micro WHERE `MIC_coincidir`=0");
+
+        return $query->result_array();
+    }    
 
       public function get_all_marca(){
             $this->db->distinct();

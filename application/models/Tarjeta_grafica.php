@@ -41,11 +41,17 @@ class Tarjeta_grafica extends CI_Model{
     }         
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('GRF_nombre, GRF_precio,GRF_precio,GRF_img,GRF_marca');
-            $query = $this->db->get('tarjeta_grafica');
-            return $query->result_array();
-        }
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `GRF_nombre`,`GRF_precio`,`GRF_img`,`GRF_marca`,`FK_GRF_PK_TIE`,`GRF_coincidir` FROM tarjeta_grafica WHERE `GRF_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `GRF_nombre`,`GRF_precio`,`GRF_img`,`GRF_marca`,`FK_GRF_PK_TIE`,`GRF_coincidir` FROM tarjeta_grafica WHERE `GRF_coincidir`=0");
+
+        return $query->result_array();
+    }    
 
         public function get_all_marca(){
             $this->db->distinct();

@@ -72,4 +72,4 @@ $route['actualizarbbdd'] = 'meterProductos';
 
 $route['componente'] = 'comparador/sacarProductosComparables';
 
-$route['contacto'] = 'Paginas/contacto';
+$route['contacto'] = 'Pagina';

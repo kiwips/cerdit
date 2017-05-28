@@ -47,11 +47,17 @@ class raton extends CI_Model{
         }
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('RAT_nombre, RAT_precio,RAT_precio,RAT_img,RAT_marca');
-            $query = $this->db->get('raton');
-            return $query->result_array();
-        }         
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `RAT_nombre`,`RAT_precio`,`RAT_img`,`RAT_marca`,`FK_RAT_PK_TIE`,`RAT_coincidir` FROM raton WHERE `RAT_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `RAT_nombre`,`RAT_precio`,`RAT_img`,`RAT_marca`,`FK_RAT_PK_TIE`,`RAT_coincidir` FROM raton WHERE `RAT_coincidir`=0");
+
+        return $query->result_array();
+    }            
 
         public function get_all_marca(){
             $this->db->distinct();

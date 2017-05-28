@@ -35,11 +35,16 @@ class Fuente_alimentacion extends CI_Model{
         }   
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('FUE_nombre, FUE_precio,FUE_precio,FUE_img,FUE_marca');
-            $query = $this->db->get('fuente_alimentacion');
-            return $query->result_array();
-        }
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `FUE_nombre`,`FUE_precio`,`FUE_img`,`FUE_marca`,`FK_FUE_PK_TIE`,`FUE_coincidir` FROM fuente_alimentacion WHERE `FUE_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `FUE_nombre`,`FUE_precio`,`FUE_img`,`FUE_marca`,`FK_FUE_PK_TIE`,`FUE_coincidir` FROM fuente_alimentacion WHERE `FUE_coincidir`=0");
+        return $query->result_array();
+    }    
 
     public function get_all_marca(){
             $this->db->distinct();

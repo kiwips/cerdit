@@ -1,4 +1,4 @@
-/*$(document).ready(function(){
+$(document).ready(function(){
   $('body').contextmenu(function(){
     return false;
   });
@@ -8,7 +8,7 @@
       return false;
     }
   });
-});*/
+});
 
 
 function openMenu() {

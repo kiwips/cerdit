@@ -53,11 +53,17 @@ class Torre extends CI_Model{
         }  
 
         /*No tocar*/
-        public function get_all(){
-            $this->db->select('TOR_nombre, TOR_precio,TOR_precio,TOR_img,TOR_marca');
-            $query = $this->db->get('torre');
-            return $query->result_array();
-        } 
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `TOR_nombre`,`TOR_precio`,`TOR_img`,`TOR_marca`,`FK_TOR_PK_TIE`,`TOR_coincidir` FROM torre WHERE `TOR_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `TOR_nombre`,`TOR_precio`,`TOR_img`,`TOR_marca`,`FK_TOR_PK_TIE`,`TOR_coincidir` FROM torre WHERE `TOR_coincidir`=0");
+
+        return $query->result_array();
+    }    
 
         public function get_all_marca(){
             $this->db->distinct();

@@ -36,16 +36,19 @@ $(document).ready(function(){
 		}
 	});
 
+/*PRECIO*/
+/*
 	$('.articuloIMG').mousedown(function() {
 		var textoO = $(this).siblings('div');
 		textoO.removeClass('borrar');
 		textoO.addClass('mostrarTexto');
 	});
+	
 	$('.articuloIMG').mouseup(function() {
 		var textoO = $(this).siblings('div');
 		textoO.addClass('borrar');
 		textoO.removeClass('mostrarTexto');		
-	});
+	});*/
 });
 
 function actualizarWeb(){

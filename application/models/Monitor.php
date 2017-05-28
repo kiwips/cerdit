@@ -60,11 +60,17 @@ class Monitor extends CI_Model{
 
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('MON_nombre, MON_precio,MON_precio,MON_img,MON_marca');
-            $query = $this->db->get('monitor');
-            return $query->result_array();
-        }   
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `MON_nombre`,`MON_precio`,`MON_img`,`MON_marca`,`FK_MON_PK_TIE`,`MON_coincidir` FROM monitor WHERE `MON_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `MON_nombre`,`MON_precio`,`MON_img`,`MON_marca`,`FK_MON_PK_TIE`,`MON_coincidir` FROM monitor WHERE `MON_coincidir`=0");
+
+        return $query->result_array();
+    }      
 
         public function get_all_marca(){
             $this->db->distinct();

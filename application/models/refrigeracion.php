@@ -66,11 +66,17 @@ class refrigeracion extends CI_Model{
           
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('REF_nombre, REF_precio,REF_precio,REF_img,REF_marca');
-            $query = $this->db->get('refrigeracion');
-            return $query->result_array();
-        }  
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `REF_nombre`,`REF_precio`,`REF_img`,`REF_marca`,`FK_REF_PK_TIE`,`REF_coincidir` FROM refrigeracion WHERE `REF_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `REF_nombre`,`REF_precio`,`REF_img`,`REF_marca`,`FK_REF_PK_TIE`,`REF_coincidir` FROM refrigeracion WHERE `REF_coincidir`=0");
+
+        return $query->result_array();
+    }     
 
         public function get_all_marca(){
             $this->db->distinct();

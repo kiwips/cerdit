@@ -20,8 +20,8 @@
 </div>
 <?php if(!$primera){ ?>
 <div class="row" id='index'>
-	<div align="right" class=" col-md-2 col-md-offset-10 relevancia">	
-		<select class="form-control mayusculas" id="order">
+	<div align="right" class=" col-md-2 col-md-offset-10 relevancia">
+		<select name="order" id="order" class="form-control mayusculas" onchange="this.form.submit()">
 			<option selected>Relevancia</option>
 			<option>Precio &uarr;</option>
 			<option>Precio &darr;</option>
@@ -49,13 +49,28 @@
 			</div>
 		</div>
 		<div class="todo">				
-			{todoComponente}
+			{todoComponenteCoincide}
 			<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}">
 				<img src="{img}" class="articuloIMG">
 				<p class="articuloNOMBRE">{nombre}</p>
 				<div class="borrar"><b>{precio} </b><small>€</small></div>
 			</div>
-			{/todoComponente}
+			{/todoComponenteCoincide}
+
+			<br><br><br><br><br><br>
+
+			{todoComponenteNoCoincide}
+				<?php if(!is_null ("{img}")){ ?>
+						<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}" data-tienda="{FK_PK_TIE}">
+							<img src="{img}" class="articuloIMG">
+							<p class="articuloNOMBRE">{nombre}</p>
+							<b>{precio} </b><small>€</small>
+							<p><?php echo "{img}"; ?></p>					
+						</div>
+				<?php }else{ ?>
+					<?php echo "DIFERENTE"; ?>
+				<?php } ?>
+			{/todoComponenteNoCoincide}
 		</div>
 	</div>
 </div>
@@ -65,5 +80,3 @@
 </div>
 
 <?php } ?>
-
-

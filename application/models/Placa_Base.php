@@ -89,11 +89,17 @@ class Placa_Base extends CI_Model{
         }   
 
       /*No tocar*/
-        public function get_all(){
-            $this->db->select('PLB_nombre, PLB_precio,PLB_precio,PLB_img,PLB_marca');
-            $query = $this->db->get('placa_base');
-            return $query->result_array();
-        } 
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `PLB_nombre`,`PLB_precio`,`PLB_img`,`PLB_marca`,`FK_PLB_PK_TIE`,`PLB_coincidir` FROM placa_base WHERE `PLB_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `PLB_nombre`,`PLB_precio`,`PLB_img`,`PLB_marca`,`FK_PLB_PK_TIE`,`PLB_coincidir` FROM placa_base WHERE `PLB_coincidir`=0");
+
+        return $query->result_array();
+    }    
 
         public function get_all_marca(){
             $this->db->distinct();

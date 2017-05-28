@@ -35,11 +35,17 @@ class Sistema_operativo extends CI_Model{
         }  
 
        /*No tocar*/
-        public function get_all(){
-            $this->db->select('SO_nombre, SO_precio,SO_precio,SO_img,SO_marca');
-            $query = $this->db->get('sistema_operativo');
-            return $query->result_array();
-        }     
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `SO_nombre`,`SO_precio`,`SO_img`,`SO_marca`,`FK_SO_PK_TIE`,`SO_coincidir` FROM sistema_operativo WHERE `SO_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `SO_nombre`,`SO_precio`,`SO_img`,`SO_marca`,`FK_SO_PK_TIE`,`SO_coincidir` FROM sistema_operativo WHERE `SO_coincidir`=0");
+
+        return $query->result_array();
+    }      
 
         public function get_all_marca(){
             $this->db->distinct();

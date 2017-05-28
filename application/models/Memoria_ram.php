@@ -41,11 +41,17 @@ class Memoria_ram extends CI_Model{
         } 
 
             /*No tocar*/
-        public function get_all(){
-            $this->db->select('RAM_nombre, RAM_precio,RAM_precio,RAM_img,RAM_marca');
-            $query = $this->db->get('memoria_ram');
-            return $query->result_array();
-        }           
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `RAM_nombre`,`RAM_precio`,`RAM_img`,`RAM_marca`,`FK_RAM_PK_TIE`,`RAM_coincidir` FROM memoria_ram WHERE `RAM_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `RAM_nombre`,`RAM_precio`,`RAM_img`,`RAM_marca`,`FK_RAM_PK_TIE`,`RAM_coincidir` FROM memoria_ram WHERE `RAM_coincidir`=0");
+
+        return $query->result_array();
+    }            
 
         public function get_all_marca(){
             $this->db->distinct();

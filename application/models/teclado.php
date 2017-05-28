@@ -47,11 +47,17 @@ class teclado extends CI_Model{
         }
 
         /*No tocar*/
-        public function get_all(){
-            $this->db->select('TEC_nombre, TEC_precio,TEC_precio,TEC_img,TEC_marca');
-            $query = $this->db->get('teclado');
-            return $query->result_array();
-        } 
+    public function get_all_coincidir(){
+        $query = $this->db->query("SELECT `TEC_nombre`,`TEC_precio`,`TEC_img`,`TEC_marca`,`FK_TEC_PK_TIE`,`TEC_coincidir` FROM teclado WHERE `TEC_coincidir` !=0");
+
+        return $query->result_array();
+    }    
+
+    public function get_all_no_coincidir(){
+        $query = $this->db->query("SELECT `TEC_nombre`,`TEC_precio`,`TEC_img`,`TEC_marca`,`FK_TEC_PK_TIE`,`TEC_coincidir` FROM teclado WHERE `TEC_coincidir`=0");
+
+        return $query->result_array();
+    }     
 
         public function get_all_marca(){
             $this->db->distinct();

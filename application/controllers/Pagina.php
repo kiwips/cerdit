@@ -10,7 +10,8 @@ class Pagina extends CI_Controller {
     }
 
     function index(){
-        if ($this->session->userdata('logueado')){                
+        if ($this->session->userdata('logueado')){    
+            $data['allUser'] = $this->User->get_USR_all_where($this->session->userdata('nick'));            
             $data['main_content'] = 'contacto_View'; 
             $this->parser->parse('includes/template',$data);
         }else{
