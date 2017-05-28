@@ -1,7 +1,21 @@
 <?php     
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+<<<<<<< HEAD
 class Comparador extends CI_Controller {
+=======
+        function index(){      
+          // $this->load->model('compararTorres');
+          // $this->compararTorres->getTorres();
+          // die;
+            $data['todoComponente'] = "";
+            $data['precioFiltrado'] = "";
+            $data['marcaFiltrado'] = "";
+            $data['productos'] = $this->productos->get_PROD_NOM();              
+            $data['main_content'] = 'index_View'; 
+            $this->parser->parse('includes/template',$data);
+        }
+>>>>>>> kevin
 
   function __construct(){
     parent::__construct();

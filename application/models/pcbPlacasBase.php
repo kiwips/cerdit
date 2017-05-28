@@ -32,6 +32,9 @@ class pcbPlacasBase extends CI_Model{//novanovanovanovanovanovanova
     	),
     	
     );
+    function price(){
+		return rand(30,180);
+	}
 	function saveProductsPCB(){
 		$contenido=array(
 			'intel'=>array(),
@@ -112,6 +115,7 @@ class pcbPlacasBase extends CI_Model{//novanovanovanovanovanovanova
 				 		$j++;
 						continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

@@ -1,19 +1,24 @@
-<?php 
+
+<?php
 class pcbSistemasOperativos extends CI_Model{
-    function __construct(){
-        parent::__construct();
-    }  
-    private $urlSistemasOperativos=array(
-    	'windows'=>array(
-    		'http://www.pcbox.com/categorias/sistemas-operativos?nodo=404/',
-    	),
-    	
-    );
+	function __construct(){
+		parent::__construct();
+	}  
+	private $urlSistemasOperativos=array(
+		'windows'=>array(
+			'http://www.pcbox.com/categorias/sistemas-operativos?nodo=404/',
+		),
+
+	);
+	function price(){
+		return rand(50,140);
+	}
+   
 	function saveProductsPCB(){
 		$contenido=array(
 			'windows'=>array(),
-	    	
-	    );
+
+			);
 		foreach ($this->urlSistemasOperativos as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
@@ -21,7 +26,6 @@ class pcbSistemasOperativos extends CI_Model{
 		}
 		$nombre = 'itemprop="name" title';
 		$precio = 'content';
-		
 		$productos = array();
 		$j=0;
 		$a=0;
@@ -57,9 +61,9 @@ class pcbSistemasOperativos extends CI_Model{
 						break;
 					}$aux++;
 				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$nombreProducto.= $contenido[$val][0][$i];
-			 	}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) {
+					@$nombreProducto.= $contenido[$val][0][$i];
+				}
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
@@ -81,29 +85,29 @@ class pcbSistemasOperativos extends CI_Model{
 						break;
 					}$aux++;
 				}
-				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$precioProducto.= $contenido[$val][0][$i];
-			 	}
+				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) {
+					@$precioProducto.= $contenido[$val][0][$i];
+				}
 				if ($nombreProducto == @$productos[$key]['producto']) {
-				 		$j++;
-						continue;
+					$j++;
+					continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>2));	
+					array_push($productos, array('FK_SO_PK_PROD'=>12,'SO_nombre'=>$nombreProducto,'SO_precio'=>$precioProducto,'SO_marca'=>$val,'FK_SO_PK_TIE'=>2));
 				}
 			}
-				$j++;
-			
-			}
-			
-			// return $productos;
-			// $this->cont++;
-			echo "<pre>";
-			print_r($productos);
-			echo "<pre>";
-			return $productos;
+			$j++;
+
+		}
+		// echo "<pre>";
+		// print_r($productos);
+		// echo "<pre>";
+		return $productos;
+				
 	}
+	
 }
 ?>

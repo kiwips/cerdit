@@ -5,6 +5,54 @@ class pcbTorres extends CI_Model{
     }  
     private $urlTorres=array(
 <<<<<<< HEAD
+     	'nox'=>array(
+     		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/nox?nodo=80/',
+     		'http://www.pcbox.com/categorias/cajas-atx/m/nox?nodo=79/',
+     		'http://www.pcbox.com/categorias/cajas-micro-atx/m/nox?nodo=81/',
+     	),
+	   	'hiditec'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/hiditec?nodo=80/',
+	   	),
+	   	'aerocool'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/aerocool?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-atx/m/aerocool?nodo=79/',
+	   	),
+	   	'coolbox'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/coolbox?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-atx/m/coolbox?nodo=79/',
+	   	),
+	   	'bitfenix'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/bitfenix?nodo=80/',
+	   	),
+	   	'cooler-master'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/cooler-master?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-atx/m/cooler-master?nodo=79/',
+	   		'http://www.pcbox.com/categorias/cajas-micro-atx/m/cooler-master?nodo=81/',
+	   	),
+	   	'corsair'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/corsair?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-micro-atx/m/corsair?nodo=81/',
+	   	),
+	   	'innobo'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/innobo?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-atx/m/innobo?nodo=79/',
+	   	),
+	   	'mars-gaming'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/mars-gaming?nodo=80/',
+	   	),
+	   	'nzxt'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/nzxt?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-atx/m/nzxt?nodo=79/',
+	   	),
+	   	'tacens'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/tacens?nodo=80/',
+	   		'http://www.pcbox.com/categorias/cajas-micro-atx/m/tacens?nodo=81/',
+	   	),
+	   	'zalman'=>array(
+	   		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/zalman?nodo=80/',
+	   	),
+=======
+<<<<<<< HEAD
     	'aerocool'=>array(
 	    	'http://www.pcbox.com/categorias/cajas-atx/m/aerocool?nodo=79/',
     	),
@@ -140,9 +188,28 @@ class pcbTorres extends CI_Model{
 	    		'http://www.pcbox.com/categorias/cajas-gaming-y-modding/m/zalman?nodo=80/',
 	    	),
 >>>>>>> jaime
+>>>>>>> master
     );
+    function price(){
+    	return rand(20,100);
+    }
 	function saveProductsPCB(){
 		$contenido=array(			
+<<<<<<< HEAD
+	   	'nox'=>array(),
+	   	'hiditec'=>array(),
+	   	'aerocool'=>array(),
+	   	'coolbox'=>array(),
+	   	'bitfenix'=>array(),
+	   	'cooler-master'=>array(),
+	   	'corsair'=>array(),
+	   	'innobo'=>array(),
+	   	'mars-gaming'=>array(),
+	   	'nzxt'=>array(),
+	   	'tacens'=>array(),
+	   	'zalman'=>array(),
+	   );
+=======
 	    	'nox'=>array(),
 	    	'hiditec'=>array(),
 	    	'aerocool'=>array(),
@@ -178,6 +245,7 @@ class pcbTorres extends CI_Model{
 	    	'zalman'=>array(),
 >>>>>>> jaime
 	    );
+>>>>>>> master
 		foreach ($this->urlTorres as $marca => $value) {
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
@@ -185,20 +253,28 @@ class pcbTorres extends CI_Model{
 		}
 		$nombre = 'itemprop="name" title';
 <<<<<<< HEAD
+		$precio = 'content';
+=======
+<<<<<<< HEAD
 		$precio = "content";
 =======
 		$precio = 'content';
 >>>>>>> jaime
+>>>>>>> master
 		
 		$productos = array();
 		$j=0;
 		$a=0;
 		$anterior=0;
 <<<<<<< HEAD
+		$marca = array('nox', 'hiditec', 'aerocool', 'coolbox', 'bitfenix', 'cooler-master', 'corsair', 'innobo', 'mars-gaming', 'nzxt', 'tacens', 'zalman');
+=======
+<<<<<<< HEAD
 		$marca = array('aerocool');
 =======
 		$marca = array('nox', 'hiditec', 'aerocool', 'coolbox', 'bitfenix', 'cooler-master', 'corsair', 'innobo', 'mars-gaming', 'nzxt', 'tacens', 'zalman');
 >>>>>>> jaime
+>>>>>>> master
 		foreach ($marca as $clave => $val) {
 			$a=0;
 			$anterior=0;
@@ -229,8 +305,8 @@ class pcbTorres extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$nombreProducto.= $contenido[$val][0][$i];
-			 	}
+					@$nombreProducto.= $contenido[$val][0][$i];
+				}
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
@@ -253,12 +329,13 @@ class pcbTorres extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$precioProducto.= $contenido[$val][0][$i];
-			 	}
+					@$precioProducto.= $contenido[$val][0][$i];
+				}
 				if ($nombreProducto == @$productos[$key]['producto']) {
-				 		$j++;
+						$j++;
 						continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
@@ -269,9 +346,12 @@ class pcbTorres extends CI_Model{
 			
 			}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 		}
 =======
 >>>>>>> jaime
+>>>>>>> master
 			echo "<pre>";
 			print_r($productos);
 			echo "</pre>";

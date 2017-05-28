@@ -1,10 +1,10 @@
 <?php 
-class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
-    function __construct(){
-        parent::__construct();
-    }
-    private $cont=0;
-    private $urlFuentes=array(
+class pcbFuentes extends CI_Model{
+	    function __construct(){
+	        parent::__construct();
+	    }
+	    private $cont=0;
+	    private $urlFuentes=array(
 
     	'aerocool'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/aerocool?nodo=392/',
@@ -23,11 +23,9 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
     	),
     	'gigabyte'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/gigabyte?nodo=392/m/approx/',
-	    	
     	),
     	'hiditec'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/hiditec?nodo=392/m/approx/',
-	    	
     	),
     	'innobo'=>array(
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/innobo?nodo=392/m/approx/',
@@ -42,6 +40,9 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 	    	'http://www.pcbox.com/categorias/fuente-de-alimentacion/m/tacens?nodo=392/m/approx/',
     	),
     );
+    function price(){
+		return rand(30,200);
+	}
 	function saveProductsPCB(){
 		set_time_limit(90);
 		$contenido=array(
@@ -155,6 +156,7 @@ class pcbFuentes extends CI_Model{//novanovanovanovanovanovanovanova
 				 		$j++;
 						continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

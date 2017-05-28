@@ -30,6 +30,7 @@ class pcbTeclados extends CI_Model{
     	),    	
     	'cooler-master'=>array(
     		'http://www.pcbox.com/categorias/teclados-gaming/m/cooler-master?nodo=398/',
+    	),     	      	
     	),     	       	
     	'corsair'=>array(
     		'http://www.pcbox.com/categorias/teclados-gaming/m/corsair?nodo=398/',
@@ -61,9 +62,6 @@ class pcbTeclados extends CI_Model{
     	'razer'=>array(
     		'http://www.pcbox.com/categorias/teclados-gaming/m/razer?nodo=398/',
     	),
-    	'steelseries'=>array(
-    		'http://www.pcbox.com/categorias/teclados-gaming/m/steelseries?nodo=398/',
-    	),
     	'the-g-lab'=>array(
     		'http://www.pcbox.com/categorias/teclados-gaming/m/the-g-lab?nodo=398/',
     	),
@@ -78,34 +76,35 @@ class pcbTeclados extends CI_Model{
     	),
     	
     );
+    function price(){
+    	return rand(20,120);
+    }
 	function saveProductsPCB(){
 		$contenido=array(			
-	    	'mars-gaming'=>array(),
-	    	'netway'=>array(),
-	    	'nox'=>array(),
-	    	'b-move'=>array(),
-	    	'aerocool'=>array(),
-	    	'bluestork'=>array(),
-	    	'cherry'=>array(),
-	    	'coolbox'=>array(),    	
-	    	'cooler-master'=>array(),     	       	
-	    	'corsair'=>array(),
-	    	'gigabyte'=>array(),
-	    	'hiditec'=>array(),
-	    	'hyperx'=>array(),
-	    	'keep-out'=>array(),
-	    	'logitech'=>array(),
-	    	'nacon'=>array(),
-	    	'natec-genesis'=>array(), 
-	    	'ozone'=>array(),
-	    	'razer'=>array(),
-	    	'steelseries'=>array(),
-	    	'the-g-lab'=>array(),
-	    	'thunderx3'=>array(),
-	    	'trust'=>array(),
-	    	'woxter'=>array(),
-	    );
-		foreach ($this->urlTeclados as $marca => $value) {
+	   	'mars-gaming'=>array(),
+	   	'netway'=>array(),
+	   	'nox'=>array(),
+	   	'b-move'=>array(),
+	   	'aerocool'=>array(),
+	   	'bluestork'=>array(),
+	   	'cherry'=>array(),
+	   	'coolbox'=>array(),    	
+	   	'cooler-master'=>array(),     	      	
+	   	'corsair'=>array(),
+	   	'gigabyte'=>array(),
+	   	'hiditec'=>array(),
+	   	'hyperx'=>array(),
+	   	'keep-out'=>array(),
+	   	'logitech'=>array(),
+	   	'nacon'=>array(),
+	   	'natec-genesis'=>array(), 
+	   	'ozone'=>array(),
+	   	'razer'=>array(),
+	   	'the-g-lab'=>array(),
+	   	'thunderx3'=>array(),
+	   	'trust'=>array(),
+	   	'woxter'=>array(),
+	   );
 			foreach ($value as $key1 => $url) {
 				array_push($contenido[$marca], file_get_contents($url));
 			}
@@ -117,7 +116,7 @@ class pcbTeclados extends CI_Model{
 		$j=0;
 		$a=0;
 		$anterior=0;
-		$marca = array('mars-gaming','netway','nox','b-move','aerocool','bluestork','cherry','coolbox','cooler-master','corsair','gigabyte','hiditec','hyperx','keep-out','logitech','nacon','natec-genesis','ozone','razer','steelseries','the-g-lab','thunderx3','trust','woxter');
+		$marca = array('mars-gaming','netway','nox','b-move','aerocool','bluestork','cherry','coolbox','cooler-master','corsair','gigabyte','hiditec','hyperx','keep-out','logitech','nacon','natec-genesis','ozone','razer','the-g-lab','thunderx3','trust','woxter');
 
 		foreach ($marca as $clave => $val) {
 			$a=0;
@@ -150,8 +149,8 @@ class pcbTeclados extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$nombreProducto.= $contenido[$val][0][$i];
-			 	}
+					@$nombreProducto.= $contenido[$val][0][$i];
+				}
 				/*=================PRICING=====================*/
 
 				$a = strpos($contenido[$val][0], $precio,$a);
@@ -174,12 +173,13 @@ class pcbTeclados extends CI_Model{
 					}$aux++;
 				}
 				for ($i=$a+$contInicio; $i <$a+$contFin; $i++) { 
-			 		@$precioProducto.= $contenido[$val][0][$i];
-			 	}
+					@$precioProducto.= $contenido[$val][0][$i];
+				}
 				if ($nombreProducto == @$productos[$key]['producto']) {
-				 		$j++;
+						$j++;
 						continue;
 				}else{
+					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
