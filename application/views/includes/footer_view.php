@@ -11,7 +11,7 @@
 	<div class="footer-center">
 		<div>
 			<a href="https://www.google.es/maps/place/IES+Badia+del+Vall%C3%A8s/@41.5054619,2.1156621,17z/data=!3m1!4b1!4m5!3m4!1s0x12a495d90c37137b:0x8a1b72028df06763!8m2!3d41.5054619!4d2.1178508"><i class="fa fa-map-marker"></i></a>
-			<p><span>Carrer Mallorca s/n</span> Badia del Vallès, Catalunya</p>
+			<p><span>Carrer Mallorca s/n</span> Badia del Vallès, Cataluña</p>
 		</div>
 		<div>
 			<i class="fa fa-phone"></i>
@@ -25,7 +25,7 @@
 	<div class="footer-right">
 		<p class="footer-company-about">
 			<span>Que ofrecemos</span>
-			Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+			Un comparador de precios entre PCComponentes y PCBox, ampliando a el resto de webs españolas
 		</p>
 		<div class="footer-icons">
 			<a href="https://www.instagram.com/Dream_pc/?hl=es" title="Instagram"><i class="fa fa-instagram"></i></a>
