@@ -121,7 +121,7 @@ function buscarDataName(textoD) {
 }
 function removeNoImage(){
 	$(imagenes).each(function(indice, elemento) {
-		console.log($(elemento).attr('src'));
+		// console.log($(elemento).attr('src'));
 		if($(elemento).attr('src')==''){
 			$(elemento).parent().remove();
 			$(elemento).remove();
