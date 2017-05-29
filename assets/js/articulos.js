@@ -4,10 +4,13 @@ var marcaE;
 var precioD;
 var precioE;
 var textoE;
-
+var imagenes;
+var p;
 $(document).ready(function(){
+	p=$('.articulo p');
 	divs = $('div.articulo');	
-
+	imagenes = $('img.articuloIMG');
+	removeNoImage();
 	quitarReacondicionados();
 
 	$("#marca, #precio").change(function(){
@@ -37,18 +40,18 @@ $(document).ready(function(){
 	});
 
 /*PRECIO*/
-/*
-	$('.articuloIMG').mousedown(function() {
-		var textoO = $(this).siblings('div');
-		textoO.removeClass('borrar');
-		textoO.addClass('mostrarTexto');
-	});
+
+	// $('.articuloIMG').mousedown(function() {
+	// 	var textoO = $(this).siblings('div');
+	// 	textoO.removeClass('borrar');
+	// 	textoO.addClass('mostrarTexto');
+	// });
 	
-	$('.articuloIMG').mouseup(function() {
-		var textoO = $(this).siblings('div');
-		textoO.addClass('borrar');
-		textoO.removeClass('mostrarTexto');		
-	});*/
+	// $('.articuloIMG').mouseup(function() {
+	// 	var textoO = $(this).siblings('div');
+	// 	textoO.addClass('borrar');
+	// 	textoO.removeClass('mostrarTexto');		
+	// });
 });
 
 function actualizarWeb(){
@@ -116,7 +119,20 @@ function buscarDataName(textoD) {
 		return false;
 	}
 }
-
+function removeNoImage(){
+	$(imagenes).each(function(indice, elemento) {
+		console.log($(elemento).attr('src'));
+		if($(elemento).attr('src')==''){
+			$(elemento).parent().remove();
+			$(elemento).remove();
+		}
+	});
+	$(p).each(function(indice, elemento) {
+		if(!$(elemento).hasClass('articuloNOMBRE')){
+			$(elemento).remove();
+		}
+	});
+}
 function quitarReacondicionados(){
 	$(divs).each(function(indice, elemento) {
 		if($(elemento).text().indexOf('Reacondicionado') != -1){

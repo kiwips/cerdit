@@ -1,13 +1,13 @@
 $(document).ready(function(){
-  $('body').contextmenu(function(){
-    return false;
-  });
+  // $('body').contextmenu(function(){
+  //   return false;
+  // });
 
-  $(document).keydown(function(e) {
-    if(e.keyCode==123){
-      return false;
-    }
-  });
+  // $(document).keydown(function(e) {
+  //   if(e.keyCode==123){
+  //     return false;
+  //   }
+  // });
 });
 
 
