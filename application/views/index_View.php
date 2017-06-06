@@ -20,13 +20,6 @@
 </div>
 <?php if(!$primera){ ?>
 <div class="row" id='index'>
-	<div align="right" class=" col-md-2 col-md-offset-10 relevancia">
-		<select name="order" id="order" class="form-control mayusculas" onchange="this.form.submit()">
-			<option selected>Relevancia</option>
-			<option>Precio &uarr;</option>
-			<option>Precio &darr;</option>
-		</select>
-	</div>
 	<div class="col-md-11 col-md-offset-1">
 		<span class="fa fa-search fa-2x" id="search"></span>
 		<div id="busqueda" class="col-md-9 col-md-offset-2 borrar">
@@ -48,28 +41,52 @@
 				<input  id="textoBuscar" type="text" name="texto" class="form-control" placeholder="Pulsa ENTER...">
 			</div>
 		</div>
-		<div class="todo">				
-			{todoComponenteCoincide}
-			<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}">
-				<img src="{img}" class="articuloIMG">
-				<p class="articuloNOMBRE">{nombre}</p>
-				<div class="borrar"><b>{precio} </b><small>€</small></div>
-			</div>
-			{/todoComponenteCoincide}
+		<div class="todo">			
+		<?php 	$nombre = "";
+				$marca = "";
+				$imagen = "";
+				$precio = "";
+				$precioPCB = "";
 
-			<br><br><br><br><br><br>
-
-			{todoComponenteNoCoincide}
-				<?php if(!is_null ("{img}")){ ?>
-						<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}" data-tienda="{FK_PK_TIE}">
-							<img src="{img}" class="articuloIMG">
-							<p class="articuloNOMBRE">{nombre}</p>
-							<b>{precio} </b><small>€</small>
-							<p><?php echo "{img}"; ?></p>					
+		foreach ($todoComponenteCoincide as $key => $value) {
+				foreach ($value as $key1 => $value1) {
+					foreach ($value1 as $key2 => $value2) {
+						if ($key2=='nombre'&&$key1=='PCC') {
+							$nombre=$value2;
+						}elseif ($key2=='marca'&&$key1=='PCC') {
+							$marca=$value2;
+						}elseif ($key2=='precio'&&$key1=='PCC') {
+							$precio=$value2;
+						}elseif ($key2=='img'&&$key1=='PCC') {
+							$imagen=$value2;
+						}elseif ($key2=='precio'&&$key1=='PCB') {
+							$precioPCB=$value2;
+						}
+						?>
+		<?php } }?>
+						<div class="articulo" align="center" data-marca="<?php echo $marca ?>" data-name="<?php echo $nombre ?>" data-precio="<?php echo $precio ?>">
+							<img src="<?php echo $imagen ?>" class="articuloIMG">
+							<p class="articuloNOMBRE"><?php echo $nombre; ?></p>
+							<b>PCComponentes: <?php echo $precio; ?> </b><small>€</small>
+							<?php if ($this->session->userdata('logueado')) { ?>
+								<a href="ponerCarrito?nombre=<?php echo $nombre ?>&precio=<?php echo $precio ?>&tienda=PCComponentes&componente= <?php echo $n ?>"><button class="btn-small btn-success"><span class="glyphicon glyphicon-shopping-cart" title="Añadir al Carrito"></span></button></a>
+							<?php } ?>
+							<br>
+							<b>PCBox: <?php echo $precioPCB; ?> </b><small>€</small>
+							<?php if ($this->session->userdata('logueado')) { ?>
+								<a href="ponerCarrito?nombre=<?php echo $nombre ?>&precio=<?php echo $precioPCB ?>&tienda=PCBOX&componente= <?php echo $n ?>"><button class="btn-small btn-success"><span class="glyphicon glyphicon-shopping-cart" title="Añadir al Carrito"></span></button></a>
+							<?php } ?>
 						</div>
-				<?php }else{ ?>
-					<?php echo "DIFERENTE"; ?>
-				<?php } ?>
+		<?php } ?>
+			{todoComponenteNoCoincide}
+					<div class="articulo" align="center" data-marca="{marca}" data-name="{nombre}" data-precio="{precio}" data-tienda="{FK_PK_TIE}">
+						<img src="{img}" class="articuloIMG">
+						<p class="articuloNOMBRE">{nombre}</p>
+						<b>PCComponentes: {precio} </b><small>€</small>
+						<?php if ($this->session->userdata('logueado')) { ?>
+						<a href="ponerCarrito?nombre=<?php echo $nombre ?>&precio=<?php echo $precio ?>&tienda=PCComponentes&componente= <?php echo $n ?>"><button class="btn-small btn-success"><span class="glyphicon glyphicon-shopping-cart" title="Añadir al Carrito"></span></button></a>	
+						<?php } ?>			
+					</div>
 			{/todoComponenteNoCoincide}
 		</div>
 	</div>

@@ -66,9 +66,7 @@ class pcbGraficas extends CI_Model{
 	    // 	'https://www.pccomponentes.com/tarjetas-graficas/xfx',
     	// ),
     );
-    function price(){
-		return rand(80,600);
-	}
+
 	function saveProductsPCB(){
 		$contenido=array(
 			'nvidia'=>array(
@@ -169,7 +167,6 @@ class pcbGraficas extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

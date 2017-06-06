@@ -20,9 +20,7 @@ class pcbProcesadores extends CI_Model{
     	),
     	
     );
-    function price(){
-		return rand(40,200);
-	}
+
 	function saveProductsPCB(){
 		$contenido=array(
 			'amd'=>array(),
@@ -105,7 +103,6 @@ class pcbProcesadores extends CI_Model{
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}
-					$precioProducto=$this->price();
 					array_push($productos, array('FK_MIC_PK_PROD'=>1,'MIC_nombre'=>$nombreProducto,'MIC_precio'=>$precioProducto,'MIC_marca'=>$val,'FK_MIC_PK_TIE'=>2));	
 				}
 			}

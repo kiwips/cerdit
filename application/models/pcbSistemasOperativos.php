@@ -10,10 +10,7 @@ class pcbSistemasOperativos extends CI_Model{
 		),
 
 	);
-	function price(){
-		return rand(50,140);
-	}
-   
+
 	function saveProductsPCB(){
 		$contenido=array(
 			'windows'=>array(),
@@ -92,7 +89,6 @@ class pcbSistemasOperativos extends CI_Model{
 					$j++;
 					continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

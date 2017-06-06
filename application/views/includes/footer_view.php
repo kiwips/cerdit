@@ -2,7 +2,7 @@
 <footer class="footer-distributed footer">
 	<div class="footer-left">
 		<p class="footer-links">
-			<a href="<?=base_url()?>">Home</a> ·
+			<a href="/">Home</a> ·
 			<a href="#">About</a> ·
 			<a href="contacto">Contact</a>
 		</p>

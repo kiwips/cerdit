@@ -46,9 +46,6 @@ class pcbRefrigeracion extends CI_Model{
 			),
 
 		);
-	function price(){
-		return rand(20,120);
-	}
 	function saveProductsPCB(){
 		$contenido=array(			
 			'nox'=>array(),
@@ -138,7 +135,6 @@ class pcbRefrigeracion extends CI_Model{
 					$j++;
 					continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

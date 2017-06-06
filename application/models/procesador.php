@@ -41,11 +41,21 @@ class procesador extends CI_Model{
         }   
 
         /*No tocar*/
-    public function get_all_coincidir(){
+     public function get_all_coincidir(){
+        $cont=0;
         $query = $this->db->query("SELECT `MIC_nombre`,`MIC_precio`,`MIC_img`,`MIC_marca`,`FK_MIC_PK_TIE`,`MIC_coincidir` FROM micro WHERE `MIC_coincidir` !=0");
-
-        return $query->result_array();
-    }    
+        $productos=array();
+        foreach ($query->result_array() as $key => $value) {
+            foreach ($value as $producto => $valor) {
+                $cont++;
+                $consulta = $this->db->query('select * from micro where MIC_coincidir='.$cont.'');
+                if ($consulta->num_rows()>0) {
+                    array_push($productos, $consulta->result_array());
+                }
+            }
+        }
+        return $productos;
+    }       
 
     public function get_all_no_coincidir(){
         $query = $this->db->query("SELECT `MIC_nombre`,`MIC_precio`,`MIC_img`,`MIC_marca`,`FK_MIC_PK_TIE`,`MIC_coincidir` FROM micro WHERE `MIC_coincidir`=0");

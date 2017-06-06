@@ -37,9 +37,7 @@ class pcbMonitores extends CI_Model{
 			'http://www.pcbox.com/categorias/monitores/m/philips?nodo=121/',
 		),    	       	
 		);
-		function price(){
-			return rand(99,459);
-		}
+
 	function saveProductsPCB(){
 		$contenido=array(			
 			'asus'=>array(),
@@ -128,7 +126,6 @@ class pcbMonitores extends CI_Model{
 					$j++;
 					continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

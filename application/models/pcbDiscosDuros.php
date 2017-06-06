@@ -48,9 +48,7 @@ class pcbDiscosDuros extends CI_Model{
 			'http://www.pcbox.com/categorias/discos-ssd-sata/m/patriot?nodo=388/',
 			),
 		);
-	function price(){
-		return rand(40,200);
-	}
+
 	function saveProductsPCB(){
 		$contenido=array(
 			'seagate'=>array(),
@@ -142,7 +140,6 @@ class pcbDiscosDuros extends CI_Model{
 					$j++;
 					continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

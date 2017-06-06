@@ -85,9 +85,6 @@ class pcbRatones extends CI_Model{//novanovanovanova
 	    		'http://www.pcbox.com/categorias/ratones-gaming/m/zowie?nodo=396/',
 	    	),
     );
-    function price(){
-		return rand(4,90);
-	}
 	function saveProductsPCB(){
 		$contenido=array(
 			'netway'=>array(),
@@ -191,7 +188,6 @@ class pcbRatones extends CI_Model{//novanovanovanova
 				 		$j++;
 						continue;
 				}else{
-					$precioProducto=$this->price();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

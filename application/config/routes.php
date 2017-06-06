@@ -73,3 +73,8 @@ $route['actualizarbbdd'] = 'meterProductos';
 $route['componente'] = 'comparador/sacarProductosComparables';
 
 $route['contacto'] = 'Pagina';
+
+$route['ponerCarrito'] = 'Carrito';
+$route['carrito'] = 'Carrito/cargarCarrito';
+$route['borrarProducto'] = 'Carrito/borrarProducto';
+

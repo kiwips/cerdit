@@ -9,9 +9,6 @@ class Comparador extends CI_Controller {
   }
 
   function index(){
-    // $this->load->model('compararTorres');
-    // $this->compararTorres->getTorres();
-    // die;
     $this->load->model('productos');
     $data['primera'] = true;
     $data['todoComponente'] = " ";
@@ -27,37 +24,57 @@ class Comparador extends CI_Controller {
     $componente = $data['n'];
     $componente = str_replace(" ","_",$componente);
     $this->load->model($componente);
-    $data['todoComponenteCoincide'] = $this->$componente->get_all_coincidir();    
-    $data['todoComponenteNoCoincide'] = $this->$componente->get_all_no_coincidir();              
+    $data['todoComponenteCoincide'] = $this->$componente->get_all_coincidir();   
+    $data['todoComponenteNoCoincide'] = $this->$componente->get_all_no_coincidir();   
+    array_push($data, $componente);
     $cont=0;
+    $cont1=0;
+    $auxTienda=0;
+    // echo "<pre>";
+    // print_r($data['todoComponenteCoincide']);
+    // die;
     foreach ($data['todoComponenteCoincide'] as $key => $value) {
+      $cont1=0;
      foreach ($value as $key1 => $value1) {
-      if ($value1==1) {
-      continue;
-    }
-      $replace = array(
-        'MIC_' =>  '',
-        'PLB_' => '',
-        'RAT_' => '',
-        'DD_' => '',
-        'FUE_' => '',
-        'RAM_' => '',
-        'MON_' => '',
-        'REF_' => '',
-        'SO_' => '',
-        'GRF_' => '',
-        'TEC_' => '',
-        'TOR_' => '',
-        );
-      $aux = strtr($key1,$replace);
-      $data['todoComponenteCoincide'][$cont][$aux] = $data['todoComponenteCoincide'][$cont][$key1];
-      unset($data['todoComponenteCoincide'][$cont][$key1]);
-
+      foreach ($value1 as $key2 => $value2) {
+        // if ($value2==1) {
+        //  continue;
+        // }
+        $replace = array(
+          'MIC_' =>  '',
+          'PLB_' => '',
+          'RAT_' => '',
+          'DD_' => '',
+          'FUE_' => '',
+          'RAM_' => '',
+          'MON_' => '',
+          'REF_' => '',
+          'SO_' => '',
+          'GRF_' => '',
+          'TEC_' => '',
+          'TOR_' => '',
+          );
+        $aux = strtr($key2,$replace);
+        if ($auxTienda==0) {
+          $data['todoComponenteCoincide'][$cont]['PCC'][$aux] = $data['todoComponenteCoincide'][$cont][$cont1][$key2];
+         
+        }elseif ($auxTienda==1) {
+          $data['todoComponenteCoincide'][$cont]['PCB'][$aux] = $data['todoComponenteCoincide'][$cont][$cont1][$key2];
+        }        
+        unset($data['todoComponenteCoincide'][$cont][$cont1][$key2]);
+      }
+      if ($auxTienda==0) {
+       $auxTienda=1;
+      }else {
+        $auxTienda=0;
+      }
+        $cont1++;
     }
     $cont++;
   }
-  
-
+  // echo "<pre>";
+  // print_r($data['todoComponenteCoincide']); 
+  // die; 
   $cont = 0;
   foreach ($data['todoComponenteNoCoincide'] as $key => $value) {
    foreach ($value as $key1 => $value1) {

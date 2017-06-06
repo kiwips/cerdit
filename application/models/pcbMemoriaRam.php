@@ -50,9 +50,6 @@ class pcbMemoriaRam extends CI_Model{
 		'http://www.pcbox.com/categorias/memorias-ddr/m/integral?nodo=122/',
     	)
     );
-    function price(){
-		return rand(50,250);
-	}
 	function saveProductsPCB(){
 		$contenido=array(
 		'kingston'=>array(),
@@ -141,7 +138,6 @@ class pcbMemoriaRam extends CI_Model{
 				 		$j++;
 						continue;
 				}else{
-					$precioProducto=$this->precio();
 					if ($precioProducto==' alt=' || $nombreProducto=='//fonts.googleapis.com/css?family=Handlee') {
 						continue;
 					}

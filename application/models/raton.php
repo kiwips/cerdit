@@ -47,10 +47,20 @@ class raton extends CI_Model{
         }
 
             /*No tocar*/
-    public function get_all_coincidir(){
+     public function get_all_coincidir(){
+        $cont=0;
         $query = $this->db->query("SELECT `RAT_nombre`,`RAT_precio`,`RAT_img`,`RAT_marca`,`FK_RAT_PK_TIE`,`RAT_coincidir` FROM raton WHERE `RAT_coincidir` !=0");
-
-        return $query->result_array();
+        $productos=array();
+        foreach ($query->result_array() as $key => $value) {
+            foreach ($value as $producto => $valor) {
+                $cont++;
+                $consulta = $this->db->query('select * from raton where RAT_coincidir='.$cont.'');
+                if ($consulta->num_rows()>0) {
+                    array_push($productos, $consulta->result_array());
+                }
+            }
+        }
+        return $productos;
     }    
 
     public function get_all_no_coincidir(){

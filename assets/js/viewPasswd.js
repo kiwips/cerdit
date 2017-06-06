@@ -1,6 +1,5 @@
   $(document).ready(function(){
   	$('#ojoAbierto').mousedown(function(){
-  	alert();
   	$('#passwdR').attr('type','text');
   });
     $('#ojoAbierto').mouseup(function(){

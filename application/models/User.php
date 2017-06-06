@@ -102,5 +102,11 @@ class user extends CI_Model{
             $this->db->where('USR_nick', $user);
             $this->db->update('user');
         }
+
+     public function get_PK_USR_where_Nick($nick){
+            $this->db->select('PK_USR');
+            $query = $this->db->get_where('user',array("USR_nick"=>$nick));
+            return $query->result_array();
+        }
 }
 ?>
